@@ -13,5 +13,5 @@ You'll be using React initially to build this. If you're new to React, check out
 - Clone this repository.
 - Install the yarn package manager with `npm install --global yarn`
 - Install dependencies with `yarn install`
-- Add your API keys to the `.env` file. You can generate your API key from [here](https://home.openweathermap.org/api_keys).
+- Add your API key to the `.env` file. You can generate your API key from [here](https://home.openweathermap.org/api_keys).
 - Run the app with `yarn start`.
