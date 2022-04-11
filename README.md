@@ -9,7 +9,9 @@ You'll need to get your own API Key from their website (for free) and add it as 
 You'll be using React initially to build this. If you're new to React, check out the [website](https://reactjs.org) for some information on getting started! 
 
 ## Setting Up The Project Locally
+- Install [Node.JS and NPM](https://nodejs.org/en/download/package-manager/) if you haven't already.
 - Clone this repository.
 - Install the yarn package manager with `npm install --global yarn`
 - Install dependencies with `yarn install`
+- Add your API keys to the `.env` file. You can generate your API key from [here](https://home.openweathermap.org/api_keys).
 - Run the app with `yarn start`.
