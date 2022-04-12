@@ -48,9 +48,16 @@ function App() {
           {console.log(results)}
           {isLoaded && results && <>
             <div className="WeatherCard" style= {{backgroundImage: `url(${backgrounds[cardBackground]})`}}>
-              <h3>{results.weather[0].main}</h3>
-              <p>Feels like {results.main.feels_like}°C</p>
-              <i><p>{results.name}, {results.sys.country}</p></i>
+              <div className="info">
+                <div className="top-info">
+                  <h1 className="temp">{results.main.temp} °C</h1>
+                  <div className="conditions">
+                    <p className = "forecast">{results.weather[0].main}</p>
+                    <p className = "temp-feel">Feels like {results.main.feels_like}°C</p>
+                  </div>
+                </div> 
+                <i><p>{results.name}, {results.sys.country}</p></i>
+              </div>
             </div>
 
             <div className="Map">
