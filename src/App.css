@@ -20,7 +20,9 @@ input {
 }
 
 .Results {
+  display: flex;
   background-color: white;
+  flex-direction: row;
   margin-left: 150px;
   margin-right: 150px;
   margin-top: 20px;
@@ -28,5 +30,13 @@ input {
   color: black;
   padding: 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.WeatherCard{
+  width: 50%;
+}
+
+.Map{
+  width: 50%;
 }
 
