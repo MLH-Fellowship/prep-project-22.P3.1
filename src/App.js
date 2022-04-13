@@ -42,42 +42,41 @@ function App() {
           type="text"
           value={city}
           onChange={event => setCity(event.target.value)} />
-
-
-        <div className="Results">
-          {!isLoaded && <h2>Loading...</h2>}
-          {console.log(results)}
-          {isLoaded && results && <>
-          <div className="WeatherCard">
-           
-            <div className="content">
-              <div className="top-info">
-                <div className="temp">{results.main.temp}°</div>
-                <div className="conditions">
-                  <div className = "forecast">{results.weather[0].main} {backgrounds[cardBackground][1]}</div>
-                  <div className = "temp-feel">Feels like {results.main.feels_like}°C</div>
-                </div>
-              </div>
-
-              <div className="bottom-info">
-                <p> Presurre: {results.main.pressure}hPa </p>
-                <p> Humidty: {results.main.humidity}% </p>
-                <p> Wind Speed: {results.wind.speed} m/s </p>
-              </div>
-              <div className="place"> {results.name}, {results.sys.country}</div>
-            </div>
-            <img className = "bg-image"src = {backgrounds[cardBackground][0]} ></img>
-          </div>
-          
-
-            <div className="Map">
-              <h3>{results.weather[0].main}</h3>
-              <p>Feels like {results.main.feels_like}°C</p>
-              <i><p>{results.name}, {results.sys.country}</p></i>
-            </div>
-          </>}
-        </div>
       </div>
+      <div className="Results">
+        {!isLoaded && <h2>Loading...</h2>}
+        {console.log(results)}
+        {isLoaded && results && <>
+        <div className="weather-card">
+          
+          <div className="content">
+            <div className="top-info">
+              <div className="temp">{results.main.temp}°C</div>
+              <div className="conditions">
+                <div className = "forecast">{results.weather[0].main} {backgrounds[cardBackground][1]}</div>
+                <div className = "temp-feel">Feels like {results.main.feels_like}°C</div>
+              </div>
+            </div>
+
+            <div className="bottom-info">
+              <p> Presurre: {results.main.pressure}hPa </p>
+              <p> Humidty: {results.main.humidity}% </p>
+              <p> Wind Speed: {results.wind.speed} m/s </p>
+            </div>
+            <div className="place"> {results.name}, {results.sys.country}</div>
+          </div>
+          <img className = "bg-image"src = {backgrounds[cardBackground][0]} ></img>
+        </div>
+        
+
+          <div className="Map">
+            <h3>{results.weather[0].main}</h3>
+            <p>Feels like {results.main.feels_like}°C</p>
+            <i><p>{results.name}, {results.sys.country}</p></i>
+          </div>
+        </>}
+      </div>
+      
     </>
 
   }
