@@ -1,3 +1,6 @@
+@import url('//fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 body {
     background-color: #133667;
     color: white;
@@ -26,7 +29,7 @@ input {
   margin-top:   25px;
   margin-left:  65px;
   margin-right: 65px;
-  height: fit-content;
+  height: 210px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -35,6 +38,7 @@ input {
   width: 50%;
   overflow: hidden;
   background-color: black;
+
 }
 
 .content{
@@ -48,13 +52,36 @@ input {
   top: 0;
   left: 0;
   width: 100%;
-  opacity: .75;
+  opacity: .6;
 }
 
 .top-info{
   display: flex;
   height: 45%;
   justify-content: space-between;
+
+}
+
+.temp{
+  font-family: Oswald;
+  font-size: 4rem;
+  height: 45%;
+  margin-left: 3.5rem;
+}
+
+.conditions{
+  margin-right: 3.5rem;
+}
+
+.forecast{
+  font-family: Oswald;
+  font-size: 2.2rem;
+}
+
+.temp-feel{
+  font-family: Ubuntu;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .bottom-info{
@@ -62,14 +89,22 @@ input {
   height: 45%;
   justify-content: center;
   gap: 2rem;
+  font-family: Ubuntu;
+  font-weight: 590;
+  font-size: 1rem;
 }
 
 .place{
+  font-family: Oswald;
+  font-size: 1.5rem;
   height: 10%;
   margin-top: 0;
+
 }
 
 .Map{
   width: 50%;
+  height: fit-content;
+
 }
 
