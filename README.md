@@ -7,3 +7,12 @@ We're using the [OpenWeather API](https://openweathermap.org/current) to get wea
 You'll need to get your own API Key from their website (for free) and add it as an environment variable in a `.env` file. We have a template available as `example.env`.
 
 You'll be using React initially to build this. If you're new to React, check out the [website](https://reactjs.org) for some information on getting started! 
+
+
+## Local environment Setup 
+
+1. Signin into [OpenWeather API](https://openweathermap.org/current) Go to top right cornor you will see `My API Keys`, Copy your unique API Keys
+2. Clone this repositiory 
+3. Go to `example.env` repalce `example.env` to `.env` and paste your Unique api keys .
+4. npm install 
+5. npm start
