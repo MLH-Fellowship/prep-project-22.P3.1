@@ -1,6 +1,10 @@
+/* eslint-disable */
+
 import { useEffect, useState } from "react";
 import './App.css';
 import logo from './mlh-prep.png'
+
+import MusicRecommender from "./components/MusicRecommender/MusicRecommender";
 
 function App() {
   const [error, setError] = useState(null);
@@ -47,6 +51,7 @@ function App() {
             <i><p>{results.name}, {results.sys.country}</p></i>
           </>}
         </div>
+        <MusicRecommender props={results}/>
       </div>
     </>
   }
