@@ -37,29 +37,38 @@ input {
   background-color: black;
 }
 
+.content{
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
 .bg-image{
   position: absolute;
   top: 0;
   left: 0;
-  opacity: .5;
+  width: 100%;
+  opacity: .75;
 }
 
-.content{
-  display: flex;
-  flex-wrap: wrap;
-  
-}
 .top-info{
   display: flex;
-  height: 50%;
+  height: 45%;
   justify-content: space-between;
 }
 
 .bottom-info{
   display: flex;
-  height: 50%;
-  justify-content: space-around;
+  height: 45%;
+  justify-content: center;
+  gap: 2rem;
 }
+
+.place{
+  height: 10%;
+  margin-top: 0;
+}
+
 .Map{
   width: 50%;
 }

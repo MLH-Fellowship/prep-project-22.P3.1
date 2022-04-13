@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import backgrounds from "./backgroundArray";
 import './App.css';
 import logo from './mlh-prep.png'
+import { IconBase } from "react-icons";
 
 function App() {
   const [error, setError] = useState(null);
@@ -48,24 +49,26 @@ function App() {
           {console.log(results)}
           {isLoaded && results && <>
           <div className="WeatherCard">
-            <img className = "bg-image"src = {backgrounds[cardBackground]} ></img>
-
+           
             <div className="content">
               <div className="top-info">
                 <div className="temp">{results.main.temp}°</div>
                 <div className="conditions">
-                  <div className = "forecast">{results.weather[0].main}</div>
+                  <div className = "forecast">{results.weather[0].main} {backgrounds[cardBackground][1]}</div>
                   <div className = "temp-feel">Feels like {results.main.feels_like}°C</div>
                 </div>
               </div>
 
               <div className="bottom-info">
-                <p>{results.name}, {results.sys.country}</p>
-                <p>Humidty: </p>
-                <p>Wind: </p>
+                <p> Presurre: {results.main.pressure}hPa </p>
+                <p> Humidty: {results.main.humidity}% </p>
+                <p> Wind Speed: {results.wind.speed} m/s </p>
               </div>
-              </div>
+              <div className="place"> {results.name}, {results.sys.country}</div>
+            </div>
+            <img className = "bg-image"src = {backgrounds[cardBackground][0]} ></img>
           </div>
+          
 
             <div className="Map">
               <h3>{results.weather[0].main}</h3>
