@@ -21,48 +21,45 @@ input {
 
 .Results {
   display: flex;
-  flex-direction: row;
+  flex-direction:   row;
   background-color: white;
-  margin-top: 20px;
+  margin-top:   25px;
+  margin-left:  65px;
+  margin-right: 65px;
   height: fit-content;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .WeatherCard{
+  position: relative;
   width: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: .65;
+  overflow: hidden;
+  background-color: black;
 }
 
-.info{
-  display: flex;
-  flex-direction: column;
+.bg-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .5;
 }
 
-.top-info{
+.content{
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  
+}
+.top-info{
+  display: flex;
+  height: 50%;
   justify-content: space-between;
 }
 
-.temp{
-  margin-top: 10px;
-  margin-left: 25px;
-  font-size: 35px;
-  color: whitesmoke;
-  font-weight: bolder;
+.bottom-info{
+  display: flex;
+  height: 50%;
+  justify-content: space-around;
 }
-
-.conditions{
-  margin-top: 10px;
-  margin-right: 35px;
-}
-.forecast{
-  margin-top: 0px;
-}
-
 .Map{
   width: 50%;
 }
