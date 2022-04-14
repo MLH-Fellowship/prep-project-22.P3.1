@@ -6,6 +6,8 @@ const MusicRecommender = ({ props }) => {
   const [accessToken, setAccessToken] = useState('');
   const [playlistId, setPlaylistId] = useState('');
   const [playlistData, setPlaylistData] = useState([]);
+  // To store & set layout choice
+  const [listLayout, setListLayout] = useState(false)
 
   useEffect(() => {
     // Using Spotify Access url to get an access token
@@ -39,8 +41,9 @@ const MusicRecommender = ({ props }) => {
     }).then((response) => response.json()).then((result) => {
       let items = result.items;
       console.log(items);
-      // Iterate over the resulting data and set the songs data
+      // Iterate over the resulting data and set the playlist data
       setPlaylistData(items.map(({ track }) => ({
+        id: track.id,
         name: track.name,
         artists: track.artists,
         imageUrl: track.album.images[0].url,
@@ -53,36 +56,69 @@ const MusicRecommender = ({ props }) => {
   return (
     <>
       <div className="container">
-        <div className="row">
-          <br />
-          {playlistData && playlistData.map((track) => (
-            <div className="col-sm">
 
-              <div className="card song_card">
-                <a href={track.spotifyUrl} target="_blank" rel="noreferrer noopener" className="float-right" title="View Song on Spotify">
-                  <img src={track.imageUrl} className="card-img-top song_image" alt="Song cover photo" />
-                </a>
-                <div className="card-body">
-                  
-                  <audio id="audio_control">
-                    <source src={track.previewUrl} type="audio/mpeg" />
-                  </audio>
-                  <i className="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Preview song"></i>
-                  
+        <br /><h3>Your Weather Broadcast</h3>
 
-                  <h5 className="card-title">{track.name}</h5>
-                  <p className="card-text text-left">
-                    {track.artists.map((artist, index) => (
-                      <a href={artist.external_urls.spotify} target="_blank" rel="noreferrer noopener" title="View Artist on Spotify">{index ? ',' : ''} {artist.name}</a>
-                    ))}
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          ))}
-          <br />
+        <div className="layout_toggle text-right">
+          <i className={listLayout ? "icon_inactive fa fa-th-large" : 'icon_active fa fa-th-large'} aria-hidden="true"
+            onClick={() => setListLayout(false)}>
+          </i>
+          <i className={listLayout ? 'icon_active fa fa-list' : "icon_inactive fa fa-list"} aria-hidden="true"
+            onClick={() => setListLayout(true)}>
+          </i>
         </div>
+
+        {listLayout &&
+          <div className="container">
+            <iframe className="embedded_spotify_playlist"
+              src={"https://open.spotify.com/embed/playlist/" + playlistId + "?utm_source=generator"}
+              width="100%" height="500" frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            </iframe>
+          </div>
+        }
+
+        {!listLayout &&
+          <div className="row">
+            <br />
+            {playlistData && playlistData.map((track) => (
+              <>
+                <div className="col-sm">
+
+                  <div className="card">
+                    <div className="row no-gutters text-left">
+                      <div className="col-sm-5">
+                        <a href={track.spotifyUrl} target="_blank" rel="noreferrer noopener" className="card-img" title="View Song on Spotify">
+                          <img src={track.imageUrl} className="card-img-top song_image" alt="Song cover photo" />
+                        </a>
+                      </div>
+                      <div className="col-sm-7">
+                        <div className="card-body">
+
+                          <h5 className="card-title">{track.name}</h5>
+                          <p className="card-text">
+                            {track.artists.map((artist, index) => (
+                              <a href={artist.external_urls.spotify} target="_blank" rel="noreferrer noopener" title="View Artist on Spotify">{index ? ',' : ''} {artist.name}</a>
+                            ))}
+                          </p>
+
+                          <audio id="audio_control">
+                            <source src={track.previewUrl} type="audio/mpeg" />
+                          </audio>
+                          <i className="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Preview song"></i>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </>
+            ))}
+            <br />
+          </div>
+        }
+
       </div>
     </>
   )
