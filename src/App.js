@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import backgrounds from "./backgroundArray";
+import {WiBarometer, WiWindy, WiHumidity } from "react-icons/wi";
 import './App.css';
 import logo from './mlh-prep.png'
-import { IconBase } from "react-icons";
 
 function App() {
   const [error, setError] = useState(null);
@@ -48,22 +48,25 @@ function App() {
         {console.log(results)}
         {isLoaded && results && <>
         <div className="weather-card">
-          
           <div className="content">
+            <div className="place"> {results.name}, {results.sys.country} </div>
             <div className="top-info">
-              <div className="temp">{results.main.temp}°C</div>
+              <div className="temp">{results.main.temp}°</div>
               <div className="conditions">
                 <div className = "forecast">{results.weather[0].main} {backgrounds[cardBackground][1]}</div>
                 <div className = "temp-feel">Feels like {results.main.feels_like}°C</div>
               </div>
             </div>
-
-            <div className="bottom-info">
-              <p> Presurre: {results.main.pressure}hPa </p>
-              <p> Humidty: {results.main.humidity}% </p>
-              <p> Wind Speed: {results.wind.speed} m/s </p>
+            <div className="coordinates"> Lon: {results.coord.lon}°  Lat: {results.coord.lat} °</div>
+            <div className="description"> 
+              Condtions in {results.name}: {results.weather[0].description},with <br /> 
+              temperature ranging from {results.main.temp_min} to {results.main.temp_max} °C
             </div>
-            <div className="place"> {results.name}, {results.sys.country}</div>
+            <div className="bottom-info">
+              <p> <WiBarometer className="we-icon"/> <br/> Presurre: {results.main.pressure}hPa </p>
+              <p> <WiHumidity className="we-icon"/>  <br/> Humidty: {results.main.humidity}% </p>
+              <p> <WiWindy className="we-icon"/>     <br/> Wind Speed: {results.wind.speed} m/s </p>
+            </div>
           </div>
           <img className = "bg-image"src = {backgrounds[cardBackground][0]} ></img>
         </div>

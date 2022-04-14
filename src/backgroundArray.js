@@ -1,12 +1,12 @@
-import { WiDaySunny } from "react-icons/wi";
-import { WiRain } from "react-icons/wi";
-import { WiFog } from "react-icons/wi";
-import { WiCloudy } from "react-icons/wi";
+import { WiDaySunny , WiRain , WiFog , WiCloudy } from "react-icons/wi";
 
-import clearBack from './Clear.jpg';
-import rainBack  from './Rainy.jpeg';
-import hazeBack  from './Haze.jpeg';
-import cloudBack from './Cloud.jpg'
+import clearBack from './Clear.webp';
+import rainBack  from './Rain.webp';
+import hazeBack  from './Fog.jpg';
+import cloudBack from './Cloud.jpeg'
 
-const backgrounds = {Clear: [clearBack, <WiDaySunny/>], Rain: [rainBack, <WiRain/>], Haze:[hazeBack,<WiFog/>], Clouds: [cloudBack, <WiCloudy/>]};
+const backgrounds = {Clear: [clearBack, <WiDaySunny/>], 
+    Rain: [rainBack, <WiRain/>], 
+    Haze:[hazeBack,<WiFog/>], 
+    Clouds: [cloudBack, <WiCloudy/>]};
 export default backgrounds;
