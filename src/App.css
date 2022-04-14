@@ -4,12 +4,8 @@ body {
     text-align: center;
 }
 
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
-  margin-top: 20px;
+.entirePage{
+  margin-top: 10rem;
 }
 
 input {
