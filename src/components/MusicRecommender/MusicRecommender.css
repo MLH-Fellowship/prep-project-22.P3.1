@@ -1,0 +1,62 @@
+/* Preventing image drag */
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+
+/* Card styling */
+.song_card {
+  width: 15rem;
+  margin: 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+}
+
+.song_card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.song_image:hover {
+  opacity: .5;
+}
+
+.card-body {
+  height: 9.5em;
+  background-color: #133667;
+
+}
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-text a {
+  color: white;
+  font-size: 1rem;
+}
+
+
+/* Audio control styling and play button */
+.audio_control {
+  color: white;
+}
+
+.play_button {
+  /* background-color: #ff3d49; */
+  background-color: #1ed760;
+  position: absolute;
+  bottom: 135px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  right: 20px;
+  font-size: 27px;
+  padding-left: 5px;
+  padding-top: 15px;
+  color: black;
+  cursor: pointer;
+}
