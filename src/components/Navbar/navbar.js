@@ -8,6 +8,8 @@ function Navbar(props) {
       <ul className="navlist">
         <li className="navlist-link">Weather News</li>
         <li className="navlist-link">Tell Me Weather</li>
+        <li className="navlist-link">News</li>
+        <li className="navlist-link">Songs</li>
       </ul>
     </nav>
   );
