@@ -4,14 +4,6 @@ body {
     text-align: center;
 }
 
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
-  margin-top: 20px;
-}
-
 input {
   padding: 10px;
   border-radius: 4px;

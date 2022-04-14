@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar/navbar';
 import logo from './mlh-prep.png';
 
 function App() {
@@ -33,15 +34,9 @@ function App() {
       {error ? (
         <div>Error: {error.message}</div>
       ) : (
-        <div>
-          <img className="logo" src={logo} alt="MLH Prep Logo" />
+        <div className="entirePage">
+          <Navbar src={logo} />
           <div>
-            <h2>Enter a city below 👇</h2>
-            <input
-              type="text"
-              value={city}
-              onChange={(event) => setCity(event.target.value)}
-            />
             <div className="Results">
               {!isLoaded && <h2>Loading...</h2>}
               {console.log(results)}
