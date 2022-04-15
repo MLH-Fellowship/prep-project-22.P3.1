@@ -41,7 +41,7 @@ function App() {
       <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
       <Navbar src={logo} />
       <div>
-        <h2>Enter a city below 👇</h2>
+        <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
       </div>
       <div className="Results">
