@@ -7,12 +7,12 @@ import {
   WiThunderstorm,
 } from 'react-icons/wi';
 
-import clearBack from './Clear.webp';
-import rainBack from './Rain.webp';
-import hazeBack from './Fog.jpg';
-import cloudBack from './Cloud.jpeg';
-import snowBack from './Snow.webp';
-import thunderBack from './ThunderStorm.webp';
+import clearBack from './assets/Clear.webp';
+import rainBack from './assets/Rain.webp';
+import hazeBack from './assets/Fog.jpg';
+import cloudBack from './assets/Cloud.jpeg';
+import snowBack from './assets/Snow.webp';
+import thunderBack from './assets/ThunderStorm.webp';
 
 const backgrounds = {
   Clear: [clearBack, <WiDaySunny key="" />],

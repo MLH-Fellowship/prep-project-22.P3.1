@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { WiBarometer, WiWindy, WiHumidity } from 'react-icons/wi';
-import backgrounds from './backgroundArray';
+import backgrounds from './components/backgroundArray/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
 import logo from './mlh-prep.png';
