@@ -21,14 +21,14 @@ function App() {
           } else {
             setIsLoaded(true);
             setResults(result);
-            setcardBackground(result.weather[0].main)
+            setcardBackground(result.weather[0].main);
           }
         },
         (err) => {
           setIsLoaded(true);
           setError(err);
         }
-      )
+      );
   }, [city]);
 
   if (error) {
@@ -52,16 +52,16 @@ function App() {
           <>
             <div className="weather-card">
               <div className="content">
-                <div className="place"> 
-                  {results.name}, {results.sys.country} 
+                <div className="place">
+                  {results.name}, {results.sys.country}
                 </div>
                 <div className="top-info">
                   <div className="temp">{results.main.temp}°</div>
                   <div className="conditions">
-                    <div className = "forecast">
+                    <div className="forecast">
                       {results.weather[0].main} {backgrounds[cardBackground][1]}
                     </div>
-                    <div className = "temp-feel">
+                    <div className="temp-feel">
                       Feels like {results.main.feels_like}°C
                     </div>
                   </div>
@@ -99,7 +99,11 @@ function App() {
             <div className="Map">
               <h3>{results.weather[0].main}</h3>
               <p>Feels like {results.main.feels_like}°C</p>
-              <i><p>{results.name}, {results.sys.country}</p></i>
+              <i>
+                <p>
+                  {results.name}, {results.sys.country}
+                </p>
+              </i>
             </div>
           </>
         )}

@@ -1,9 +1,9 @@
 import { WiDaySunny, WiRain, WiFog, WiCloudy } from 'react-icons/wi';
 
 import clearBack from './Clear.webp';
-import rainBack  from './Rain.webp';
-import hazeBack  from './Fog.jpg';
-import cloudBack from './Cloud.jpeg'
+import rainBack from './Rain.webp';
+import hazeBack from './Fog.jpg';
+import cloudBack from './Cloud.jpeg';
 
 const backgrounds = {
   Clear: [clearBack, <WiDaySunny key="" />],
