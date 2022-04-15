@@ -43,24 +43,37 @@ function App() {
                   if(result.alerts) {
                     const rawDesciption = result.alerts[0].description
                     const divisions = rawDesciption.split("*")
+                    const alertData = {}
                     console.log(rawDesciption)
                     divisions.forEach(element => {
                       // const trimmed = element.trim()
-                      const newText = element.replace('...', ' ').replace(/\s+/g, ' ').trim()
+                      let newText = element.replace('...', ' ').replace(/\s+/g, ' ').trim()
                       if(newText.startsWith('WHAT')) {
-                        console.log(newText)
+                        newText = newText.replace('WHAT', '').trim()
+                        alertData.what = newText
                       } else if(newText.startsWith('WHERE')) {
-                        console.log(newText)
+                        newText = newText.replace('WHERE', '').trim()
+                        alertData.where = newText
                       } else if(newText.startsWith('WHEN')) {
-                        console.log(newText)
+                        newText = newText.replace('WHEN', '').trim()
+                        alertData.when = newText
                       } else if(newText.startsWith('IMPACTS')) {
-                        console.log(newText)
+                        newText = newText.replace('IMPACTS', '').trim()
+                        alertData.impacts = newText
+                      } else {
+                        const titles = newText.replaceAll('...', ' ').split('  ')
+                        titles.forEach((title, index) => {
+                          const newTitle = title.trim()
+                          titles[index] = newTitle
+                        });
+                        alertData.headlines = titles
                       }
-                     
-                      console.log(newText)
                     });
-                  } else {
-                    console.log("bye")
+                    // setAlerts({
+                    //   headlines: alertData.headlines,
+
+                    // })
+                    console.log(alertData)
                   }
                 },
                 (err) => {
@@ -68,41 +81,8 @@ function App() {
                 }
               )
             }
-
-
-          // const alertUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityCoordinates.lat}&lon=${cityCoordinates.lon}&exclude=&appid=${process.env.REACT_APP_APIKEY}`
-          // fetch(alertUrl)
-          //   .then((res) => res.json())
-          //   .then(
-          //     (result) => {
-          //       console.log(result)
-          //     },
-          //     (err) => {
-          //       console.log("hi")
-          //     }
-          //   )
         }
       )
-    
-    
-        
-
-    
-    // if(isLoaded) {
-    //   const urlAlerts = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityCoordinates.lat}&lon=${cityCoordinates.lon}&exclude=&appid=${process.env.REACT_APP_APIKEY}`
-    //         fetch(urlAlerts)
-    //           .then((onecall) => onecall.json())
-    //           .then(
-    //             (onecall) => {
-    //               if(onecall.alerts === undefined){
-    //                 console.log("doesn't exist", onecall)
-    //               } else {
-    //                 console.log("exists", onecall)
-    //               }
-    //             }
-    //           )
-    // }
-
   }, [city, isLoaded, cityCoordinates.lat, cityCoordinates.lon, alerts]); 
 
   return (
@@ -134,11 +114,9 @@ function App() {
                     {alerts !== null && alerts !== undefined && (
                       <>
                         <p>
-                          {alerts[0].event}
+                          {alerts}
                         </p>
-                        <p>
-                          {alerts[0].description}
-                        </p>
+                        
                       </>
                     )}
                     
