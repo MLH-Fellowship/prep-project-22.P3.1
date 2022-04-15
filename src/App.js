@@ -69,11 +69,10 @@ function App() {
                         alertData.headlines = titles
                       }
                     });
-                    // setAlerts({
-                    //   headlines: alertData.headlines,
-
-                    // })
+                    setAlerts(alertData)
                     console.log(alertData)
+                  } else {
+                    setAlerts(null)
                   }
                 },
                 (err) => {
@@ -83,7 +82,7 @@ function App() {
             }
         }
       )
-  }, [city, isLoaded, cityCoordinates.lat, cityCoordinates.lon, alerts]); 
+  }, [city, isLoaded, cityCoordinates.lat, cityCoordinates.lon]); 
 
   return (
     <div>
@@ -114,7 +113,19 @@ function App() {
                     {alerts !== null && alerts !== undefined && (
                       <>
                         <p>
-                          {alerts}
+                          {alerts.headlines}
+                        </p>
+                        <p>
+                          {alerts.what}
+                        </p>
+                        <p>
+                          {alerts.where}
+                        </p>
+                        <p>
+                          {alerts.when}
+                        </p>
+                        <p>
+                          {alerts.impacts}
                         </p>
                         
                       </>
