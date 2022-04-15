@@ -36,6 +36,8 @@ input {
   flex-direction:   row;
   background-color: white;
   margin-top:   25px;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
   height: 450px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
