@@ -4,7 +4,7 @@ import backgrounds from './components/backgroundArray/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
 import logo from './mlh-prep.png';
-import Search from './Search';
+import Search from './components/Navbar/Search';
 
 function App() {
   const [error, setError] = useState(null);

@@ -1,8 +1,9 @@
 import React from 'react';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import cities from './cities';
-import './App.css';
+import '../../App.css';
 
+// Create city object from cities array
 const city = (() => {
   const citiesArray = [];
   let index = 0;
