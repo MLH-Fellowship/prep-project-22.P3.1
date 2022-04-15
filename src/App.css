@@ -23,11 +23,6 @@ input {
   border: 10px;
   width: 200px
 }
-@media (max-width: 970px) {
-  .Results{
-    flex-direction: column!important;
-  }
-}
 
 .Results {
   color: white;
