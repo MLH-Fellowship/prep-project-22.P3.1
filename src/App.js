@@ -36,7 +36,8 @@ function App() {
     return <div>Error: {error.message}</div>;
   }
   return (
-    <>
+    <div className="entirePage">
+      <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
       <Navbar src={logo} />
       <div>
         <h2>Enter a city below 👇</h2>
@@ -47,7 +48,7 @@ function App() {
         />
       </div>
       <div className="Results">
-        {!isLoaded && <h2>Loading...</h2>}
+        {!isLoaded && <h2 className="loading">Loading...</h2>}
         {console.log(results)}
         {isLoaded && results && (
           <>
@@ -71,9 +72,10 @@ function App() {
                   Lon: {results.coord.lon}° Lat: {results.coord.lat} °
                 </div>
                 <div className="description">
-                  Condtions in {results.name}: {results.weather[0].description},
-                  with <br /> temperature ranging from {results.main.temp_min}
-                  to {results.main.temp_max} °C
+                  &#40; Condtions in {results.name}:{' '}
+                  {results.weather[0].description}, with <br /> temperature
+                  ranging from {results.main.temp_min}
+                  &nbsp;to {results.main.temp_max} °C &#41;
                 </div>
                 <div className="bottom-info">
                   <p>
@@ -90,26 +92,11 @@ function App() {
                   </p>
                 </div>
               </div>
-              <img
-                className="bg-image"
-                src={backgrounds[cardBackground][0]}
-                alt=""
-              />
-            </div>
-
-            <div className="Map">
-              <h3>{results.weather[0].main}</h3>
-              <p>Feels like {results.main.feels_like}°C</p>
-              <i>
-                <p>
-                  {results.name}, {results.sys.country}
-                </p>
-              </i>
             </div>
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

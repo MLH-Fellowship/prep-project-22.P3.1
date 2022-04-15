@@ -25,20 +25,23 @@ input {
   text-align: center;
   display: flex;
   flex-direction:   row;
-  background-color: white;
   margin-top:   25px;
   margin-right: 1.5rem;
   margin-left: 1.5rem;
   height: 450px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.loading{
+  width: 100%;
+  font-size: 3rem;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .weather-card{
   position: relative;
-  width: 50%;
+  width: 100%;
   overflow: hidden;
-  background-color: black;
-
+  background-color: transparent;
 }
 
 .content{
@@ -55,6 +58,7 @@ input {
   width: 100%;
   height: 100%;
   opacity: .6;
+  z-index: -1;
 }
 
 .place{
