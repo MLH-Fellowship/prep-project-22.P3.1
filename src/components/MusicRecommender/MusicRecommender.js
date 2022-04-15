@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import "./MusicRecommender.css"
 
+import AudioPlayer from "./AudioPlayer";
+
 const MusicRecommender = ({ props }) => {
   const [accessToken, setAccessToken] = useState('');
   const [playlistId, setPlaylistId] = useState('');
@@ -53,6 +55,11 @@ const MusicRecommender = ({ props }) => {
     }).catch((err) => console.error(err));
   };
 
+  // Stop music when new audio item is clicked
+  // Workflow for choosing genre - Using localstorage
+  // Apple music API & embed
+  // Login with spotify & Apple music
+
   return (
     <>
       <div className="container">
@@ -102,10 +109,7 @@ const MusicRecommender = ({ props }) => {
                             ))}
                           </p>
 
-                          <audio id="audio_control">
-                            <source src={track.previewUrl} type="audio/mpeg" />
-                          </audio>
-                          <i className="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Preview song"></i>
+                          <AudioPlayer track={track} />
 
                         </div>
                       </div>
