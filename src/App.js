@@ -4,11 +4,12 @@ import backgrounds from './components/backgroundArray/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
 import logo from './mlh-prep.png';
+import Search from './components/Navbar/Search';
 
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [city, setCity] = useState('New York City');
+  const [city, setCity] = useState(null);
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
   useEffect(() => {
@@ -41,11 +42,7 @@ function App() {
       <Navbar src={logo} />
       <div>
         <h2>Enter a city below 👇</h2>
-        <input
-          type="text"
-          value={city}
-          onChange={(event) => setCity(event.target.value)}
-        />
+        <Search setCity={setCity} />
       </div>
       <div className="Results">
         {!isLoaded && <h2 className="loading">Loading...</h2>}
