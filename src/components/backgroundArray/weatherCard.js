@@ -25,7 +25,7 @@ function WeatherCard(props) {
           </div>
         </div>
         <div className="coordinates">
-            Lon: {results.coord.lon}° Lat: {results.coord.lat} °
+          Lon: {results.coord.lon}° Lat: {results.coord.lat} °
         </div>
         <div className="description">
           &#40; Condtions in {results.name}: {results.weather[0].description},
