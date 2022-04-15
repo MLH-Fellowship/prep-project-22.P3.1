@@ -39,7 +39,7 @@ input {
 
 .weather-card{
   position: relative;
-  width: 100%;
+  width: 60%;
   overflow: hidden;
   background-color: transparent;
 }
@@ -129,6 +129,6 @@ input {
 }
 
 .Map{
-  width: 50%;
+  width: 40%;
   height: fit-content;
 }

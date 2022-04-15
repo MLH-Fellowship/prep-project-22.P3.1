@@ -93,6 +93,9 @@ function App() {
                 </div>
               </div>
             </div>
+            <div className="Map">
+              <h2>Map goes here.</h2>
+            </div>
           </>
         )}
       </div>
