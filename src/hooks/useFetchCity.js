@@ -11,7 +11,7 @@ const useFetchCity = (lat, lng) => {
 
     // eslint-disable-next-line no-use-before-define
     useEffect(() => {
-        const url = `https://geocode.xyz/${lat},${lng}?json=1`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${process.env.REACT_APP_APIKEY}`;
 
         fetch(url)
         .then((res)=>res.json())
@@ -19,8 +19,8 @@ const useFetchCity = (lat, lng) => {
             (result) => {
                 if(result){
                     setGeoCity({
-                            city: result.city,
-                            countryCode: result.prov
+                            city: result.name,
+                            countryCode: result.sys.country,
                         }
                     )
                     
