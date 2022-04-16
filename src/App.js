@@ -17,10 +17,16 @@ function App() {
   const geoLocation = useLocation()
   const geoCity = useFetchCity(geoLocation.coordinates.lat, geoLocation.coordinates.lng)
 
+  console.log(geoLocation.coordinates.lat)
+  console.log(geoLocation.coordinates.lng)
   console.log(geoCity.city)
   console.log(geoCity.countryCode)
 
-  // setCity(`${geoCity.city}, ${geoCity.countryCode}`)
+
+  useEffect(() => {
+    setCity(`${geoCity.city}, ${geoCity.countryCode}`)
+  }, [geoCity.city, geoCity.countryCode])
+  
   
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
