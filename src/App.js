@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/navbar';
 import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
+import useFetchCity from './hooks/useFetchCity';
 
 function App() {
   const [error, setError] = useState(null);
@@ -14,9 +15,13 @@ function App() {
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
   const geoLocation = useLocation()
+  const geoCity = useFetchCity(geoLocation.coordinates.lat, geoLocation.coordinates.lng)
 
-  console.log(geoLocation.coordinates.lat)
+  console.log(geoCity.city)
+  console.log(geoCity.countryCode)
 
+  // setCity(`${geoCity.city}, ${geoCity.countryCode}`)
+  
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
