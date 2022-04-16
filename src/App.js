@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from './components/Navbar/navbar';
 import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
+import useLocation from './hooks/useLocation';
 
 function App() {
   const [error, setError] = useState(null);
@@ -12,13 +13,14 @@ function App() {
   const [city, setCity] = useState(null);
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
+  const geoLocation = useLocation()
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
       .then(
         (result) => {
-          if (result.cod !== 200) {
+          if (result.code !== 200) {
             setIsLoaded(false);
           } else {
             setIsLoaded(true);
