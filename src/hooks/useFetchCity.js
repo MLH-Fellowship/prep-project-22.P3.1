@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+import { useState, useEffect } from 'react';
 
 const useFetchCity = (lat, lng) => {
   const [geoCity, setGeoCity] = useState({

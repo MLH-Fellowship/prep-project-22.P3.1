@@ -14,8 +14,11 @@ function App() {
   const [city, setCity] = useState(null);
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
-  const geoLocation = useLocation()
-  const geoCity = useFetchCity(geoLocation.coordinates.lat, geoLocation.coordinates.lng)
+  const geoLocation = useLocation();
+  const geoCity = useFetchCity(
+    geoLocation.coordinates.lat,
+    geoLocation.coordinates.lng
+  );
 
   useEffect(() => {
     setCity(`${geoCity.city}, ${geoCity.countryCode}`);
