@@ -3,9 +3,8 @@ import { useState, useEffect } from "react";
 
 import AudioPlayer from "./AudioPlayer";
 
-const SpotifyComponent = ({ props }) => {
+const SpotifyComponent = ({ props, playlistId }) => {
   const [accessToken, setAccessToken] = useState('');
-  const [playlistId, setPlaylistId] = useState('');
   const [playlistData, setPlaylistData] = useState([]);
   // To store & set layout choice
   const [listLayout, setListLayout] = useState(false)
@@ -23,13 +22,12 @@ const SpotifyComponent = ({ props }) => {
         },
         body: 'grant_type=client_credentials',
       }).then((response) => response.json()).then((result) => {
-        setPlaylistId("7LqjQuTFvBj2TFq5kq9mCp");
         setAccessToken(result.access_token);
         fetchPlaylistsData();
       }).catch((err) => console.error(err));
     };
     _getAccessToken();
-  }, [props]);
+  }, [props, playlistId]);
 
   // Call the endpoint to fetch song data from specified playlist
   const fetchPlaylistsData = async () => {
@@ -57,6 +55,7 @@ const SpotifyComponent = ({ props }) => {
 
   return (
     <>
+      {/* Toggles to handle layout switches */}
       <div className="layout_toggle text-right">
         <i className={listLayout ? "icon_inactive fa fa-th-large" : 'icon_active fa fa-th-large'} aria-hidden="true"
           onClick={() => setListLayout(false)}>
@@ -66,6 +65,7 @@ const SpotifyComponent = ({ props }) => {
         </i>
       </div>
 
+      {/* List Layout using spotify's embed*/}
       {listLayout &&
         <div className="container">
           <iframe className="embedded_spotify_playlist"
@@ -76,6 +76,7 @@ const SpotifyComponent = ({ props }) => {
         </div>
       }
 
+      {/* Box layout using cards and using data from spotify API */}
       {!listLayout &&
         <div className="row">
           <br />
