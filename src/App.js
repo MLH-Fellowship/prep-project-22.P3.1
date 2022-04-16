@@ -14,13 +14,16 @@ function App() {
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
   const geoLocation = useLocation()
+
+  console.log(geoLocation.coordinates.lat)
+
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
       .then(
         (result) => {
-          if (result.code !== 200) {
+          if (result.cod !== 200) {
             setIsLoaded(false);
           } else {
             setIsLoaded(true);
