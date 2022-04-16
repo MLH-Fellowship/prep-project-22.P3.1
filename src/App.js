@@ -17,12 +17,6 @@ function App() {
   const geoLocation = useLocation()
   const geoCity = useFetchCity(geoLocation.coordinates.lat, geoLocation.coordinates.lng)
 
-  console.log(geoLocation.coordinates.lat)
-  console.log(geoLocation.coordinates.lng)
-  console.log(geoCity.city)
-  console.log(geoCity.countryCode)
-
-
   useEffect(() => {
     setCity(`${geoCity.city}, ${geoCity.countryCode}`)
   }, [geoCity.city, geoCity.countryCode])
