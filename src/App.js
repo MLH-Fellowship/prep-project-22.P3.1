@@ -1,55 +1,74 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import backgrounds from './components/backgroundArray/backgroundArray';
 import './App.css';
-import logo from './mlh-prep.png'
+import Navbar from './components/Navbar/navbar';
+import WeatherCard from './components/backgroundArray/weatherCard';
+import logo from './mlh-prep.png';
+import Search from './components/Navbar/Search';
+import useLocation from './hooks/useLocation';
+import useFetchCity from './hooks/useFetchCity';
 
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [city, setCity] = useState("New York City")
+  const [city, setCity] = useState(null);
   const [results, setResults] = useState(null);
+  const [cardBackground, setcardBackground] = useState('Clear');
+  const geoLocation = useLocation();
+  const geoCity = useFetchCity(
+    geoLocation.coordinates.lat,
+    geoLocation.coordinates.lng
+  );
 
   useEffect(() => {
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric" + "&appid=" + process.env.REACT_APP_APIKEY)
-      .then(res => res.json())
+    setCity(`${geoCity.city}, ${geoCity.countryCode}`);
+  }, [geoCity.city, geoCity.countryCode]);
+
+  useEffect(() => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
+    fetch(url)
+      .then((res) => res.json())
       .then(
         (result) => {
-          if (result['cod'] !== 200) {
-            setIsLoaded(false)
+          if (result.cod !== 200) {
+            setIsLoaded(false);
           } else {
             setIsLoaded(true);
             setResults(result);
+            setcardBackground(result.weather[0].main);
           }
         },
-        (error) => {
+        (err) => {
           setIsLoaded(true);
-          setError(error);
+          setError(err);
         }
-      )
-  }, [city])
+      );
+  }, [city]);
 
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else {
-    return <>
-      <img className="logo" src={logo} alt="MLH Prep Logo"></img>
-      <div>
-        <h2>Enter a city below 👇</h2>
-        <input
-          type="text"
-          value={city}
-          onChange={event => setCity(event.target.value)} />
-        <div className="Results">
-          {!isLoaded && <h2>Loading...</h2>}
-          {console.log(results)}
-          {isLoaded && results && <>
-            <h3>{results.weather[0].main}</h3>
-            <p>Feels like {results.main.feels_like}°C</p>
-            <i><p>{results.name}, {results.sys.country}</p></i>
-          </>}
-        </div>
-      </div>
-    </>
   }
+  return (
+    <div className="entirePage">
+      <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
+      <Navbar src={logo} />
+      <div>
+        <h2 className="search-prompt">Enter a city below 👇</h2>
+        <Search setCity={setCity} />
+      </div>
+      <div className="Results">
+        {!isLoaded && <h2 className="loading">Loading...</h2>}
+        {isLoaded && results && (
+          <>
+            <WeatherCard results={results} cardBackground={cardBackground} />
+            <div className="Map">
+              <h2>Map goes here.</h2>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default App;
