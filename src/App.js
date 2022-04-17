@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import backgrounds from './components/backgroundArray/backgroundArray';
+import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
-import WeatherCard from './components/backgroundArray/weatherCard';
+import WeatherCard from './components/weatherCard/weatherCard';
 import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
