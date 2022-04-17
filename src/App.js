@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from './components/Navbar/navbar';
 import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
+import Alert from './components/suggestion/Alert'
 
 function App() {
   const [error, setError] = useState(null);
@@ -68,6 +69,10 @@ function App() {
                 <div className="coordinates">
                   Lon: {results.coord.lon}° Lat: {results.coord.lat} °
                 </div>
+                <div className="Alert">
+                  <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
+                </div>
+
                 <div className="description">
                   &#40; Condtions in {results.name}:{' '}
                   {results.weather[0].description}, with <br /> temperature
@@ -93,6 +98,7 @@ function App() {
             <div className="Map">
               <h2>Map goes here.</h2>
             </div>
+            <Alert />
           </>
         )}
       </div>
@@ -101,3 +107,4 @@ function App() {
 }
 
 export default App;
+
