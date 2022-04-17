@@ -17,6 +17,24 @@ function WeatherCard(props) {
           <div className="temp">{results.main.temp}°</div>
           <div className="conditions">
             <div className="forecast">
+              {cardBackground === 'Clear' && (
+                  <span>The weather looks clear, you can go out!  </span>
+              )}
+              {cardBackground === 'Clouds' && (
+                <span>The weather looks cloudy, rain might happen!  </span>
+              )}
+              {cardBackground === 'Rain' && (
+              <span>Please take an umberlla!  </span>
+              )}
+              {cardBackground === 'Snow' && (
+                <span>The weather looks awesome</span>
+              )}
+              {cardBackground === 'Thunderstorm' && (
+                <span>Stay inside</span>
+              )}
+              {cardBackground === 'Mist' && (
+                <span>The weather looks misty</span>
+              )}
               {results.weather[0].main} {backgrounds[cardBackground][1]}
             </div>
             <div className="temp-feel">
