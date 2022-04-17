@@ -7,6 +7,8 @@ import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import useFetchCity from './hooks/useFetchCity';
+import weatherData from './components/Charts/chartData.json';
+import Charts from './components/Charts/Charts';
 
 function App() {
   const [error, setError] = useState(null);
@@ -64,13 +66,13 @@ function App() {
             <div className="Map">
               <h2>Map goes here.</h2>
             </div>
-            <Alert />
           </>
         )}
       </div>
-    </div>
+      
+      <Charts data={weatherData} />
+      </div>
   );
 }
 
 export default App;
-
