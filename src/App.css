@@ -42,7 +42,8 @@ input {
 }
 
 
-.Map{
+.weather-map{
+  position: relative;
   width: 40%;
   height: fit-content;
 }

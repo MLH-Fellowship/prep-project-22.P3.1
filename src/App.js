@@ -7,6 +7,7 @@ import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import useFetchCity from './hooks/useFetchCity';
+import WeatherMap from './components/weatherMap/weatherMap';
 
 function App() {
   const [error, setError] = useState(null);
@@ -19,6 +20,10 @@ function App() {
     geoLocation.coordinates.lat,
     geoLocation.coordinates.lng
   );
+  const [cityCoordinates, setCityCoordinates] = useState({
+    lat: geoLocation.coordinates.lat,
+    lon: geoLocation.coordinates.lng,
+  });
 
   useEffect(() => {
     setCity(`${geoCity.city}, ${geoCity.countryCode}`);
@@ -36,6 +41,11 @@ function App() {
             setIsLoaded(true);
             setResults(result);
             setcardBackground(result.weather[0].main);
+            setCity(result.name);
+            setCityCoordinates({
+              lat: result.coord.lat,
+              lon: result.coord.lon,
+            });
           }
         },
         (err) => {
@@ -61,8 +71,13 @@ function App() {
         {isLoaded && results && (
           <>
             <WeatherCard results={results} cardBackground={cardBackground} />
-            <div className="Map">
-              <h2>Map goes here.</h2>
+            <div className="weather-map">
+              <WeatherMap
+                city={city}
+                setCity={setCity}
+                cityCoordinates={cityCoordinates}
+                setCityCoordinates={setCityCoordinates}
+              />
             </div>
           </>
         )}
