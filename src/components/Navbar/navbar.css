@@ -21,3 +21,38 @@
     width: 200px;
     padding: 2rem;
   }
+
+  .navlist{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navlist-link{
+    list-style: none;
+    padding: 1rem 4rem;
+}
+
+.navlist-link:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+    transform: scale(1.1);
+}
+
+a:link {
+    color: rgb(243, 242, 242);
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(250, 255, 250);
+    text-decoration: none;
+  }
+  
+  
+  
+  /* selected link */
+  a:active {
+    color: blue;
+    text-decoration: none;
+  }
