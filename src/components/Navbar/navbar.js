@@ -10,6 +10,10 @@ function Navbar(props) {
         <li className="navlist-link">Tell Me Weather</li>
         <li className="navlist-link">News</li>
         <li className="navlist-link">Songs</li>
+        <li className="navlist-link"><a href= "Weather_Visualizer.html">
+                    {" "}
+                    Weather Visualizer
+                </a></li>
       </ul>
     </nav>
   );
