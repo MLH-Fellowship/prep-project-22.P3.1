@@ -10,6 +10,7 @@ import useFetchCity from './hooks/useFetchCity';
 import weatherData from './components/Charts/chartData.json';
 import Charts from './components/Charts/Charts';
 
+
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
