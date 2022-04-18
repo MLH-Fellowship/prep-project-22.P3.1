@@ -62,7 +62,7 @@ const backgrounds = {
       <BsFillInfoCircleFill key="" /> Caution! there is a tornado, seek cover
     </p>,
   ],
-  Clouds: [cloudBack, <WiCloudy key="" />, 'It is overcast outside'],
+  Clouds: [cloudBack, <WiCloudy key="" />, ''],
   Snow: [
     snowBack,
     <WiSnowflakeCold key="" />,

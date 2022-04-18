@@ -100,9 +100,7 @@ function App() {
           </>
         )}
       </div>
-      
-      <Charts data={weatherData} />
-      </div>
+    </div>
   );
 }
 
