@@ -28,7 +28,7 @@ const backgrounds = {
     <WiRain key="" />,
     <p key="">
       <BsFillInfoCircleFill key="" />
-      &nbsp;&nbsp; It is raining outside. Please take an umberlla!
+      &nbsp;&nbsp; It is raining outside. Please take an umbrella!
     </p>,
   ],
   Drizzle: [
@@ -68,7 +68,7 @@ const backgrounds = {
     <WiSnowflakeCold key="" />,
     <p key="">
       <BsFillInfoCircleFill key="" />
-      &nbsp;&nbsp; It is snowing, make sure to take warm clothes and be carefull
+      &nbsp;&nbsp; It is snowing, make sure to take warm clothes and be careful
       with ice on the roads
     </p>,
   ],
