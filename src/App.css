@@ -41,8 +41,14 @@ input {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-
-.Map{
+.weather-map{
+  position: relative;
   width: 40%;
   height: fit-content;
+}
+
+#weather-location-search {
+  width: clamp(20em, 30%, 90%);
+  margin: auto;
+  z-index: 100;
 }
