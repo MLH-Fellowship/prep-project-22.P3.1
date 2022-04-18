@@ -66,7 +66,19 @@ function App() {
         <Search setCity={setCity} />
       </div>
       <div className="Results">
-        {!isLoaded && <h2 className="loading">Loading...</h2>}
+        {!isLoaded && (
+          <>
+            <div> Error, locattion not found</div>
+            <div className="weather-map">
+              <WeatherMap
+                city={city}
+                setCity={setCity}
+                cityCoordinates={cityCoordinates}
+                setCityCoordinates={setCityCoordinates}
+              />
+            </div>
+          </>
+        )}
         {isLoaded && results && (
           <>
             <WeatherCard results={results} cardBackground={cardBackground} />
