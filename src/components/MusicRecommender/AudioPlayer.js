@@ -42,7 +42,7 @@ export default function AudioPlayer({ track }) {
         min="0"
         max="100"
         step="1"
-        value={seekValue}
+        value={seekValue || 0}
         onChange={(e) => {
           const seekto = audioPlayer.current.duration * (+e.target.value / 100);
           audioPlayer.current.currentTime = seekto;
