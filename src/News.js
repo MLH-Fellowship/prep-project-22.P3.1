@@ -33,9 +33,76 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 
-function MediaCard({media}) {
+
+function RecipeReviewCard({ media }) {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ minWidth: '100%' }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            {media.title[0]}
+          </Avatar>
+        }
+      
+        title={media.title}
+        subheader={media.publishedAt}
+      />
+      <CardMedia
+        component="img"
+        height="194"
+        image={media.urlToImage}
+        alt="img loading..."
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          {media.description}
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+       
+        <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+        </IconButton>
+
+        <IconButton aria-label="share">
+          <ShareIcon onClick={() => {
+            navigator.clipboard.writeText(media.url)}} />
+        </IconButton>
+       
+        <Button
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </Button>
+        
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>{media.content.split('[')[0]}</Typography>
+          <Button
+          aria-label="settings"
+          onClick={() => window.open(media.url, '_blank')}
+        >
+          READ MORE
+        </Button>
+        </CardContent>
+      </Collapse>
+    </Card>
+  );
+}
+
+function MediaCard({ media }) {
+  return (
+    <Card sx={{ minWidth: '100%' }}>
       <CardMedia
         component="img"
         height="140"
@@ -58,7 +125,7 @@ function MediaCard({media}) {
   );
 }
 
-const drawerWidth = 240;
+const drawerWidth = '45%';
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -132,7 +199,7 @@ function App(city) {
         console.log('hie');
       });
   };
-  
+
   const fetchNews = () => {
     // const strToSearch = "https://newsapi.org/v2/everything?q=weather " + {city} + "&apiKey=419bc9a18e4a4116b1f9306c7f1595fd"
     axios
@@ -193,13 +260,11 @@ function App(city) {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <Typography variant='h3'>
-          For You
-        </Typography>
+        <Typography variant="h3">For You</Typography>
         <List>
           {forYouNews.map((text, index) => (
             <ListItem button key={0}>
-              <MediaCard media={text}/>
+              <RecipeReviewCard media={text} />
               {/* <Card>
                 <CardContent>
                   <Typography variant="h5" component="h2">
@@ -211,13 +276,11 @@ function App(city) {
           ))}
         </List>
         <Divider />
-        <Typography variant='h3'>
-          World
-        </Typography>
+        <Typography variant="h3">World</Typography>
         <List>
           {news.map((text, index) => (
             <ListItem button key={0}>
-              <MediaCard media={text}/>
+              <MediaCard media={text} />
               {/* <Card>
                 <CardContent>
                   <Typography variant="h5" component="h2">
