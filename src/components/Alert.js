@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './Alert.css';
 
 function Alert({ city, isLoaded, cityCoordinates }) {
  
@@ -50,22 +51,27 @@ function Alert({ city, isLoaded, cityCoordinates }) {
     }, [city, isLoaded, cityCoordinates]);
 
   return (
-      <>
+      <div className="container">
+      <ul className="nav nav-tabs">
+      <li className="active"><a data-toggle="tab" href="#alert">Disaster Alerts</a></li>
+      <li><a data-toggle="tab" href="#news">News</a></li>
+      <div className="tab-content">
+       <div id="alert" className="tab-pane fade in active">
         {isLoaded && alert !== null && alert !== undefined && (
             <>
                 {alert.title !== undefined && alert.title !== null && (
-                    <>
+                    <div className='title'>
                         <p>
                             {alert.title}
                         </p>
-                    </>
+                    </div>
                 )}
                 {alert.description!== undefined && alert.description !== null && (
-                    <>
+                    <div className='description'>
                         <p>
                             {alert.description}
                         </p>
-                    </>
+                    </div>
                 )}
             </>
         )}
@@ -76,8 +82,13 @@ function Alert({ city, isLoaded, cityCoordinates }) {
                 </p>
             </>
         )}
-
-      </>
+        </div>
+        <div id="news" className="tab-pane fade">
+            <p>No News Available</p>
+        </div>
+        </div>
+       </ul>
+      </div>
   );  
 }
 
