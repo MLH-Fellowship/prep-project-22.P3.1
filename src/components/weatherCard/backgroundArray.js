@@ -6,7 +6,7 @@ import {
   WiSnowflakeCold,
   WiThunderstorm,
 } from 'react-icons/wi';
-
+import { BsFillInfoCircleFill } from 'react-icons/bs';
 import clearBack from '../../assets/images/Clear.webp';
 import rainBack from '../../assets/images/Rain.webp';
 import hazeBack from '../../assets/images/Fog.jpg';
@@ -18,22 +18,35 @@ const backgrounds = {
   Clear: [
     clearBack,
     <WiDaySunny key="" />,
-    'The weather looks clear. A great day to go out!',
+    <p key="">
+      <BsFillInfoCircleFill key="" />
+      &nbsp;&nbsp; The weather looks clear. A great day to go out!
+    </p>,
   ],
   Rain: [
     rainBack,
     <WiRain key="" />,
-    "It's raining outside. Please take an umberlla!",
+    <p key="">
+      <BsFillInfoCircleFill key="" />
+      &nbsp;&nbsp; It is raining outside. Please take an umberlla!
+    </p>,
   ],
   Drizzle: [
     rainBack,
     <WiRain key="" />,
-    'It is drizziling, take a jacket or even umbrella',
+    <p key="">
+      <BsFillInfoCircleFill key="" />
+      &nbsp;&nbsp; It is drizziling, take a jacket or even umbrella.
+    </p>,
   ],
   Haze: [
     hazeBack,
     <WiFog key="" />,
-    'It is foggy,visbility might be reduced be carefull while driving',
+    <p key="">
+      <BsFillInfoCircleFill key="" />
+      &nbsp;&nbsp; It is foggy,visbility might be reduced be carefull while
+      driving
+    </p>,
   ],
   Mist: [hazeBack, <WiFog key="" />, ''],
   Smoke: [hazeBack, <WiFog key="" />, ''],
@@ -45,18 +58,27 @@ const backgrounds = {
   Tornado: [
     hazeBack,
     <WiFog key="" />,
-    'Caution! there is a tornado, seek cover',
+    <p key="">
+      <BsFillInfoCircleFill key="" /> Caution! there is a tornado, seek cover
+    </p>,
   ],
   Clouds: [cloudBack, <WiCloudy key="" />, 'It is overcast outside'],
   Snow: [
     snowBack,
     <WiSnowflakeCold key="" />,
-    'It is snowing, make sure to take warm clothes and be carefull with ice on the roads',
+    <p key="">
+      <BsFillInfoCircleFill key="" />
+      &nbsp;&nbsp; It is snowing, make sure to take warm clothes and be carefull
+      with ice on the roads
+    </p>,
   ],
   Thunderstorm: [
     thunderBack,
     <WiThunderstorm key="" />,
-    'It is thundering outside, please avoid going out',
+    <p key="">
+      <BsFillInfoCircleFill key="" />
+      &nbsp;&nbsp; It is thundering outside, please avoid going out
+    </p>,
   ],
 };
 export default backgrounds;
