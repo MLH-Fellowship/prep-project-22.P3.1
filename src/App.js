@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BiError } from 'react-icons/bi';
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
@@ -68,7 +69,11 @@ function App() {
       <div className="Results">
         {!isLoaded && (
           <>
-            <div> Error, locattion not found</div>
+            <div className="error-prompt">
+              <BiError className="error-icon" /> <br />
+              Location not found <br />
+              Please enter a valid location.
+            </div>
             <div className="weather-map">
               <WeatherMap
                 city={city}

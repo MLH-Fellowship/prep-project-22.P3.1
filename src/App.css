@@ -35,9 +35,15 @@ input {
   height: 450px;
 }
 
-.loading{
-  width: 100%;
-  font-size: 3rem;
+.error-icon{
+  font-size: 4rem;
+  color: red;
+}
+
+.error-prompt{
+  margin-top: 1.5rem;  
+  width: 60%;
+  font-size: 2.5rem;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
