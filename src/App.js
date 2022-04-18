@@ -7,6 +7,8 @@ import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import useFetchCity from './hooks/useFetchCity';
+import weatherData from './components/Charts/chartData.json';
+import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
 
 function App() {
@@ -81,7 +83,9 @@ function App() {
           </>
         )}
       </div>
-    </div>
+      
+      <Charts data={weatherData} />
+      </div>
   );
 }
 
