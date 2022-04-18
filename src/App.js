@@ -41,7 +41,6 @@ function App() {
             setIsLoaded(true);
             setResults(result);
             setcardBackground(result.weather[0].main);
-            setCity(result.name);
             setCityCoordinates({
               lat: result.coord.lat,
               lon: result.coord.lon,
