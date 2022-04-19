@@ -10,19 +10,6 @@ img {
   color: #FAB83C;
 }
 
-.spotify_green {
-  color: #1ed760;
-}
-
-.spotify_button {
-  background: #1ed760;
-  color: white;
-  font-weight: bold;
-  border-radius: 2rem 2rem;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  padding: 1.2rem;
-}
-
 /* Card styling */
 .card {
   width: 32rem;
