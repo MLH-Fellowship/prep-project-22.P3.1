@@ -9,7 +9,7 @@ import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import useFetchCity from './hooks/useFetchCity';
 import WeatherMap from './components/weatherMap/weatherMap';
-import Alert from './components/Alert';
+import Alert from './components/Alerts/Alert';
 
 function App() {
   const [error, setError] = useState(null);
@@ -63,6 +63,7 @@ function App() {
     <div className="entirePage">
       <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
       <Navbar src={logo} />
+      <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
@@ -70,18 +71,20 @@ function App() {
       <div className="Results">
         {!isLoaded && (
           <>
-            <div className="error-prompt">
-              <BiError className="error-icon" /> <br />
-              Location not found <br />
-              Please enter a valid location.
-            </div>
-            <div className="weather-map">
-              <WeatherMap
-                city={city}
-                setCity={setCity}
-                cityCoordinates={cityCoordinates}
-                setCityCoordinates={setCityCoordinates}
-              />
+            <div>
+              <div className="error-prompt">
+                <BiError className="error-icon" /> <br />
+                Location not found <br />
+                Please enter a valid location.
+              </div>
+              <div className="weather-map">
+                <WeatherMap
+                  city={city}
+                  setCity={setCity}
+                  cityCoordinates={cityCoordinates}
+                  setCityCoordinates={setCityCoordinates}
+                />
+              </div>
             </div>
           </>
         )}
@@ -98,9 +101,6 @@ function App() {
             </div>
           </>
         )}
-      </div>
-      <div className="Alert">
-        <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
       </div>
     </div>
   );

@@ -1,0 +1,37 @@
+@import url('//fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
+
+.alertsAvailable
+{
+    background-color: rgba(255, 0, 0, 0.59);
+    color: white;
+    padding: 1rem;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+.title
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.4rem;
+    font-size: 1.6rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.dropDown{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+.descriptionAlert
+{
+    font-size: larger;
+    display: none;
+}
+
+.show{
+    display: block;
+}
