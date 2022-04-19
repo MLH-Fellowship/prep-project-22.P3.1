@@ -102,11 +102,8 @@ function App() {
           </>
         )}
       </div>
-<<<<<<< HEAD
       <MusicRecommender props={results} />
       <Charts data={weatherData} />
-=======
->>>>>>> main
     </div>
   );
 }
