@@ -10,6 +10,7 @@ import useFetchCity from './hooks/useFetchCity';
 import weatherData from './components/Charts/chartData.json';
 import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
+import ForecastCarousel from './components/forecast/forecast';
 
 function App() {
   const [error, setError] = useState(null);
@@ -83,9 +84,9 @@ function App() {
           </>
         )}
       </div>
-      
+      <ForecastCarousel />
       <Charts data={weatherData} />
-      </div>
+    </div>
   );
 }
 
