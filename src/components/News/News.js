@@ -279,7 +279,7 @@ function App(city) {
         <List>
           {news.map((text, index) => (
             <ListItem button key={0}>
-              <MediaCard media={text} />
+              <RecipeReviewCard media={text} />
             </ListItem>
           ))}
         </List>

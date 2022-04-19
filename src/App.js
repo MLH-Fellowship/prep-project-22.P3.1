@@ -12,7 +12,7 @@ import weatherData from './components/Charts/chartData.json';
 import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
 
-import News from './News'
+import News from './components/News/News'
 
 function App() {
   const [error, setError] = useState(null);
