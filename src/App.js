@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
@@ -10,6 +11,8 @@ import useFetchCity from './hooks/useFetchCity';
 import weatherData from './components/Charts/chartData.json';
 import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
+
+import News from './News'
 
 function App() {
   const [error, setError] = useState(null);
@@ -32,7 +35,7 @@ function App() {
   }, [geoCity.city, geoCity.countryCode]);
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=48a50678eba83ab8e75543e3bf60a915`;
     fetch(url)
       .then((res) => res.json())
       .then(
@@ -63,9 +66,11 @@ function App() {
     <div className="entirePage">
       <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
       <Navbar src={logo} />
+      
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
+        <News/>
       </div>
       <div className="Results">
         {!isLoaded && <h2 className="loading">Loading...</h2>}
