@@ -1,5 +1,11 @@
-/* eslint-disable */
-import React, { useRef, useState } from "react";
+// Deal with favicon to play/pause
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
+// Deal with audio component
+/* eslint-disable jsx-a11y/media-has-caption */
+
+import React, { useRef, useState } from 'react';
 
 export default function AudioPlayer({ track }) {
   const audioPlayer = useRef();
@@ -16,7 +22,7 @@ export default function AudioPlayer({ track }) {
       audioPlayer.current.play();
       setPlaying(true);
     }
-  }
+  };
 
   const onPlaying = () => {
     setSeekValue(
@@ -26,16 +32,21 @@ export default function AudioPlayer({ track }) {
 
   return (
     <div>
-      <audio className="audio_control"
+      <audio
+        className="audio_control"
         src={track.previewUrl}
         ref={audioPlayer}
         onTimeUpdate={onPlaying}
-      >
-      </audio>
-      <i className={playing ? "fas fa-pause play_button" : "fas fa-play play_button"}
-        data-toggle="tooltip" data-placement="bottom" title="Preview song"
-        onClick={togglePlay}>
-      </i>
+      />
+      <i
+        className={
+          playing ? 'fas fa-pause play_button' : 'fas fa-play play_button'
+        }
+        data-toggle="tooltip"
+        data-placement="bottom"
+        title="Preview song"
+        onClick={togglePlay}
+      />
       <br />
       <input
         type="range"
