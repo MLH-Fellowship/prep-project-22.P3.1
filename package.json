@@ -6,10 +6,12 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "leaflet": "1.7.1",
+    "chart.js": "^3.7.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.1.0",
     "react-dom": "^17.0.2",
+    "react-grid-carousel": "^1.0.1",
     "react-icons": "^4.3.1",
     "react-leaflet": "3.2.5",
     "react-scripts": "4.0.1",
@@ -32,7 +34,7 @@
     ]
   },
   "browserslist": {
-    "production": [
+   "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
@@ -42,10 +44,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
+},
   "devDependencies": {
     "@types/leaflet": "^1.7.9",
-    "eslint": "^7.11.0",
+    "eslint": "^8.13.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
