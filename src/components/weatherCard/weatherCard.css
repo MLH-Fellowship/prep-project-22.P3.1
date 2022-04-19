@@ -11,6 +11,22 @@
     overflow: hidden;
     background-color: transparent;
   }
+
+  .playButton{
+    padding:15px;
+    color:#fff;
+    margin:8px;
+    background:transparent;
+    border: 2.5px solid white;
+    border-radius: 15px;
+  }
+
+  .playButton:hover{
+    background:#fff;
+    color:black;
+    cursor:pointer;
+    transition:0.4s ease-in-out
+  }
   
   .content{
     position: absolute;
