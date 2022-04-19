@@ -8,7 +8,8 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/react": "^18.0.5",
     "chart.js": "^3.7.0",
-    "leaflet": "^1.8.0",
+
+    "leaflet": "1.7.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-chartjs-2": "^4.1.0",
@@ -39,10 +40,10 @@
     ">0.2%",
     "not dead",
     "not op_mini all"
-  ],
+ ],
   "devDependencies": {
     "@types/leaflet": "^1.7.9",
-    "eslint": "7.11.0",
+    "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
