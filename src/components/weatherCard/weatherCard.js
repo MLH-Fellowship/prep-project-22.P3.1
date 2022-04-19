@@ -1,14 +1,48 @@
 import './weatherCard.css';
 import { WiBarometer, WiWindy, WiHumidity } from 'react-icons/wi';
 import backgrounds from './backgroundArray';
+import SoundArray from '../backgroundSoundArray/SoundArray'
+import morningBird from '../backgroundSoundArray/assets/raindrop.mp3'
 
 function WeatherCard(props) {
   const { results } = props;
   const { cardBackground } = props;
   console.log(cardBackground);
+  
 
+  const arr = {
+    Clear: SoundArray.morning,
+    Rain:SoundArray.Rain ,
+    Drizzle: SoundArray.sunrise ,
+    Haze:SoundArray.sunrise,
+    Mist:SoundArray.wind,
+    Smoke:SoundArray.wind,
+    Dust:SoundArray.wind,
+    Sand:SoundArray.wind,
+    Fog:SoundArray.wind,
+    Ash:SoundArray.Rain,
+    Squall:SoundArray.Rain,
+    Tornado:SoundArray.thunder,
+    Clouds: SoundArray.thunder,
+    Snow: SoundArray.wind,
+    Thunderstorm: SoundArray.thunder,
+    }
+  
+    const playAudio = () => {
+      const aud = new Audio(arr[`${cardBackground}`]);
+  
+      console.log(`arr[${cardBackground}]`)
+      aud.play();
+    
+      setTimeout(() => {
+        aud.pause()
+      }, 10000);
+    }
+
+    
   return (
     <div className="weather-card">
+      <button className="playButton" type="button" onClick={playAudio}>Play Audio </button>
       <div className="content">
         <div className="place">
           {results.name}, {results.sys.country}
