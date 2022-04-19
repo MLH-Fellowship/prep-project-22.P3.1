@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css" />
+ 
+    
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Weather visualization</title>
+    
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <style>
+    html,
+    body,
+    #viewDiv {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      width: 300px;
+    }
+
+  #backbutton{
+  position: relative;
+  outline: none;
+  margin-left: 10px;
+  margin-top: 50px;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #1088d3;
+  color:  rgba;
+  text-decoration-color: #1088d3;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 40px;
+  width: 160px;
+  opacity: 1;
+  background-color: #ffffff;
+  border: 1px solid rgba(22, 76, 167, 0.6);
+ 
+    
+    
+@keyframes rotate
+    0%
+        transform: rotate(0deg) translate3d(0, 0, 0)
+    25%
+        transform: rotate(3deg) translate3d(0, 0, 0)
+    50%
+        transform: rotate(-3deg) translate3d(0, 0, 0)
+    75%
+        transform: rotate(1deg) translate3d(0, 0, 0)
+    100%
+        transform: rotate(0deg) translate3d(0, 0, 0)
+  
+@keyframes storm 
+    0%
+        transform: translate3d( 0, 0, 0) translateZ(0)
+    25%
+        transform: translate3d( 4px, 0, 0) translateZ(0)
+    50%
+        transform: translate3d( -3px, 0, 0) translateZ(0)
+    75%
+        transform: translate3d( 2px, 0, 0) translateZ(0)
+    100%
+        transform: translate3d( 0, 0, 0) translateZ(0)
+  }
+    #button {
+      width: 100%;
+      margin: 20px 0 0 0;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.23/"></script>
+
+  <script>
+
+     // Creating  the SceneView
+    require([
+      "esri/Map",
+      "esri/layers/SceneLayer",
+      "esri/views/SceneView",
+      "esri/widgets/Expand",
+      "esri/widgets/Weather",
+      "esri/widgets/Daylight"
+    ], (Map, SceneLayer, SceneView, Expand, Weather, Daylight) => {
+     
+       
+    
+       // Creating a new map
+      const map = new Map({
+        basemap: "satellite",
+        ground: "world-elevation"
+      });
+
+      // Loading the sceneLayer with the 3D buildings from city
+      const sceneLayer = new SceneLayer({
+        url: "https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/SanFrancisco_Bldgs/SceneServer/layers/0",
+        title: "San Francisco Downtown",
+        popupEnabled: false
+      });
+      map.add(sceneLayer);
+
+      // Creating a new sceneView and set the weather to cloudy
+      const view = new SceneView({
+        container: "viewDiv",
+
+        map: map,
+        camera: {
+          position: {
+            longitude: -122.38907,
+            latitude: 37.7755,
+            z: 74.83047
+          },
+          heading: 333.84,
+          tilt: 92.84
+        },
+        qualityProfile: "high",
+        environment: {
+          atmosphere: {
+            quality: "high"
+          },
+          weather: { type: "cloudy", cloudCover: 0.6 } // autocasts to new CloudyWeather({ cloudCover: 0.6 })
+        }
+      });
+
+      
+      // Add the widgets' UI elements to the view
+      
+      const weatherExpand = new Expand({
+        view: view,
+        content: new Weather({
+          view: view
+        }),
+        group: "top-right",
+        expanded: true
+      });
+
+      const daylightExpand = new Expand({
+        view: view,
+        content: new Daylight({
+          view: view
+        }),
+        group: "top-right"
+      });
+      view.ui.add([weatherExpand, daylightExpand], "top-right");
+
+      /***********************************
+       * Add functionality to change the weather to foggy (with an animation) and back to main screen
+       ***********************************/
+      view.ui.add("box", "bottom-right");
+      view.ui.add("backbutton", "bottom-left");
+
+      // If the button is clicked, change the weather
+      document.getElementById("button").addEventListener("click", () => {
+        view.environment.weather = { type: "foggy", fogStrength: 0 }; // autocasts to new FoggyWeather({ fogStrength: 0 })
+        animation(); // Start the animation
+
+        // Display information about San Francisco
+        // Source: https://www.currentresults.com/Weather/US/cloud-fog-city-annual.php
+        document.getElementById("infoText").innerHTML = `What is this city famous for?<br><br>
+    <b>Fog!</b><br>
+    But did you know? San Francisco only has 108 days of fog per year. The US record is held by New Orleans with 200 days.`;
+        document.getElementById("button").innerHTML = "Repeat animation";
+      });
+
+      // Animation to let the fog slowly appear
+      function animation() {
+        view.environment.weather.fogStrength += 0.015; // Increase the fogStrength by a small amount
+        // Continue animating until the fogStrength is 0.8
+        if (view.environment.weather.fogStrength < 0.8) {
+          requestAnimationFrame(animation);
+        }
+      }
+    });
+  </script>
+
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+  <div id="viewDiv"></div>
+
+  
+    <button id = "backbutton" onclick="history.back()">Go Back</button>
+  
+  
+  <div id="box">
+    <div id="infoText">What is this city famous for?</div>
+    <calcite-button id="button">Click to find out</calcite-button>
+    
+  </div>
+  </body>
+</html>

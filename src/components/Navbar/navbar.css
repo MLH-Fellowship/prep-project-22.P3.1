@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap%27");
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Roboto Condensed","sans-serif";
+    font-weight: 500;
+    font-size: 1.5rem;
+    background: transparent;
+    overflow-x: hidden;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.logo {
+    display: block;
+    width: 200px;
+    padding: 2rem;
+  }
+
+  .navlist{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navlist-link{
+    list-style: none;
+    padding: 1rem 4rem;
+}
+
+.navlist-link:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+    transform: scale(1.1);
+}
+
+a:link {
+    color: rgb(243, 242, 242);
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: rgb(250, 255, 250);
+    text-decoration: none;
+  }
+  
+  
+  
+  /* selected link */
+  a:active {
+    color: blue;
+    text-decoration: none;
+  }
