@@ -9,6 +9,7 @@ import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import useFetchCity from './hooks/useFetchCity';
 import WeatherMap from './components/weatherMap/weatherMap';
+import Alert from './components/Alert';
 
 function App() {
   const [error, setError] = useState(null);
@@ -97,6 +98,9 @@ function App() {
             </div>
           </>
         )}
+      </div>
+      <div className="Alert">
+        <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
       </div>
     </div>
   );
