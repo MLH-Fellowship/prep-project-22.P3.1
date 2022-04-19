@@ -60,8 +60,16 @@ function App() {
     return <div>Error: {error.message}</div>;
   }
   return (
-    <div className="entirePage">
-      <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
+    <div
+      className="entirePage"
+      style={{
+        backgroundImage: `url(${backgrounds[cardBackground][0]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       <Navbar src={logo} />
       <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
       <div>
