@@ -1,33 +1,26 @@
 import './forecast.css';
 
-export default function WeatherCard(
-  { value },
-  {
-    day = 'Today',
-    date = 'Apr 19',
-    iconClass = 'wi-day-sunny',
-    low = '12',
-    high = '33',
-  }
-) {
+export default function WeatherCard({ value, data }) {
+  // console.log('this is data: ', data);
+  // console.log('this is value: ', value);
   return (
     <>
       {value === '7 Days' && (
         <>
           <div className="container">
             <div className="time">
-              <span className="day">{day}</span>
-              <span className="date">{date}</span>
+              <span className="day">Today</span>
+              <span className="date">Apr 19</span>
             </div>
-            <i className={`wi  ${iconClass}`} />
+            <i className="wi wi-day-sunny" />
             <div className="low">
               <span>
-                High <b>{high}°</b>
+                High <b>{data.temp.max}°C</b>
               </span>
             </div>
             <div className="high">
               <span>
-                Low <b>{low}°</b>
+                Low <b>{data.temp.min}°C</b>
               </span>
             </div>
           </div>
@@ -37,18 +30,18 @@ export default function WeatherCard(
         <>
           <div className="container">
             <div className="time">
-              <span className="day">{day}</span>
-              <span className="date">{date}</span>
+              <span className="day">Today</span>
+              <span className="date">Apr 19</span>
             </div>
-            <i className={`wi  ${iconClass}`} />
+            <i className="wi wi-day-sunny" />
             <div className="low">
               <span className="humidity-info">
-                Humidity <b>{high}°</b>
+                Humidity <b>{data.humidity}%</b>
               </span>
             </div>
             <div className="high">
-              <span>
-                Low <b>{low}°</b>
+              <span className="humidity-info">
+                Temp <b>{data.temp}°C</b>
               </span>
             </div>
           </div>
