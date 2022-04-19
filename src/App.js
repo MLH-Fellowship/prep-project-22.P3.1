@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { BiError } from 'react-icons/bi';
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
@@ -10,6 +9,8 @@ import useLocation from './hooks/useLocation';
 import useFetchCity from './hooks/useFetchCity';
 import WeatherMap from './components/weatherMap/weatherMap';
 import Alert from './components/Alerts/Alert';
+
+import News from './components/News/News'
 
 function App() {
   const [error, setError] = useState(null);
@@ -32,7 +33,7 @@ function App() {
   }, [geoCity.city, geoCity.countryCode]);
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=48a50678eba83ab8e75543e3bf60a915`;
     fetch(url)
       .then((res) => res.json())
       .then(
@@ -75,13 +76,13 @@ function App() {
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
+        <News />
       </div>
       <div className="Results">
         {!isLoaded && (
           <>
             <div>
               <div className="error-prompt">
-                <BiError className="error-icon" /> <br />
                 Location not found <br />
                 Please enter a valid location.
               </div>
