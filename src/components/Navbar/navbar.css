@@ -75,7 +75,7 @@ a:active {
   border: 0;
   height: 40px;
   width: 40px;
-  padding: 0.5rem;
+  padding: 0.2rem;
   border-radius: 50%;
   background-color: #283b8b;
   cursor: pointer;
@@ -91,9 +91,12 @@ a:active {
   background-color: #2642af;
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1150px) {
   .hamburger {
     display: block;
+    position: fixed;
+    top: 10%;
+
   }
 
 
@@ -102,18 +105,16 @@ a:active {
     flex-direction: column;
     position: fixed;
     top: 80px;
-    left: 0;
-    width: 100%;
+    right: 0;
     height: 50%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
     display: none;
   }
 
   .navigation-menu li {
-    text-align: center;
+    text-align:right;
     margin: 0;
-    
+    background: transparent;
+
   }
 
   .navigation-menu li a {
