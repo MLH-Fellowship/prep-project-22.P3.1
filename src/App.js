@@ -11,6 +11,7 @@ import useFetchCity from './hooks/useFetchCity';
 import weatherData from './components/Charts/chartData.json';
 import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
+import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
   const [error, setError] = useState(null);
@@ -19,18 +20,51 @@ function App() {
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
   const geoLocation = useLocation();
-  const geoCity = useFetchCity(
-    geoLocation.coordinates.lat,
-    geoLocation.coordinates.lng
-  );
   const [cityCoordinates, setCityCoordinates] = useState({
     lat: geoLocation.coordinates.lat,
     lon: geoLocation.coordinates.lng,
   });
 
-  useEffect(() => {
-    setCity(`${geoCity.city}, ${geoCity.countryCode}`);
-  }, [geoCity.city, geoCity.countryCode]);
+  console.log(geoLocation.coordinates.lat)
+  console.log(geoLocation.coordinates.lng)
+
+  /**
+   * Below is the method for location based weather results 
+   */
+
+   useEffect(() => {
+    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`
+    fetch(urlGeo)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          if (result.cod !== 200) {
+            setIsLoaded(false);
+            // console.log(result.cod)
+          } else {
+            setIsLoaded(true);
+            setResults(result);
+            console.log(result)
+            setcardBackground(result.weather[0].main);
+            setCityCoordinates({
+              lat: result.coord.lat,
+              lon: result.coord.lon,
+            });
+            setCity(`${result.name}, ${result.sys.country}`)
+          }
+        },
+        (err) => {
+          setIsLoaded(true);
+          setError(err);
+        }
+      );
+  }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
+
+
+
+  /**
+   * Below is the method to city based search 
+   */
 
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
@@ -100,6 +134,8 @@ function App() {
           </>
         )}
       </div>
+      <MusicRecommender props={results} />
+      <Charts data={weatherData} />
     </div>
   );
 }

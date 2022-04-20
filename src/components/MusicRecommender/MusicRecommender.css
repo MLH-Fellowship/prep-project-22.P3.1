@@ -1,0 +1,104 @@
+/* Preventing image drag */
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+/* User Journey styles */
+.golden_words {
+  color: #FAB83C;
+}
+
+/* Card styling */
+.card {
+  width: 32rem;
+  margin: 0.5rem 0.5rem;
+  background-color: #181818;
+}
+
+.card-img:hover {
+  opacity: 0.5;
+}
+
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-text a {
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Audio control styling and play button styling*/
+.audio_control {
+  color: white;
+}
+
+.play_button {
+  background-color: #1ed760;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  right: 20px;
+  font-size: 25px;
+  padding-left: 19px;
+  padding-top: 17px;
+  color: black;
+  cursor: pointer;
+}
+
+.play_button:hover {
+  filter: brightness(120%);
+  transform: scale(1.1);
+}
+
+
+/* Cross browser styles for the audio input range */
+input[type=range] {
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  background: #010101;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  width: 16px;
+  height: 10px;
+  background: #1ed760;
+  border-radius: 12px;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-track {
+  background: #010101;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 10px;
+  background: #1ed760;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Managing the layout switching */
+.fa-th-large {
+  margin-right: 2em;
+}
+
+.icon_active {
+  box-shadow: 0px 0px 0 5px #303030;
+}
+
+.icon_inactive {
+  cursor: pointer;
+}
+
+.embedded_spotify_playlist {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-radius: 12px;
+}
