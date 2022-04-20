@@ -9,8 +9,9 @@ import useLocation from './hooks/useLocation';
 import useFetchCity from './hooks/useFetchCity';
 import WeatherMap from './components/weatherMap/weatherMap';
 import Alert from './components/Alerts/Alert';
+import WeatherNews from './components/News/WeatherNews';
 
-import News from './components/News/News'
+import News from './components/News/News';
 
 function App() {
   const [error, setError] = useState(null);
@@ -111,6 +112,7 @@ function App() {
           </>
         )}
       </div>
+      <WeatherNews />
     </div>
   );
 }
