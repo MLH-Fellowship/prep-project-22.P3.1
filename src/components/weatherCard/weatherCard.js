@@ -1,12 +1,29 @@
 import './weatherCard.css';
 import { WiBarometer, WiWindy, WiHumidity } from 'react-icons/wi';
+import { useState } from 'react';
 import backgrounds from './backgroundArray';
 
 function WeatherCard(props) {
   const { results } = props;
   const { cardBackground } = props;
+  const [units, setUnits] = useState('metric');
+  const [tempUnit, setTempUnit] = useState('fahrenheit');
   console.log(cardBackground);
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    if (tempUnit === 'celsius') {
+      setTempUnit('fahrenheit');
+      setUnits('metric');
+    }
+    else {
+      setTempUnit('celsius')
+      setUnits('imperial');
+    }
+    const { onUnitsChanged } = props
+    onUnitsChanged(units);
+  }
+  
   return (
     <div className="weather-card">
       <div className="content">
@@ -45,6 +62,12 @@ function WeatherCard(props) {
             <WiWindy className="we-icon" />
             <br /> Wind Speed: {results.wind.speed} m/s
           </p>
+        </div>
+        <div>
+          <button type="button" value={tempUnit} onClick={handleChange}>
+            click here
+          </button>
+          to change the temprature unit 
         </div>
         <div className="recomendation">{backgrounds[cardBackground][2]}</div>
       </div>

@@ -19,6 +19,7 @@ function App() {
   const [city, setCity] = useState(null);
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
+  const [tempUnits, setTempUnits] = useState('metric');
   const geoLocation = useLocation();
   const [cityCoordinates, setCityCoordinates] = useState({
     lat: geoLocation.coordinates.lat,
@@ -67,7 +68,7 @@ function App() {
    */
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${tempUnits}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
       .then(
@@ -89,11 +90,16 @@ function App() {
           setError(err);
         }
       );
-  }, [city]);
+  }, [city, tempUnits]);
 
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+
+  const getTempUnit = (tempUnit) => {
+    setTempUnits(tempUnit);
+  }
+
   return (
     <div className="entirePage">
       <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
@@ -122,7 +128,7 @@ function App() {
         )}
         {isLoaded && results && (
           <>
-            <WeatherCard results={results} cardBackground={cardBackground} />
+            <WeatherCard results={results} cardBackground={cardBackground} onUnitsChanged={getTempUnit}/>
             <div className="weather-map">
               <WeatherMap
                 city={city}
