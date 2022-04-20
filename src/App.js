@@ -11,6 +11,7 @@ import useFetchCity from './hooks/useFetchCity';
 import weatherData from './components/Charts/chartData.json';
 import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
+import ForecastCarousel from './components/forecast/forecast';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
@@ -134,6 +135,7 @@ function App() {
           </>
         )}
       </div>
+      <ForecastCarousel />
       <MusicRecommender props={results} />
       <Charts data={weatherData} />
     </div>
