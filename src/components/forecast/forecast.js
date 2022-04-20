@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Carousel from 'react-grid-carousel';
 
 import WeatherCard from './card';
@@ -77,7 +77,28 @@ const dummyData = {
   ],
 };
 
-function ForecastCarousel() {
+function ForecastCarousel(props) {
+  const { city } = props;
+  const [results, setResults] = useState(null);
+  const [valid, setValid] = useState(false);
+  useEffect(() => {
+    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt={7}&appid=${process.env.REACT_APP_APIKEY}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          if (result.cod !== 200) {
+            setValid(false);
+          } else {
+            setResults(result);
+            console.log(result);
+          }
+        },
+        (err) => {
+          setValid(true);
+        }
+      );
+  }, [city]);
   const [items, setItems] = useState(dummyData);
   const [selector, setSelector] = useState(['7 Days', '7 Hours']);
   const [selectedValue, setSelectedValue] = useState('7 Days');

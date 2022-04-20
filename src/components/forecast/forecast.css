@@ -1,4 +1,4 @@
-.container {
+.container-forecast {
     font-size: 22px;
     display: grid;
     grid-template-rows: 1.1fr 0.9fr;

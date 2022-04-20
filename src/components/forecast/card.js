@@ -7,7 +7,7 @@ export default function WeatherCard({ value, data }) {
     <>
       {value === '7 Days' && (
         <>
-          <div className="container">
+          <div className="container-forecast">
             <div className="time">
               <span className="day">Today</span>
               <span className="date">Apr 19</span>
@@ -28,7 +28,7 @@ export default function WeatherCard({ value, data }) {
       )}
       {value === '7 Hours' && (
         <>
-          <div className="container">
+          <div className="container-forecast">
             <div className="time">
               <span className="day">Today</span>
               <span className="date">Apr 19</span>

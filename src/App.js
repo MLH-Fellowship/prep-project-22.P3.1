@@ -26,15 +26,15 @@ function App() {
     lon: geoLocation.coordinates.lng,
   });
 
-  console.log(geoLocation.coordinates.lat)
-  console.log(geoLocation.coordinates.lng)
+  console.log(geoLocation.coordinates.lat);
+  console.log(geoLocation.coordinates.lng);
 
   /**
-   * Below is the method for location based weather results 
+   * Below is the method for location based weather results
    */
 
-   useEffect(() => {
-    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`
+  useEffect(() => {
+    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(urlGeo)
       .then((res) => res.json())
       .then(
@@ -45,13 +45,13 @@ function App() {
           } else {
             setIsLoaded(true);
             setResults(result);
-            console.log(result)
+            console.log(result);
             setcardBackground(result.weather[0].main);
             setCityCoordinates({
               lat: result.coord.lat,
               lon: result.coord.lon,
             });
-            setCity(`${result.name}, ${result.sys.country}`)
+            setCity(`${result.name}, ${result.sys.country}`);
           }
         },
         (err) => {
@@ -61,10 +61,8 @@ function App() {
       );
   }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
 
-
-
   /**
-   * Below is the method to city based search 
+   * Below is the method to city based search
    */
 
   useEffect(() => {
