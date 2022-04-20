@@ -68,31 +68,13 @@ function WeatherCard(props) {
       <div className="content">
         <div className="place">
           {results.name}, {results.sys.country}
-          <button className="playButton" type="button" onClick={playAudio}><i className= "fas fa-cloud fa-2x"  alt="" title="Play Background Music"/></button>
+          <button className="playButton" type="button" onClick={playAudio}><i className= "fas fa-cloud fa-1x"  alt="" title="Play Background Music"/></button>
         </div>
        
         <div className="top-info">
           <div className="temp">{results.main.temp}°</div>
           <div className="conditions">
             <div className="forecast">
-              {cardBackground === 'Clear' && (
-                  <span>The weather looks clear, you can go out!  </span>
-              )}
-              {cardBackground === 'Clouds' && (
-                <span>The weather looks cloudy, rain might happen!  </span>
-              )}
-              {cardBackground === 'Rain' && (
-              <span>Please take an umberlla!  </span>
-              )}
-              {cardBackground === 'Snow' && (
-                <span>The weather looks awesome</span>
-              )}
-              {cardBackground === 'Thunderstorm' && (
-                <span>Stay inside</span>
-              )}
-              {cardBackground === 'Mist' && (
-                <span>The weather looks misty</span>
-              )}
               {results.weather[0].main} {backgrounds[cardBackground][1]}
             </div>
             <div className="temp-feel">
@@ -122,6 +104,7 @@ function WeatherCard(props) {
             <br /> Wind Speed: {results.wind.speed} m/s
           </p>
         </div>
+        <div className="recomendation">{backgrounds[cardBackground][2]}</div>
       </div>
     </div>
   );

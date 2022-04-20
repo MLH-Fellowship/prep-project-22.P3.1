@@ -20,6 +20,12 @@ const Search = ({ setCity }) => (
       fuseOptions={{
         keys: ['n'],
       }}
+      placeholder="Enter your location"
+      styling={{
+        height: '44px',
+        fontFamily: 'Roboto',
+        zIndex: 200,
+      }}
       resultStringKeyName="n"
       // eslint-disable-next-line no-shadow
       onSelect={(city) => setCity(city.n)}

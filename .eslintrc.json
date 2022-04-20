@@ -38,6 +38,7 @@
         "func-names": "off",
         "no-process-exit": "off",
         "object-shorthand": "off",
+        "import/no-unresolved": "off",
         "class-methods-use-this": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     },

@@ -15,3 +15,12 @@ You'll be using React initially to build this. If you're new to React, check out
 - Install dependencies with `yarn install`
 - Add your API key to the `.env` file. You can generate your API key from [here](https://home.openweathermap.org/api_keys).
 - Run the app with `yarn start`.
+
+#### Getting Spotify API keys
+To get the Spotify API keys:
+- Visit [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/)
+- Login/Sign up for an account
+- Create an application
+- Name it whatever you like and add a description
+- In the App overview, you should see the ***client id*** and the ***client secret***(Toggle the `show client secret`). Copy these 2 values to your `.env` file using the format shown in the `example.env` file
+You should now be able to make API calls.
