@@ -3,15 +3,15 @@
 
 .navbar{
     display: flex;
-    align-items: center;
+    align-items: right;
     justify-content: space-between;
     font-family: "Roboto Condensed","sans-serif";
     font-weight: 500;
     font-size: 1.5rem;
-    background: blue;
+    background: transparent;
     overflow-x: hidden;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 1;
 }
@@ -37,7 +37,9 @@
 .navigation-menu li {
   list-style-type: none;
   margin: 0 1rem;
-  padding: 1rem 4rem;
+  
+  padding-left:1rem;
+  padding-right:1rem;
 }
 
 .navigation-menu li a {
@@ -89,7 +91,7 @@ a:active {
   background-color: #2642af;
 }
 
-@media screen and (max-width: 1360px) {
+@media screen and (max-width: 1130px) {
   .hamburger {
     display: block;
   }
