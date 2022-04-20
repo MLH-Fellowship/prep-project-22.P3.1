@@ -71,7 +71,6 @@ function App() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
       }}
     >
       <Navbar src={logo} />
@@ -79,7 +78,6 @@ function App() {
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
-        <News />
       </div>
       <div className="Results">
         {!isLoaded && (

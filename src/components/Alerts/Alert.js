@@ -74,7 +74,7 @@ function Alert({ city, isLoaded, cityCoordinates }) {
                 {alert.title}
               </span>
               <button type="button" className="dropDown">
-                V
+                v
               </button>
             </div>
           )}

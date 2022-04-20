@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './WeatherNews.css';
+import Carousel from 'react-bootstrap/Carousel';
 
 function WeatherNews(city) {
   const [news, setNews] = useState([]);
@@ -35,46 +36,49 @@ function WeatherNews(city) {
       });
   };
 
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
   useEffect(() => {
     fetchNews();
     fetchNewsForYou();
   }, []);
 
   return (
-    <div>
+    <div className="newsSection" id="News">
+      <h3>News for you - </h3>
       {isLoaded && news && (
-        <div className="newsElement">
-          {forYouNews.map((newsElement) => (
-            <div className="newsCard">
-              <div className="newsProfile">
-                <span className="avatar">N</span>
-                <div className="profileDetails">
-                  <h6>
-                    {newsElement.author === null
-                      ? 'Anonymous'
-                      : newsElement.author}
-                  </h6>
-                  <p>{newsElement.publishedAt}</p>
-                </div>
-              </div>
-              <div>
-                <img
-                  src={
-                    newsElement.urlToImage !== undefined
-                      ? newsElement.urlToImage
-                      : '../../assets/images/newsImage.jpg'
-                  }
-                  alt={newsElement.author}
-                  className="thumbnail"
-                />
-              </div>
-              <p className="newsTitle">{newsElement.title}</p>
-              <p className="newsDescription" key={newsElement.publishedAt}>
-                {newsElement.description}
-              </p>
-            </div>
+        <Carousel
+          className="newsCarousel"
+          activeIndex={index}
+          onSelect={handleSelect}
+          fade
+        >
+          {news.map((newsElement) => (
+            <Carousel.Item className="newsItem" interval={5000}>
+              <img
+                className="d-block w-100"
+                src={
+                  newsElement.urlToImage !== undefined
+                    ? newsElement.urlToImage
+                    : '../../assets/images/newsImage.jpg'
+                }
+                alt="imageThumbnail"
+              />
+              <Carousel.Caption>
+                <h5 className="authorTitle">
+                  {newsElement.author === null
+                    ? 'Anonymous'
+                    : newsElement.author}
+                </h5>
+                <p>{newsElement.description}</p>
+              </Carousel.Caption>
+            </Carousel.Item>
           ))}
-        </div>
+        </Carousel>
       )}
     </div>
   );

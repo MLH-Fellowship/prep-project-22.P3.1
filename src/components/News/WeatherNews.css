@@ -3,13 +3,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
 
+.newsSection{
+    padding: 4rem;
+}
+
+.newsSection h3{
+    margin: 2rem 0;
+    font-size: 2.3rem;
+    font-family: "Roboto Condensed",'sans serif';
+}
+
 .newsElement{
     font-size: 2rem;
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-basis;
+    align-items: center;
+}
+
+.newsCarousel{
+    width: 50%;
+    margin: auto;
+    font-family: "Roboto Condensed",'sans serif';
+}
+
+.newsItem{
+    box-shadow:inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+}
+
+.authorTitle{
+    font-size: 2rem;
 }
 
 .newsCard{
