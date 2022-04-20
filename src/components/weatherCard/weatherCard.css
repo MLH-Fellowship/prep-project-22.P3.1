@@ -13,19 +13,20 @@
   }
 
   .playButton{
-    padding:15px;
+    padding:10px;
     color:#fff;
     margin:8px;
     background:transparent;
-    border: 2.5px solid white;
-    border-radius: 15px;
+    border-radius: 35px;
   }
 
   .playButton:hover{
-    background:#fff;
-    color:black;
+    background:transparent;
+    color:transparent;
     cursor:pointer;
-    transition:0.4s ease-in-out
+    transition:0.4s ease-in-out;
+    content :attr(title);
+    
   }
   
   .content{

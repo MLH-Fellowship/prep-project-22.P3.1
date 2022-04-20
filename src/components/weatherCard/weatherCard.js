@@ -1,3 +1,4 @@
+import react, {useState, useEffect} from 'react'
 import './weatherCard.css';
 import { WiBarometer, WiWindy, WiHumidity } from 'react-icons/wi';
 import backgrounds from './backgroundArray';
@@ -5,10 +6,31 @@ import SoundArray from '../backgroundSoundArray/SoundArray'
 import morningBird from '../backgroundSoundArray/assets/raindrop.mp3'
 
 function WeatherCard(props) {
+
+  const [hover, setHover] = useState(false)
   const { results } = props;
+  const [data, setData] = useState([]);
   const { cardBackground } = props;
   console.log(cardBackground);
   
+  let emoji = null;
+  if (typeof data.main !== "undefined") {
+    if (data.weather[0].main === "Clouds") {
+      emoji = "fa-cloud"
+
+    }else if (data.weather[0].main === "Thunderstrom"){
+      emoji = "fa-bolt"
+    }else if (data.weather[0].main === "Drizzle"){
+      emoji = "fa-cloud-rain"
+    }else if (data.weather[0].main === "Rain"){
+      emoji = "fa-cloud-shower-heavy"
+    }else if (data.weather[0].main === "Snow"){
+        emoji = "fa-snow-flake"
+  }else {
+    emoji = "fa-smog"
+  
+ }
+ }
 
   const arr = {
     Clear: SoundArray.morning,
@@ -38,15 +60,17 @@ function WeatherCard(props) {
         aud.pause()
       }, 10000);
     }
-
     
   return (
-    <div className="weather-card">
-      <button className="playButton" type="button" onClick={playAudio}>Play Audio </button>
+    <div className="weather-card"> 
+      {/* <i className={`fas ${emoji} fa-4x`}></i> */}
+      
       <div className="content">
         <div className="place">
           {results.name}, {results.sys.country}
+          <button className="playButton" type="button" onClick={playAudio}><i className= "fas fa-cloud fa-2x"  alt="" title="Play Background Music"/></button>
         </div>
+       
         <div className="top-info">
           <div className="temp">{results.main.temp}°</div>
           <div className="conditions">
