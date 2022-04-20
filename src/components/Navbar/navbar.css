@@ -10,7 +10,6 @@
     font-size: 1.5rem;
     background: blue;
     overflow-x: hidden;
-
     width: 100%;
     position: fixed;
     top: 0;
@@ -121,7 +120,7 @@ a:active {
     padding: 0;
   }
 
-  
+
 
   .navigation-menu.expanded ul {
     display: block;
