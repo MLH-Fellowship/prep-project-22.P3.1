@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 import * as React from 'react';
 import { useEffect, useState } from 'react';
@@ -74,7 +75,7 @@ function WeatherNews(city) {
                     ? 'Anonymous'
                     : newsElement.author}
                 </h5>
-                <p>{newsElement.description}</p>
+                <p className="descriptionNews">{newsElement.description}</p>
               </Carousel.Caption>
             </Carousel.Item>
           ))}

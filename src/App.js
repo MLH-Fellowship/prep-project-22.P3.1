@@ -10,9 +10,6 @@ import useFetchCity from './hooks/useFetchCity';
 import WeatherMap from './components/weatherMap/weatherMap';
 import Alert from './components/Alerts/Alert';
 import WeatherNews from './components/News/WeatherNews';
-
-import News from './components/News/News';
-
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
