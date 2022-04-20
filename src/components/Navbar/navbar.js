@@ -33,11 +33,21 @@ function Navbar(props) {
         }
       >
         <ul>
-          <li><a href="/"> Weather News</a></li>
-          <li><a href="/"> Tell Me Weather</a></li>
-          <li><a href="/"> News</a></li>
-          <li><a href="/"> Songs</a></li>
-          <li><a href="Weather_Visualizer.html"> Weather Visualizer</a></li>
+          <li>
+            <a href="/"> Weather News</a>
+          </li>
+          <li>
+            <a href="/"> Tell Me Weather</a>
+          </li>
+          <li>
+            <a href="/"> News</a>
+          </li>
+          <li>
+            <a href="/"> Songs</a>
+          </li>
+          <li>
+            <a href="Weather_Visualizer.html"> Weather Visualizer</a>
+          </li>
         </ul>
       </div>
     </nav>
