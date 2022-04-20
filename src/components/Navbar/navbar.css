@@ -8,8 +8,9 @@
     font-family: "Roboto Condensed","sans-serif";
     font-weight: 500;
     font-size: 1.5rem;
-    background: transparent;
+    background: blue;
     overflow-x: hidden;
+
     width: 100%;
     position: fixed;
     top: 0;
@@ -94,15 +95,17 @@ a:active {
     display: block;
   }
 
+
+
   .navigation-menu ul {
     flex-direction: column;
-    position: absolute;
-    top: 60px;
+    position: fixed;
+    top: 80px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
-    background-color: white;
+    height: 50%;
     border-top: 1px solid black;
+    border-bottom: 1px solid black;
     display: none;
   }
 
@@ -115,12 +118,10 @@ a:active {
   .navigation-menu li a {
     color: black;
     width: 100%;
-    padding: 1.5rem 0;
+    padding: 0;
   }
 
-  .navigation-menu li:hover {
-    background-color: #eee;
-  }
+  
 
   .navigation-menu.expanded ul {
     display: block;
