@@ -11,7 +11,6 @@ import useFetchCity from './hooks/useFetchCity';
 import weatherData from './components/Charts/chartData.json';
 import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
-
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
