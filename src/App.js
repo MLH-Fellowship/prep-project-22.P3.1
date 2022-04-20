@@ -26,6 +26,9 @@ function App() {
     lon: geoLocation.coordinates.lng,
   });
 
+  console.log(geoLocation.coordinates.lat)
+  console.log(geoLocation.coordinates.lng)
+
   /**
    * Below is the method for location based weather results 
    */
@@ -38,15 +41,17 @@ function App() {
         (result) => {
           if (result.cod !== 200) {
             setIsLoaded(false);
+            // console.log(result.cod)
           } else {
             setIsLoaded(true);
             setResults(result);
-            // console.log(results)
+            console.log(result)
             setcardBackground(result.weather[0].main);
             setCityCoordinates({
               lat: result.coord.lat,
               lon: result.coord.lon,
             });
+            setCity(`${result.name}, ${result.sys.country}`)
           }
         },
         (err) => {
