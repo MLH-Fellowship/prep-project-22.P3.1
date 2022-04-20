@@ -12,6 +12,8 @@ import weatherData from './components/Charts/chartData.json';
 import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
 
+import MusicRecommender from './components/MusicRecommender/MusicRecommender';
+
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -100,6 +102,8 @@ function App() {
           </>
         )}
       </div>
+      <MusicRecommender props={results} />
+      <Charts data={weatherData} />
     </div>
   );
 }

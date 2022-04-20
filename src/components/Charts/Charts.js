@@ -118,4 +118,4 @@ function Charts({ data }) {
   );
 }
 
-export default Charts
+export default Charts;
