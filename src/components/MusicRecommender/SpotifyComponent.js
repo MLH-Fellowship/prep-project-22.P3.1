@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import AudioPlayer from './AudioPlayer';
 
 const SpotifyComponent = ({ props, playlistId }) => {
-  const [accessToken, setAccessToken] = useState('');
+  const accessToken = useRef('');
   const [playlistData, setPlaylistData] = useState([]);
   // To store & set layout choice
   const [listLayout, setListLayout] = useState(false);
@@ -17,7 +17,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
         {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: `Bearer ${accessToken.current}`,
           },
         }
       )
@@ -56,13 +56,12 @@ const SpotifyComponent = ({ props, playlistId }) => {
       })
         .then((response) => response.json())
         .then((result) => {
-          setAccessToken(result.access_token);
+          accessToken.current = result.access_token;
           fetchPlaylistsData();
         })
         .catch((err) => console.error(err));
     };
     getAccessToken();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props, playlistId]);
 
   return (

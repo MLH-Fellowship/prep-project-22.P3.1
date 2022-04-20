@@ -23,7 +23,8 @@
 }
 
 .newsCarousel{
-    width: 50%;
+    max-width: 45%;
+    min-width: 40%;
     margin: auto;
     font-family: "Roboto Condensed",'sans serif';
 }
