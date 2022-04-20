@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import Carousel from 'react-grid-carousel';
-
+import useLocation from '../../hooks/useLocation';
 import WeatherCard from './card';
 
 const dummyData = {
@@ -77,32 +77,41 @@ const dummyData = {
   ],
 };
 
-function ForecastCarousel(props) {
-  const { city } = props;
+function ForecastCarousel() {
+  const [items, setItems] = useState(null);
+  const [selector, setSelector] = useState(['7 Days', '7 Hours']);
+  const [selectedValue, setSelectedValue] = useState('7 Days');
+  const geoLocation = useLocation();
   const [results, setResults] = useState(null);
-  const [valid, setValid] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState(null);
+  // if(geoLocation.coordinates.lat !== '' & geoLocation.coordinates.lng !== ''){
+
+  // }
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt={7}&appid=${process.env.REACT_APP_APIKEY}`;
-    fetch(url)
+    const urlGeo = `https://api.openweathermap.org/data/2.5/onecall?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&units=metric&exclude=current,alerts,minutely&appid=${process.env.REACT_APP_APIKEY}`;
+    fetch(urlGeo)
       .then((res) => res.json())
       .then(
         (result) => {
-          if (result.cod !== 200) {
-            setValid(false);
+          if (
+            result.cod === '400' ||
+            result.cod === '401' ||
+            result.cod === '404'
+          ) {
+            setIsLoaded(false);
           } else {
-            setResults(result);
-            console.log(result);
+            setIsLoaded(true);
+            setItems(result);
           }
         },
         (err) => {
-          setValid(true);
+          setIsLoaded(true);
+          setError(err);
         }
       );
-  }, [city]);
-  const [items, setItems] = useState(dummyData);
-  const [selector, setSelector] = useState(['7 Days', '7 Hours']);
-  const [selectedValue, setSelectedValue] = useState('7 Days');
-
+  }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
+  console.log(items);
   return (
     <>
       <div className="selector">
@@ -146,12 +155,14 @@ function ForecastCarousel(props) {
         ]}
       >
         {selectedValue === '7 Days' &&
+          items !== null &&
           items.daily.map((item) => (
             <Carousel.Item key={item}>
               <WeatherCard value={selectedValue} data={item} />
             </Carousel.Item>
           ))}
         {selectedValue === '7 Hours' &&
+          items !== null &&
           items.hourly.map((item) => (
             <Carousel.Item key={item}>
               <WeatherCard value={selectedValue} data={item} />
