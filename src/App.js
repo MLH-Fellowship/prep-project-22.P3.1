@@ -137,7 +137,6 @@ function App() {
       </div>
       <ForecastCarousel />
       <MusicRecommender props={results} />
-      <Charts data={weatherData} />
     </div>
   );
 }
