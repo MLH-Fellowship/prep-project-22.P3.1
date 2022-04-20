@@ -13,6 +13,8 @@ import WeatherNews from './components/News/WeatherNews';
 
 import News from './components/News/News';
 
+import MusicRecommender from './components/MusicRecommender/MusicRecommender';
+
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -113,6 +115,7 @@ function App() {
         )}
       </div>
       <WeatherNews />
+      <MusicRecommender props={results} />
     </div>
   );
 }
