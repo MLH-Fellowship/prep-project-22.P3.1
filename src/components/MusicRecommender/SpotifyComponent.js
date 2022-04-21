@@ -8,8 +8,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
   const [playlistData, setPlaylistData] = useState(false);
   // To store & set layout choice
   const [listLayout, setListLayout] = useState(false);
-  const [embeddedlistloading, setembeddedlistloading] = useState(true);
-  const [embeddedcardloading, setembeddedcardloading] = useState(true);
+  
    
 
   useEffect(() => {
