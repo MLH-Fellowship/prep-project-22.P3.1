@@ -8,8 +8,9 @@ const SpotifyComponent = ({ props, playlistId }) => {
   const [playlistData, setPlaylistData] = useState(false);
   // To store & set layout choice
   const [listLayout, setListLayout] = useState(false);
+  const [embeddedlistloading, setembeddedlistloading] = useState(true);
+  const [embeddedcardloading, setembeddedcardloading] = useState(true);
   
-   
 
   useEffect(() => {
     // Call the endpoint to fetch song data from specified playlist
@@ -97,7 +98,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
       
            {listLayout && (
         <div>
-         {embeddedlistloading? <ClipLoader color = "#ffffff" size={150} /> : " "}
+        
           <div className="container">
             <iframe
               className="embedded_spotify_playlist"
