@@ -116,7 +116,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
       )}
         {/* Box layout using cards and using data from spotify API */}
 
-        { !playlistData  && !listLayout  ? <ClipLoader color = "#ffffff" size={150} /> : <></>}
+        { !props  && !listLayout  ? <ClipLoader color = "#ffffff" size={150} /> : <></>}
         
         { playlistData  && !listLayout && (
         <div className="row">
