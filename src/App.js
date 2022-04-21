@@ -127,11 +127,11 @@ function App() {
         )}
         {isLoaded && results && (
           <>
-            <WeatherCard 
-              results={results} 
-              cardBackground={cardBackground} 
+            <WeatherCard
+              results={results}
+              cardBackground={cardBackground}
               onUnitsChanged={getTempUnit}
-                />
+            />
             <div className="weather-map">
               <WeatherMap
                 city={city}
