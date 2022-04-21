@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { BiError } from 'react-icons/bi';
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
@@ -8,9 +7,9 @@ import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import useFetchCity from './hooks/useFetchCity';
-import weatherData from './components/Charts/chartData.json';
-import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
+import Alert from './components/Alerts/Alert';
+import WeatherNews from './components/News/WeatherNews';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
@@ -26,14 +25,14 @@ function App() {
     lon: geoLocation.coordinates.lng,
   });
 
-  console.log(geoLocation.coordinates.lat)
-  console.log(geoLocation.coordinates.lng)
+  console.log(geoLocation.coordinates.lat);
+  console.log(geoLocation.coordinates.lng);
 
   /**
    * Below is the method for location based weather results 
    */
 
-   useEffect(() => {
+  useEffect(() => {
     const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`
     fetch(urlGeo)
       .then((res) => res.json())
@@ -61,13 +60,12 @@ function App() {
       );
   }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
 
-
-
   /**
-   * Below is the method to city based search 
+   * Below is the method to city based search
    */
 
   useEffect(() => {
+<<<<
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${tempUnits}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
@@ -101,9 +99,17 @@ function App() {
   }
 
   return (
-    <div className="entirePage">
-      <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
+    <div
+      className="entirePage"
+      style={{
+        backgroundImage: `url(${backgrounds[cardBackground][0]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <Navbar src={logo} />
+      <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
@@ -111,18 +117,19 @@ function App() {
       <div className="Results">
         {!isLoaded && (
           <>
-            <div className="error-prompt">
-              <BiError className="error-icon" /> <br />
-              Location not found <br />
-              Please enter a valid location.
-            </div>
-            <div className="weather-map">
-              <WeatherMap
-                city={city}
-                setCity={setCity}
-                cityCoordinates={cityCoordinates}
-                setCityCoordinates={setCityCoordinates}
-              />
+            <div>
+              <div className="error-prompt">
+                Location not found <br />
+                Please enter a valid location.
+              </div>
+              <div className="weather-map">
+                <WeatherMap
+                  city={city}
+                  setCity={setCity}
+                  cityCoordinates={cityCoordinates}
+                  setCityCoordinates={setCityCoordinates}
+                />
+              </div>
             </div>
           </>
         )}
@@ -140,8 +147,8 @@ function App() {
           </>
         )}
       </div>
+      <WeatherNews />
       <MusicRecommender props={results} />
-      <Charts data={weatherData} />
     </div>
   );
 }
