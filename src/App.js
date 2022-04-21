@@ -98,11 +98,7 @@ function App() {
       }}
     >
       <Navbar src={logo} />
-
-      
-
       <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
-
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
