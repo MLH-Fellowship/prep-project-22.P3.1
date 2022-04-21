@@ -18,7 +18,6 @@ function WeatherNews(city) {
       )
       .then((response) => {
         setForYouNews(response.data.articles);
-        console.log('hie');
         setIsLoaded(true);
       });
   };
@@ -30,10 +29,8 @@ function WeatherNews(city) {
         'https://newsapi.org/v2/everything?q=weather&apiKey=419bc9a18e4a4116b1f9306c7f1595fd'
       )
       .then((response) => {
-        console.log(response);
         setNews(response.data.articles);
         setIsLoaded(true);
-        console.log('hie');
       });
   };
 
