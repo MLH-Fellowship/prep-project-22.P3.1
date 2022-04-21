@@ -58,7 +58,6 @@ function App() {
    */
 
   useEffect(() => {
-    
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${tempUnits}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
@@ -85,11 +84,11 @@ function App() {
 
   if (error) {
     return <div>Error: {error.message}</div>;
-  };
+  }
 
   const getTempUnit = (tempUnit) => {
     setTempUnits(tempUnit);
-  }
+  };
 
   return (
     <div
@@ -128,9 +127,11 @@ function App() {
         )}
         {isLoaded && results && (
           <>
-            <WeatherCard results={results} 
-                cardBackground={cardBackground} 
-                onUnitsChanged={getTempUnit}/>
+            <WeatherCard 
+              results={results} 
+              cardBackground={cardBackground} 
+              onUnitsChanged={getTempUnit}
+                />
             <div className="weather-map">
               <WeatherMap
                 city={city}
