@@ -24,9 +24,6 @@ function App() {
     lon: geoLocation.coordinates.lng,
   });
 
-  console.log(geoLocation.coordinates.lat);
-  console.log(geoLocation.coordinates.lng);
-
   /**
    * Below is the method for location based weather results
    */
@@ -39,11 +36,9 @@ function App() {
         (result) => {
           if (result.cod !== 200) {
             setIsLoaded(false);
-            // console.log(result.cod)
           } else {
             setIsLoaded(true);
             setResults(result);
-            console.log(result);
             setcardBackground(result.weather[0].main);
             setCityCoordinates({
               lat: result.coord.lat,
@@ -64,7 +59,7 @@ function App() {
    */
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=48a50678eba83ab8e75543e3bf60a915`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
       .then(
