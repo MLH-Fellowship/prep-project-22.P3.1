@@ -35,11 +35,9 @@ function App() {
         (result) => {
           if (result.cod !== 200) {
             setIsLoaded(false);
-            // console.log(result.cod)
           } else {
             setIsLoaded(true);
             setResults(result);
-            console.log(result);
             setcardBackground(result.weather[0].main);
             setCityCoordinates({
               lat: result.coord.lat,
