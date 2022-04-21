@@ -33,15 +33,17 @@
     font-weight: 700; 
   }
   .wi {
-    font-size: 1rem;
+    font-size: 2rem;
     align-self: center;
   }
   
   /* Styles forr hourly and weekly forecasts toggle button */
   .selector {
+    font-family: 'Ubuntu', sans-serif;  
     text-align: left;
     display: block;
-    font-size: 24px;
+    font-weight: 700;
+    font-size: 1.3rem;
     margin-bottom: 14px;
     padding: 8px;
     border-radius: 10px;
@@ -49,12 +51,13 @@
   .selector select {
     box-sizing: border-box;
     background: rgba(246, 251, 255, 1);
-    font-size: 22px;
+    font-size: 1.2rem;
     padding: 8px;
     border-radius: 10px;
     margin-left: -20px;
   }
   .selector .label {
+    font-family: 'Roboto Condensed', sans-serif;
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.23);
     padding: 8px;

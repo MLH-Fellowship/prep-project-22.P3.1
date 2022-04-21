@@ -1,11 +1,13 @@
 import './forecast.css';
 import { FaTemperatureHigh, FaTemperatureLow } from 'react-icons/fa';
+import { WiHumidity } from 'react-icons/wi';
+import { RiTempHotLine } from 'react-icons/ri';
+
 
 function timeConverterTime(unixTimestamp) {
   const a = new Date(unixTimestamp * 1000);
   const hour = a.getHours();
-  const min = a.getMinutes();
-  return `${hour}:${min}`;
+  return `${hour}:00`;
 }
 
 function timeConverterDate(unixTimestamp) {
@@ -45,14 +47,13 @@ export default function WeatherCard({ value, data }) {
                   <b className="bold">Day:</b> {todayDate}
                 </p>
               </div>
-              <br />
               <div className="temps">
                 <div className="low">
-                  <FaTemperatureLow className="wi" />
+                  <FaTemperatureLow className="wi" /> <br />
                   &nbsp; <b>Low</b> {data.temp.min}°C
                 </div>
                 <div className="high">
-                  <FaTemperatureHigh className="wi" />
+                  <FaTemperatureHigh className="wi" /> <br />
                   &nbsp; <b>High</b> {data.temp.max}°C
                 </div>
               </div>
@@ -66,15 +67,16 @@ export default function WeatherCard({ value, data }) {
             <div>
               <div className="time">
                 <span className="day">
-                  {todayDate} | {todayTime}
+                  <b>{todayDate}</b> | {todayTime}
                 </span>
               </div>
-              <br />
               <div className="temps">
                 <div className="low">
+                  <WiHumidity className="wi" /> <br />
                   <b>Humidity</b> {data.humidity}%
                 </div>
                 <div className="high">
+                  <RiTempHotLine className="wi" /> <br />
                   <b>Temp</b> {data.temp}°C
                 </div>
               </div>
