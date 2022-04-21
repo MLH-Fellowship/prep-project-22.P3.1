@@ -6,7 +6,6 @@ import WeatherCard from './components/weatherCard/weatherCard';
 import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
-import useFetchCity from './hooks/useFetchCity';
 import WeatherMap from './components/weatherMap/weatherMap';
 import Alert from './components/Alerts/Alert';
 import WeatherNews from './components/News/WeatherNews';
@@ -24,32 +23,27 @@ function App() {
     lon: geoLocation.coordinates.lng,
   });
 
-  console.log(geoLocation.coordinates.lat);
-  console.log(geoLocation.coordinates.lng);
-
   /**
-   * Below is the method for location based weather results 
+   * Below is the method for location based weather results
    */
 
   useEffect(() => {
-    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`
+    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(urlGeo)
       .then((res) => res.json())
       .then(
         (result) => {
           if (result.cod !== 200) {
             setIsLoaded(false);
-            // console.log(result.cod)
           } else {
             setIsLoaded(true);
             setResults(result);
-            console.log(result)
             setcardBackground(result.weather[0].main);
             setCityCoordinates({
               lat: result.coord.lat,
               lon: result.coord.lon,
             });
-            setCity(`${result.name}, ${result.sys.country}`)
+            setCity(`${result.name}, ${result.sys.country}`);
           }
         },
         (err) => {
@@ -64,7 +58,7 @@ function App() {
    */
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=48a50678eba83ab8e75543e3bf60a915`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
       .then(
