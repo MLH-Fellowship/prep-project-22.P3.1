@@ -3,7 +3,6 @@ import { FaTemperatureHigh, FaTemperatureLow } from 'react-icons/fa';
 import { WiHumidity } from 'react-icons/wi';
 import { RiTempHotLine } from 'react-icons/ri';
 
-
 function timeConverterTime(unixTimestamp) {
   const a = new Date(unixTimestamp * 1000);
   const hour = a.getHours();
