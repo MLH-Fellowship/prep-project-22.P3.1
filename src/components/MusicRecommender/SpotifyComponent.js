@@ -3,7 +3,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 import AudioPlayer from './AudioPlayer';
 
-const SpotifyComponent = ({ props, playlistId }) => {
+const SpotifyComponent = ({ props, playlistId  , isloaded}) => {
   const accessToken = useRef('');
   const [playlistData, setPlaylistData] = useState(false);
   // To store & set layout choice
@@ -69,7 +69,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
   }, [props, playlistId]);
 
 
-
+ 
 
   return (
     <> <div className="layout_toggle text-right">
@@ -95,10 +95,11 @@ const SpotifyComponent = ({ props, playlistId }) => {
   </div>
       
       {/* List Layout using spotify's embed */}
+      { listLayout  && embeddedlistloading  && !isloaded ?  <ClipLoader color = "#ffffff" size={150} /> : " "}
       
-           {listLayout && (
+           {listLayout  &&  isloaded && (
         <div>
-         {embeddedlistloading? <ClipLoader color = "#ffffff" size={150} /> : " "}
+        
           <div className="container">
             <iframe
               className="embedded_spotify_playlist"
@@ -116,9 +117,11 @@ const SpotifyComponent = ({ props, playlistId }) => {
       )}
         {/* Box layout using cards and using data from spotify API */}
 
-        { !props  && !listLayout  ? <ClipLoader color = "#ffffff" size={150} /> : <></>}
+
+
+        { !isloaded  && !listLayout  ? <ClipLoader color = "#ffffff" size={150} /> : <></>}
         
-        { playlistData  && !listLayout && (
+        { isloaded &&  playlistData  && !listLayout && (
         <div className="row">
           <br />
           {playlistData &&
@@ -160,7 +163,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
                           </p>
 
                           {/* Custom Audio player component */}
-                          <AudioPlayer track={track} />
+                          <AudioPlayer track={track}  />
                         </div>
                       </div>
                     </div>

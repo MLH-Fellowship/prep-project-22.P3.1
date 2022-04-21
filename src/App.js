@@ -134,7 +134,7 @@ function App() {
           </>
         )}
       </div>
-      <MusicRecommender props={results} />
+      <MusicRecommender results ={results}  isloaded = {isLoaded}/>
       <Charts data={weatherData} />
     </div>
   );
