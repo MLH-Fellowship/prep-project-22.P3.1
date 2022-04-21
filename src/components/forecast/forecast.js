@@ -59,10 +59,11 @@ function ForecastCarousel(props) {
         </select>
       </div>
       <Carousel
+        key={selectedValue}
         cols={4}
         rows={1}
         gap={5}
-        loop={false}
+        selectedItem={0}
         hideArrow={false}
         showDots
         responsiveLayout={[
