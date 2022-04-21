@@ -1,0 +1,44 @@
+@import url('//fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
+
+.newsSection{
+    padding: 4rem;
+}
+
+.newsSection h3{
+    margin: 2rem 0;
+    font-size: 2.3rem;
+    font-family: "Roboto Condensed",'sans serif';
+}
+
+.newsElement{
+    font-size: 2rem;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsCarousel{
+    max-width: 55%;
+    min-width: 50%;
+    margin: auto;
+    font-family: "Roboto Condensed",'sans serif';
+}
+
+.newsItem{
+    box-shadow:inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+}
+
+.authorTitle{
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgb(44, 44, 44), 0 0 10px rgb(47, 47, 47), 0 0 15px #201e1e, 0 0 20px #333131, 0 0 25px #fbfbfb, 0 0 30px #ffffff, 0 0 35px #fbfbfb;
+}
+
+.descriptionNews{
+    font-size: 0.8rem;
+    text-shadow: 0 0 5px rgb(44, 44, 44), 0 0 10px rgb(47, 47, 47), 0 0 15px #474242, 0 0 20px #595959, 0 0 50px #fbfbfb, 0 0 50px #ffffff, 0 0 30px #dadada;
+}
