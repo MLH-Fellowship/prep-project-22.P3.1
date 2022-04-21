@@ -103,7 +103,7 @@
 
   
   .toggle {
-    --width: 100px;
+    --width: 90px;
     --height: calc(var(--width) / 3);
 
     position: relative;
@@ -153,19 +153,22 @@
 
   .toggle .labels {
     position: absolute;
-    top: 8px;
+    top: 4px;
     left: 0;
     width: 100%;
     height: 100%;
     font-size: 12px;
-    font-family: sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: medium;
     transition: all 0.4s ease-in-out;
   }
 
   .toggle .labels::after {
     content: attr(data-off);
     position: absolute;
-    right: 5px;
+    font-weight: 700;
+    right: 35px;
     color: #4d4d4d;
     opacity: 1;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
@@ -175,7 +178,8 @@
   .toggle .labels::before {
     content: attr(data-on);
     position: absolute;
-    left: 5px;
+    font-weight: 700;
+    left: 30px;
     color: #ffffff;
     opacity: 0;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);

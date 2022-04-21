@@ -65,12 +65,7 @@ function WeatherCard(props) {
           <input type="checkbox" id="togglebtn" onChange={handleChange} />
 
           <span className="slider" />
-          <span
-            className="labels"
-            data-on="Celsius"
-            data-off="Fahrenheit"
-            checked
-          />
+          <span className="labels" data-on="° C" data-off="° F" checked />
         </label>
         <div className="recomendation">{backgrounds[cardBackground][2]}</div>
       </div>
