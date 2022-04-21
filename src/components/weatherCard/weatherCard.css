@@ -13,22 +13,26 @@
   }
 
   .playButton{
-    padding:10px;
     color:#fff;
-    margin:8px;
     background:transparent;
-    border-radius: 35px;
+    border:none;
+    cursor:pointer;
+    outline: none;
   }
 
   .playButton:hover{
-    background:transparent;
-    color:transparent;
+    transform: scale(1.4);
     cursor:pointer;
     transition:0.4s ease-in-out;
-    content :attr(title);
-    
+    outline: none;
+    border: none;
   }
-  
+  .playButton:focus{
+    border:none;
+    outline: none;
+
+  }
+ 
   .content{
     position: absolute;
     margin-top: 2rem;

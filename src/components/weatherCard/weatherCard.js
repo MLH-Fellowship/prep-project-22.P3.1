@@ -68,14 +68,14 @@ function WeatherCard(props) {
       <div className="content">
         <div className="place">
           {results.name}, {results.sys.country}
-          <button className="playButton" type="button" onClick={playAudio}><i className= "fas fa-cloud fa-1x"  alt="" title="Play Background Music"/></button>
+          
         </div>
        
         <div className="top-info">
           <div className="temp">{results.main.temp}°</div>
           <div className="conditions">
             <div className="forecast">
-              {results.weather[0].main} {backgrounds[cardBackground][1]}
+              {results.weather[0].main} <button style={{cursor:"pointer"}} className="playButton" type="button" onClick={playAudio}>{backgrounds[cardBackground][1]}</button>
             </div>
             <div className="temp-feel">
               Feels like {results.main.feels_like}°C
