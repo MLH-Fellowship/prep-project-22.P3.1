@@ -46,6 +46,7 @@ function WeatherCard(props) {
             <br /> Wind Speed: {results.wind.speed} m/s
           </p>
         </div>
+        <div className="recomendation">{backgrounds[cardBackground][2]}</div>
       </div>
     </div>
   );
