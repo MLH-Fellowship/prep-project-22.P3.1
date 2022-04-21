@@ -62,4 +62,3 @@ function WeatherNews(city) {
 }
 
 export default WeatherNews;
-
