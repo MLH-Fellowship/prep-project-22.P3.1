@@ -51,7 +51,7 @@ function Alert({ city, isLoaded, cityCoordinates }) {
             if (!description) {
               description = 'Description is Unavailable.';
             }
-            description += ` ${sender}`; 
+            description += ` ${sender}`;
             setAlert({ title: title, description: description });
           } else {
             setAlert(null);
