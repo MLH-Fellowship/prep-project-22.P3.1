@@ -6,6 +6,7 @@ import backgrounds from './backgroundArray';
 function WeatherCard(props) {
   const { results } = props;
   const { cardBackground } = props;
+  
   const [units, setUnits] = useState('metric');
   const [tempUnit, setTempUnit] = useState('fahrenheit');
   console.log(cardBackground);
