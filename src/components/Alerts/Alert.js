@@ -1,3 +1,4 @@
+import { ScheduleSend } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import './Alert.css';
 
@@ -13,6 +14,7 @@ function Alert({ city, isLoaded, cityCoordinates }) {
           if (result.alerts) {
             const title = result.alerts[0]?.event;
             let description = result.alerts[0]?.description;
+            let sender = result.alerts[0]?.sender_name;
             if (
               description.includes('WHAT') &&
               description.includes('WHERE') &&
@@ -40,7 +42,17 @@ function Alert({ city, isLoaded, cityCoordinates }) {
                 sentences[index] = newWord;
               });
               sentences = sentences.filter((word) => word);
+              description = sentences.join(' ');
             }
+            if(!sender) {
+              sender = `(Source: Unavailable)`
+            } else {
+              sender = `(Source: ${sender})`
+            }
+            if(!description) {
+              description = 'Description is Unavailable.'
+            }
+            description += ` ${sender}` 
             setAlert({ title: title, description: description });
           } else {
             setAlert(null);
