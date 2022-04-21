@@ -4,83 +4,10 @@ import Carousel from 'react-grid-carousel';
 import useLocation from '../../hooks/useLocation';
 import WeatherCard from './card';
 
-const dummyData = {
-  hourly: [
-    {
-      humidity: 200,
-      temp: 20,
-      pressure: 400,
-    },
-    {
-      humidity: 200,
-      temp: 20,
-      pressure: 400,
-    },
-    {
-      humidity: 200,
-      temp: 20,
-      pressure: 400,
-    },
-    {
-      humidity: 200,
-      temp: 20,
-      pressure: 400,
-    },
-    {
-      humidity: 200,
-      temp: 20,
-      pressure: 400,
-    },
-    {
-      humidity: 200,
-      temp: 20,
-      pressure: 400,
-    },
-  ],
-  daily: [
-    {
-      temp: {
-        min: 12,
-        max: 33,
-      },
-    },
-    {
-      temp: {
-        min: 12,
-        max: 33,
-      },
-    },
-    {
-      temp: {
-        min: 12,
-        max: 33,
-      },
-    },
-    {
-      temp: {
-        min: 12,
-        max: 33,
-      },
-    },
-    {
-      temp: {
-        min: 12,
-        max: 33,
-      },
-    },
-    {
-      temp: {
-        min: 12,
-        max: 33,
-      },
-    },
-  ],
-};
-
 function ForecastCarousel() {
   const [items, setItems] = useState(null);
-  const [selector, setSelector] = useState(['7 Days', '7 Hours']);
-  const [selectedValue, setSelectedValue] = useState('7 Days');
+  const [selector, setSelector] = useState(['Daily', 'Hourly']);
+  const [selectedValue, setSelectedValue] = useState('Daily');
   const geoLocation = useLocation();
   const [results, setResults] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -115,7 +42,7 @@ function ForecastCarousel() {
   return (
     <>
       <div className="selector">
-        <span className="label">Showing weather for next</span>
+        <span className="label">Forecast mode: </span>
         {/* eslint-disable jsx-a11y/no-onchange */}
         <select
           onChange={(e) => {
@@ -154,14 +81,14 @@ function ForecastCarousel() {
           },
         ]}
       >
-        {selectedValue === '7 Days' &&
+        {selectedValue === 'Daily' &&
           items !== null &&
           items.daily.map((item) => (
             <Carousel.Item key={item}>
               <WeatherCard value={selectedValue} data={item} />
             </Carousel.Item>
           ))}
-        {selectedValue === '7 Hours' &&
+        {selectedValue === 'Hourly' &&
           items !== null &&
           items.hourly.map((item) => (
             <Carousel.Item key={item}>
