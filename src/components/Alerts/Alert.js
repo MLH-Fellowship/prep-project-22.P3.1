@@ -1,4 +1,3 @@
-import { ScheduleSend } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import './Alert.css';
 
