@@ -98,7 +98,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
       
            {listLayout && (
         <div>
-        
+         {embeddedlistloading? <ClipLoader color = "#ffffff" size={150} /> : " "}
           <div className="container">
             <iframe
               className="embedded_spotify_playlist"
