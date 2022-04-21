@@ -42,9 +42,7 @@ export default function WeatherCard({ value, data }) {
           <div className="container-forecast">
             <div className="info">
               <div className="time">
-                <p className="day">
-                  <b className="bold">Day:</b> {todayDate}
-                </p>
+                <p className="day"> {todayDate} </p>
               </div>
               <div className="temps">
                 <div className="low">

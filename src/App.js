@@ -32,7 +32,7 @@ function App() {
    */
 
   useEffect(() => {
-    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`
+    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(urlGeo)
       .then((res) => res.json())
       .then(
@@ -128,7 +128,11 @@ function App() {
         )}
         {isLoaded && results && (
           <>
-            <WeatherCard results={results} cardBackground={cardBackground} />
+            <WeatherCard
+              results={results}
+              cardBackground={cardBackground}
+              id="tell-weather"
+            />
             <div className="weather-map">
               <WeatherMap
                 city={city}
@@ -143,8 +147,8 @@ function App() {
       {isLoaded && results && (
         <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
       )}
-      <WeatherNews />
-      <MusicRecommender props={results} />
+      <WeatherNews id="weather-news" />
+      <MusicRecommender props={results} id="songs" />
     </div>
   );
 }
