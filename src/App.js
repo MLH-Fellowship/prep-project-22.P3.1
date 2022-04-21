@@ -32,6 +32,18 @@ function App() {
    * Below is the method for location based weather results 
    */
 
+
+
+
+
+
+
+
+
+
+  
+
+
    useEffect(() => {
     const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`
     fetch(urlGeo)
