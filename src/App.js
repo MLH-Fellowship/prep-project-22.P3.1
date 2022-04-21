@@ -133,7 +133,9 @@ function App() {
           </>
         )}
       </div>
-      <ForecastCarousel />
+      {isLoaded && results && (
+        <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
+      )}
       <MusicRecommender props={results} />
     </div>
   );

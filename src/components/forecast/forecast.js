@@ -4,7 +4,8 @@ import Carousel from 'react-grid-carousel';
 import useLocation from '../../hooks/useLocation';
 import WeatherCard from './card';
 
-function ForecastCarousel() {
+function ForecastCarousel(props) {
+  const { lat, lng } = props;
   const [items, setItems] = useState(null);
   const [selector, setSelector] = useState(['Daily', 'Hourly']);
   const [selectedValue, setSelectedValue] = useState('Daily');
@@ -16,7 +17,7 @@ function ForecastCarousel() {
 
   // }
   useEffect(() => {
-    const urlGeo = `https://api.openweathermap.org/data/2.5/onecall?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&units=metric&exclude=current,alerts,minutely&appid=${process.env.REACT_APP_APIKEY}`;
+    const urlGeo = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&exclude=current,alerts,minutely&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(urlGeo)
       .then((res) => res.json())
       .then(
@@ -37,7 +38,7 @@ function ForecastCarousel() {
           setError(err);
         }
       );
-  }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
+  }, [lat, lng]);
   console.log(items);
   return (
     <>
