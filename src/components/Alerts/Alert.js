@@ -43,15 +43,15 @@ function Alert({ city, isLoaded, cityCoordinates }) {
               sentences = sentences.filter((word) => word);
               description = sentences.join(' ');
             }
-            if(!sender) {
-              sender = `(Source: Unavailable)`
+            if (!sender) {
+              sender = `(Source: Unavailable)`;
             } else {
-              sender = `(Source: ${sender})`
+              sender = `(Source: ${sender})`;
             }
-            if(!description) {
-              description = 'Description is Unavailable.'
+            if (!description) {
+              description = 'Description is Unavailable.';
             }
-            description += ` ${sender}` 
+            description += ` ${sender}`; 
             setAlert({ title: title, description: description });
           } else {
             setAlert(null);
