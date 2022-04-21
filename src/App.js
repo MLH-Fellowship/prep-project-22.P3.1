@@ -6,7 +6,6 @@ import WeatherCard from './components/weatherCard/weatherCard';
 import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
-import useFetchCity from './hooks/useFetchCity';
 import WeatherMap from './components/weatherMap/weatherMap';
 import Alert from './components/Alerts/Alert';
 import WeatherNews from './components/News/WeatherNews';
@@ -44,13 +43,13 @@ function App() {
           } else {
             setIsLoaded(true);
             setResults(result);
-            console.log(result)
+            console.log(result);
             setcardBackground(result.weather[0].main);
             setCityCoordinates({
               lat: result.coord.lat,
               lon: result.coord.lon,
             });
-            setCity(`${result.name}, ${result.sys.country}`)
+            setCity(`${result.name}, ${result.sys.country}`);
           }
         },
         (err) => {
@@ -59,7 +58,6 @@ function App() {
         }
       );
   }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
-
   /**
    * Below is the method to city based search
    */
@@ -91,7 +89,7 @@ function App() {
 
   if (error) {
     return <div>Error: {error.message}</div>;
-  }
+  };
 
   const getTempUnit = (tempUnit) => {
     setTempUnits(tempUnit);
@@ -134,7 +132,9 @@ function App() {
         )}
         {isLoaded && results && (
           <>
-            <WeatherCard results={results} cardBackground={cardBackground} onUnitsChanged={getTempUnit}/>
+            <WeatherCard results={results} 
+                cardBackground={cardBackground} 
+                onUnitsChanged={getTempUnit}/>
             <div className="weather-map">
               <WeatherMap
                 city={city}

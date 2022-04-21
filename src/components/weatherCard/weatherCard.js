@@ -10,19 +10,17 @@ function WeatherCard(props) {
   const [tempUnit, setTempUnit] = useState('fahrenheit');
   console.log(cardBackground);
 
-  const handleChange = (e) => {
-    /* e.preventDefault(); */
+  const handleChange = () => {
     if (tempUnit === 'celsius') {
       setTempUnit('fahrenheit');
       setUnits('metric');
-    }
-    else {
-      setTempUnit('celsius')
+    } else {
+      setTempUnit('celsius');
       setUnits('imperial');
     }
-    const { onUnitsChanged } = props
+    const { onUnitsChanged } = props;
     onUnitsChanged(units);
-  }
+  };
 
   return (
     <div className="weather-card">
@@ -63,13 +61,17 @@ function WeatherCard(props) {
             <br /> Wind Speed: {results.wind.speed} m/s
           </p>
         </div>
-      
-        <label className="toggle" htmlFor="togglebtn" >
-          <input type="checkbox" id="togglebtn" onChange={handleChange}/>
-            <span className="slider" />
-            <span className="labels" data-on="Celsius" data-off="Fahrenheit" checked/>
-        </label>
+        <label className="toggle" htmlFor="togglebtn">
+          <input type="checkbox" id="togglebtn" onChange={handleChange} />
 
+          <span className="slider" />
+          <span
+            className="labels"
+            data-on="Celsius"
+            data-off="Fahrenheit"
+            checked
+          />
+        </label>
         <div className="recomendation">{backgrounds[cardBackground][2]}</div>
       </div>
     </div>
