@@ -11,13 +11,13 @@ function WeatherCard(props) {
   const { results } = props;
   const [data, setData] = useState([]);
   const { cardBackground } = props;
+
   console.log(cardBackground);
   
   let emoji = null;
   if (typeof data.main !== "undefined") {
     if (data.weather[0].main === "Clouds") {
       emoji = "fa-cloud"
-
     }else if (data.weather[0].main === "Thunderstrom"){
       emoji = "fa-bolt"
     }else if (data.weather[0].main === "Drizzle"){
