@@ -11,7 +11,7 @@ function WeatherCard(props) {
   console.log(cardBackground);
 
   const handleChange = (e) => {
-    e.preventDefault();
+    /* e.preventDefault(); */
     if (tempUnit === 'celsius') {
       setTempUnit('fahrenheit');
       setUnits('metric');
@@ -23,7 +23,7 @@ function WeatherCard(props) {
     const { onUnitsChanged } = props
     onUnitsChanged(units);
   }
-  
+
   return (
     <div className="weather-card">
       <div className="content">
@@ -63,12 +63,13 @@ function WeatherCard(props) {
             <br /> Wind Speed: {results.wind.speed} m/s
           </p>
         </div>
-        <div>
-          <button type="button" value={tempUnit} onClick={handleChange}>
-            click here
-          </button>
-          to change the temprature unit 
-        </div>
+      
+        <label className="toggle" htmlFor="togglebtn" >
+          <input type="checkbox" id="togglebtn" onChange={handleChange}/>
+            <span className="slider" />
+            <span className="labels" data-on="Celsius" data-off="Fahrenheit" checked/>
+        </label>
+
         <div className="recomendation">{backgrounds[cardBackground][2]}</div>
       </div>
     </div>
