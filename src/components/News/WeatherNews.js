@@ -2,20 +2,13 @@
 /* eslint-disable react/jsx-key */
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import './WeatherNews.css';
 import Carousel from 'react-bootstrap/Carousel';
-import response from './WeatherNews.json'
-
-
-
- 
+import response from './WeatherNews.json';
 
 function WeatherNews(city) {
   const [news, setNews] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  
-
   const fetchNews = () => {
     setNews(response.data.articles);
     setIsLoaded(true);
@@ -29,7 +22,6 @@ function WeatherNews(city) {
 
   useEffect(() => {
     fetchNews();
-    
   }, []);
 
   return (
@@ -66,9 +58,8 @@ function WeatherNews(city) {
         </Carousel>
       )}
     </div>
-      
-       
   );
 }
 
 export default WeatherNews;
+
