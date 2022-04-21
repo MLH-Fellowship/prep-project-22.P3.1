@@ -65,7 +65,6 @@ function App() {
    */
 
   useEffect(() => {
-<<<<
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${tempUnits}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())

@@ -37,7 +37,7 @@ function WeatherCard(props) {
               {results.weather[0].main} {backgrounds[cardBackground][1]}
             </div>
             <div className="temp-feel">
-              Feels like {results.main.feels_like}°C
+              Feels like {results.main.feels_like}°
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@ function WeatherCard(props) {
         <div className="description">
           &#40; Condtions in {results.name}: {results.weather[0].description},
           with <br /> temperature ranging from {results.main.temp_min}
-          &nbsp;to {results.main.temp_max} °C &#41;
+          &nbsp;to {results.main.temp_max} ° &#41;
         </div>
         <div className="bottom-info">
           <p>
