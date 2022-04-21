@@ -3,7 +3,7 @@
 
 .navbar{
     display: flex;
-    align-items: center;
+    align-items: right;
     justify-content: space-between;
     font-family: "Roboto Condensed","sans-serif";
     font-weight: 500;
@@ -11,7 +11,7 @@
     background: transparent;
     overflow-x: hidden;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 1;
 }
@@ -20,39 +20,112 @@
     display: block;
     width: 200px;
     padding: 2rem;
+    
   }
 
-  .navlist{
-    display: flex;
-    justify-content: space-between;
+
+.navigation-menu {
+  margin-left: auto;
 }
 
-.navlist-link{
-    list-style: none;
-    padding: 1rem 4rem;
+
+.navigation-menu ul {
+  display: flex;
+  padding: 0;
 }
 
-.navlist-link:hover{
-    cursor: pointer;
-    transform: translateY(-2px);
-    transform: scale(1.1);
+.navigation-menu li {
+  list-style-type: none;
+  margin: 0 1rem;
+  
+  padding-left:1rem;
+  padding-right:1rem;
+}
+
+.navigation-menu li a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.navigation-menu li:hover{
+  cursor: pointer;
+  transform: translateY(-2px);
+  transform: scale(1.1);
 }
 
 a:link {
-    color: rgb(243, 242, 242);
-    text-decoration: none;
+  color: rgb(243, 242, 242);
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(250, 255, 250);
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+  text-decoration: none;
+}
+
+.hamburger {
+  border: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0.2rem;
+  border-radius: 50%;
+  background-color: #283b8b;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.hamburger:hover {
+  background-color: #2642af;
+}
+
+@media screen and (max-width: 1150px) {
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 10%;
+
   }
-  
-  /* visited link */
-  a:visited {
-    color: rgb(250, 255, 250);
-    text-decoration: none;
+
+
+
+  .navigation-menu ul {
+    flex-direction: column;
+    position: fixed;
+    top: 80px;
+    right: 0;
+    height: 50%;
+    display: none;
   }
-  
-  
-  
-  /* selected link */
-  a:active {
-    color: blue;
-    text-decoration: none;
+
+  .navigation-menu li {
+    text-align:right;
+    margin: 0;
+    background: transparent;
+
   }
+
+  .navigation-menu li a {
+    color: black;
+    width: 100%;
+    padding: 0;
+  }
+
+
+
+  .navigation-menu.expanded ul {
+    display: block;
+  }
+}
