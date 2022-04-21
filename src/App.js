@@ -9,7 +9,6 @@ import useLocation from './hooks/useLocation';
 import WeatherMap from './components/weatherMap/weatherMap';
 import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
-import WeatherNews from './components/News/WeatherNews';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
@@ -128,11 +127,7 @@ function App() {
         )}
         {isLoaded && results && (
           <>
-            <WeatherCard
-              results={results}
-              cardBackground={cardBackground}
-              id="tell-weather"
-            />
+            <WeatherCard results={results} cardBackground={cardBackground} />
             <div className="weather-map">
               <WeatherMap
                 city={city}
@@ -147,8 +142,7 @@ function App() {
       {isLoaded && results && (
         <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
       )}
-      <WeatherNews id="weather-news" />
-      <MusicRecommender props={results} id="songs" />
+      <MusicRecommender props={results} />
     </div>
   );
 }
