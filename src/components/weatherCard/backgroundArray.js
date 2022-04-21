@@ -8,11 +8,11 @@ import {
 } from 'react-icons/wi';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
 import clearBack from '../../assets/images/Clear.webp';
-import rainBack from '../../assets/images/Rain.webp';
+import rainBack from '../../assets/images/Rain.jpg';
 import hazeBack from '../../assets/images/Fog.jpg';
 import cloudBack from '../../assets/images/Cloud.jpeg';
-import snowBack from '../../assets/images/Snow.webp';
-import thunderBack from '../../assets/images/ThunderStorm.webp';
+import snowBack from '../../assets/images/Snow.jpg';
+import thunderBack from '../../assets/images/ThunderStorm.jpg';
 
 const backgrounds = {
   Clear: [
