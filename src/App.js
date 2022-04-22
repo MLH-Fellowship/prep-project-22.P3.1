@@ -13,9 +13,8 @@ import WeatherMap from './components/weatherMap/weatherMap';
 import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
+import WeatherNews from './components/News/WeatherNews';
 import LocationImage from './assets/images/my_location.png';
-
-// import News from './components/News/News'
 
 function App() {
   const [error, setError] = useState(null);
@@ -178,7 +177,12 @@ function App() {
           <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
         </div>
       )}
+
+      <WeatherNews />
+      <MusicRecommender props={results} />
+
       <MusicRecommender results={results} isloaded={isLoaded} />
+
       <Footer src={softwaresimbas} />
     </div>
   );
