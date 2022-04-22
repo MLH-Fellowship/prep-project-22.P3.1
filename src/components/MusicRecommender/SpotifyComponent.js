@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
-
+import ClipLoader from 'react-spinners/ClipLoader';
 import AudioPlayer from './AudioPlayer';
 
-const SpotifyComponent = ({ props, playlistId }) => {
+const SpotifyComponent = ({ props, playlistId, isloaded }) => {
   const accessToken = useRef('');
   const [playlistData, setPlaylistData] = useState([]);
   // To store & set layout choice
   const [listLayout, setListLayout] = useState(false);
-
+  const [embeddedlistloading, setembeddedlistloading] = useState(true);
   useEffect(() => {
     // Call the endpoint to fetch song data from specified playlist
     const fetchPlaylistsData = async () => {
@@ -75,7 +75,10 @@ const SpotifyComponent = ({ props, playlistId }) => {
               : 'icon_active fa fa-th-large'
           }
           aria-hidden="true"
-          onClick={() => setListLayout(false)}
+          onClick={function () {
+            setListLayout(false);
+            setembeddedlistloading(true);
+          }}
         />
         <i
           className={
@@ -87,7 +90,13 @@ const SpotifyComponent = ({ props, playlistId }) => {
       </div>
 
       {/* List Layout using spotify's embed */}
-      {listLayout && (
+      {listLayout && embeddedlistloading ? (
+        <ClipLoader color="#ffffff" size={150} />
+      ) : (
+        ' '
+      )}
+
+      {listLayout && isloaded && (
         <div className="container">
           <iframe
             className="embedded_spotify_playlist"
@@ -95,6 +104,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
             src={`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`}
             width="100%"
             height="500"
+            onLoad={() => setembeddedlistloading(false)}
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           />
@@ -102,7 +112,13 @@ const SpotifyComponent = ({ props, playlistId }) => {
       )}
 
       {/* Box layout using cards and using data from spotify API */}
-      {!listLayout && (
+      {!isloaded && !listLayout ? (
+        <ClipLoader color="#ffffff" size={150} />
+      ) : (
+        <></>
+      )}
+
+      {isloaded && playlistData && !listLayout && (
         <div className="row">
           <br />
           {playlistData &&

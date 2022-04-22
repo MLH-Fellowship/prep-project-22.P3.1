@@ -23,7 +23,6 @@ export default function AudioPlayer({ track }) {
       setPlaying(true);
     }
   };
-
   const onPlaying = () => {
     setSeekValue(
       (audioPlayer.current.currentTime / audioPlayer.current.duration) * 100

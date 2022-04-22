@@ -178,7 +178,7 @@ function App() {
           <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
         </div>
       )}
-      <MusicRecommender props={results} />
+      <MusicRecommender results={results} isloaded={isLoaded} />
       <Footer src={softwaresimbas} />
     </div>
   );
