@@ -36,6 +36,12 @@ input {
   height: 450px;
 }
 
+.forecast-carousel{
+  width: 63.4rem;
+  margin-left: 15%;
+
+}
+
 .error-icon{
   font-size: 4rem;
   color: red;

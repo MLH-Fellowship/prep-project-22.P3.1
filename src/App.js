@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BiError } from 'react-icons/bi';
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
@@ -9,8 +10,8 @@ import softwaresimbas from './softwaresimbas.gif';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import WeatherMap from './components/weatherMap/weatherMap';
+import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
-import WeatherNews from './components/News/WeatherNews';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
@@ -106,19 +107,18 @@ function App() {
       <div className="Results">
         {!isLoaded && (
           <>
-            <div>
-              <div className="error-prompt">
-                Location not found <br />
-                Please enter a valid location.
-              </div>
-              <div className="weather-map">
-                <WeatherMap
-                  city={city}
-                  setCity={setCity}
-                  cityCoordinates={cityCoordinates}
-                  setCityCoordinates={setCityCoordinates}
-                />
-              </div>
+            <div className="error-prompt">
+              <BiError className="error-icon" /> <br />
+              Location not found <br />
+              Please enter a valid location.
+            </div>
+            <div className="weather-map">
+              <WeatherMap
+                city={city}
+                setCity={setCity}
+                cityCoordinates={cityCoordinates}
+                setCityCoordinates={setCityCoordinates}
+              />
             </div>
           </>
         )}
@@ -136,7 +136,11 @@ function App() {
           </>
         )}
       </div>
-      <WeatherNews />
+      {isLoaded && results && (
+        <div className="forecast-carousel">
+          <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
+        </div>
+      )}
       <MusicRecommender props={results} />
       <Footer src={softwaresimbas} />
     </div>
