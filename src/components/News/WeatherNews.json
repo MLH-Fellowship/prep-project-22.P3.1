@@ -1,0 +1,300 @@
+{
+    "data": {
+        "status": "ok",
+        "totalResults": 24698,
+        "articles": [
+            {
+                "source": {
+                    "id": "engadget",
+                    "name": "Engadget"
+                },
+                "author": "Jon Fingas",
+                "title": "DJI's latest work drone can fly autonomously in harsh weather",
+                "description": "You might soon see DJI's drones flying in particularly rough conditions. DJI has unveiled the Matrice 30 (aka M30), an enterprise-class drone with IP55 dust and water resistance that lets it fly in heavy rain, strong wind and even icy situations. It can fly t…",
+                "url": "https://www.engadget.com/dji-matrice-30-m30-drone-145626758.html",
+                "urlToImage": "https://s.yimg.com/os/creatr-uploaded-images/2022-03/e88c01e0-a920-11ec-af9f-213d4d510672",
+                "publishedAt": "2022-03-21T14:56:26Z",
+                "content": "You might soon see DJI's drones flying in particularly rough conditions. DJI has unveiled the Matrice 30 (aka M30), an enterprise-class drone with IP55 dust and water resistance that lets it fly in h… [+1407 chars]"
+            },
+            {
+                "source": {
+                    "id": "wired",
+                    "name": "Wired"
+                },
+                "author": "Matt Jancer",
+                "title": "33 Awesome Outdoor Gear Deals From Winter Clearance Sales",
+                "description": "The cold weather may be fading, but these deals on jackets and layers are white-hot.",
+                "url": "https://www.wired.com/story/outdoor-gear-deals-2022/",
+                "urlToImage": "https://media.wired.com/photos/5e5703f960bd940009fcac32/191:100/w_1280,c_limit/Gear-Outdoor-Research-Microgravity-Jacket-Yellow.jpg",
+                "publishedAt": "2022-03-30T11:00:00Z",
+                "content": "Our days are growing warmer, which means outdoor retailers are blowing out the last of their winter stock with great deals. Some discounted gear can be used all year long, such as merino wool boxer b… [+12400 chars]"
+            },
+            {
+                "source": {
+                    "id": "wired",
+                    "name": "Wired"
+                },
+                "author": "Aarian Marshall",
+                "title": "New York Taxi Drivers Hated Uber. Now They’re Going to Help It",
+                "description": "After almost a decade of animosity and lawsuits, cabbies might help Uber weather a labor shortage—and take a bite out of the competition.",
+                "url": "https://www.wired.com/story/uber-new-york-taxi/",
+                "urlToImage": "https://media.wired.com/photos/62424938022170b3101f0830/191:100/w_1280,c_limit/Taxis-Join-Uber-NYC-Business-1286017860.jpg",
+                "publishedAt": "2022-03-29T11:00:00Z",
+                "content": "Uber has been especially squeezed in New York, because the city has since 2018 capped the number of ride-hail vehicles allowed to operate on its roads. As of January, there were just over 96,000 vehi… [+3858 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Giulia Heyward and David Montgomery",
+                "title": "Weather Conditions Continue to Fuel Texas Wildfire",
+                "description": "As the Eastland Complex kept burning in central Texas, a new fire emerged on Sunday.",
+                "url": "https://www.nytimes.com/2022/03/20/us/wildfires-texas-eastland-complex.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/03/20/us/20texas-wildfire-1/20texas-wildfire-1-facebookJumbo.jpg",
+                "publishedAt": "2022-03-20T22:39:12Z",
+                "content": "Our concerns today over the fires is the critical fire weather thats moving in this afternoon, she said, adding that officials were staying hypervigilant about the weather.\r\nThe biggest threat by far… [+1141 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Vanessa Friedman",
+                "title": "What’s the Best Raincoat for April Showers in the City?",
+                "description": "A reader seeks guidance in finding a stylish jacket for inclement spring weather.",
+                "url": "https://www.nytimes.com/2022/03/25/fashion/april-raincoat-spring.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/03/25/fashion/25openthread-ask-vanessa-raincoat/25openthread-ask-vanessa-raincoat-facebookJumbo.jpg",
+                "publishedAt": "2022-03-25T21:00:05Z",
+                "content": "April showers bring the need for a raincoat is not as felicitous an adage as the one having to do with May flowers, but its equally true. Especially because during this weird in-between time when win… [+1314 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Derrick Bryson Taylor",
+                "title": "A Third of Americans Faced Extreme Weather in Recent Years, Survey Finds",
+                "description": "Hurricanes and winter weather, such as snow, ice storms and blizzards, were the most common events cited, according to a Gallup poll.",
+                "url": "https://www.nytimes.com/2022/04/07/climate/severe-weather-damages-us.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/04/07/multimedia/07xp-climate-poll/07xp-climate-poll-facebookJumbo.jpg",
+                "publishedAt": "2022-04-07T16:10:36Z",
+                "content": "Those living in the South were most likely to say they had been affected by extreme cold, hurricanes or tornadoes. Residents in the West cited wildfires, extreme heat and drought as the extreme weath… [+1290 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Jesus Jiménez",
+                "title": "Storm Expected to Bring Heavy, Wet Snow to Central New York",
+                "description": "Though there is uncertainty about the storm’s track, a forecaster said “pretty impactful weather” could knock out power and make for sloppy commutes.",
+                "url": "https://www.nytimes.com/2022/04/17/us/northeast-snow-storm-ny.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/04/17/us/oakImage-1650205829041/oakImage-1650205829041-facebookJumbo.jpg",
+                "publishedAt": "2022-04-17T16:42:32Z",
+                "content": "Thats the kind of stuff that can bring down trees because it does weigh so heavily on them, Ms. Chapman said. So, you will be looking at your risk for power outages, and its also a little more diffic… [+969 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Derrick Bryson Taylor",
+                "title": "Severe Weather in the South: What to Know About the Forecast",
+                "description": "Parts of Texas were hit by fast-moving storms on Monday. More than nine million people were under an enhanced risk for severe weather on Tuesday, meteorologists said.",
+                "url": "https://www.nytimes.com/2022/04/05/us/severe-weather-forecast-south.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/04/05/us/oakImage-1649157033260/oakImage-1649157033260-facebookJumbo.jpg",
+                "publishedAt": "2022-04-05T13:23:04Z",
+                "content": "The Weather Service issued similar forecasts for much of Georgia and the Florida Panhandle for Tuesday.\r\nParts of Texas started the week with a round of severe thunderstorms that set off a wave of wa… [+975 chars]"
+            },
+            {
+                "source": {
+                    "id": "cnn",
+                    "name": "CNN"
+                },
+                "author": null,
+                "title": "Passengers beg flight attendant to let them off plane",
+                "description": "Passengers on this international Jet Blue flight begged flight attendants to land early due to concerns about bad weather. Jet Blue releases a statement responding that the safety of their passengers is their top priority and their pilots are trained to manag…",
+                "url": "https://www.cnn.com/videos/travel/2022/04/13/passengers-beg-early-landing-flight-jet-blue-bad-weather-mxp-meade-vpx.hln",
+                "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/220413105240-passenger-jet-blue-super-tease.jpeg",
+                "publishedAt": "2022-04-13T16:21:53Z",
+                "content": "Morning Express with Robin Meade"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Neil Vigdor",
+                "title": "South Braces for Second Wave of Storms After 2 Deaths",
+                "description": "Nearly 14 million people across the region faced an enhanced risk of severe weather on Wednesday. Forecasters said the storms could produce tornadoes.",
+                "url": "https://www.nytimes.com/2022/04/06/us/georgia-texas-severe-weather.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/04/06/multimedia/06xp-storm/06xp-storm-facebookJumbo.jpg",
+                "publishedAt": "2022-04-06T17:38:25Z",
+                "content": "Some of the areas that were struck by storms on Tuesday could be at risk once again, extending an onslaught that resulted in a record for confirmed tornadoes in March, Jonathan Porter, the chief mete… [+725 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "Gizmodo.com"
+                },
+                "author": "Angely Mercado",
+                "title": "The UN Is Building a Global Early Warning System for Extreme Weather",
+                "description": "In hopes of protecting more people from climate change-fueled disasters, the United Nations is working on a global system to warn populations who are in the path of a storm or about to be hit by a heatwave or drought. The UN World Meteorological Organization …",
+                "url": "https://gizmodo.com/the-un-is-building-a-global-early-warning-system-for-ex-1848699099",
+                "urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/26d41ecb28777a8081609d68bae667fb.jpg",
+                "publishedAt": "2022-03-24T21:02:00Z",
+                "content": "In hopes of protecting more people from climate change-fueled disasters, the United Nations is working on a global system to warn populations who are in the path of a storm or about to be hit by a he… [+2627 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Derrick Bryson Taylor",
+                "title": "Texas and the Southeast Brace for Tornadoes and Heavy Rain",
+                "description": "Severe weather, bringing several inches of rain and damaging winds, was expected to begin Monday afternoon in Texas and then move over Louisiana and Mississippi on Tuesday, forecasters said.",
+                "url": "https://www.nytimes.com/2022/03/21/us/severe-weather-forecast-tornadoes.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/03/21/us/oakImage-1647863813674/oakImage-1647863813674-facebookJumbo.jpg",
+                "publishedAt": "2022-03-21T13:44:10Z",
+                "content": "A strong storm system capable of producing large hail, isolated tornadoes, damaging winds and flooding was forecast to slam the South and Southeast through Tuesday, meteorologists said.\r\nWhile thunde… [+734 chars]"
+            },
+            {
+                "source": {
+                    "id": "reuters",
+                    "name": "Reuters"
+                },
+                "author": null,
+                "title": "U.N. to roll out global early-warning systems for extreme weather - Reuters.com",
+                "description": "With climate change fueling dangerous weather worldwide, the United Nations is pledging that early-warning weather monitoring will cover everyone on the planet in five years.",
+                "url": "https://www.reuters.com/business/environment/un-roll-out-global-early-warning-systems-extreme-weather-2022-03-23/",
+                "urlToImage": "https://www.reuters.com/resizer/-LM1qSZJ3Iux0ynucByg4uj_S1o=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/BAKOSZGX2RLXDIFS4QFMXPEVWY.jpg",
+                "publishedAt": "2022-03-23T13:18:00Z",
+                "content": "LONDON, March 23 (Reuters) - With climate change fueling dangerous weather worldwide, the United Nations is pledging that early-warning weather monitoring will cover everyone on the planet in five ye… [+2372 chars]"
+            },
+            {
+                "source": {
+                    "id": "reuters",
+                    "name": "Reuters"
+                },
+                "author": null,
+                "title": "Severe weather suspends Masters practice - Reuters.com",
+                "description": "The Masters' second practice day was suspended on Tuesday after a storm swept across Augusta National, forcing players and spectators off the golf course.",
+                "url": "https://www.reuters.com/lifestyle/sports/severe-weather-suspends-masters-practice-2022-04-05/",
+                "urlToImage": "https://www.reuters.com/resizer/jv65Ty8RQq0jjAc7gv0ekBg4pMg=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/SVJBL45DERKEJB4AKUCRDT2AGY.jpg",
+                "publishedAt": "2022-04-05T18:28:00Z",
+                "content": "AUGUSTA, Ga., April 5 (Reuters) - The Masters' second practice day was suspended on Tuesday after a storm swept across Augusta National, forcing players and spectators off the golf course.\r\nAnother l… [+948 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "The Guardian"
+                },
+                "author": "PA Media",
+                "title": "Snow, hail, ice and cold expected in parts of England and Scotland",
+                "description": "Met Office has issued a yellow weather warning from Wednesday evening as wintry weather covers part of the UKA weather warning has been issued for parts of Scotland and northern England amid snowfall and plummeting temperatures.Wintry weather has replaced the…",
+                "url": "https://amp.theguardian.com/uk-news/2022/mar/30/snow-hail-ice-cold-england-scotland-uk-weather-warning-met-office",
+                "urlToImage": "https://i.guim.co.uk/img/media/810564b0de0b799754779d025d2bf257b28f6624/0_71_3898_2339/master/3898.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=420938022b05edec51580d58f5f4ce0e",
+                "publishedAt": "2022-03-30T12:01:54Z",
+                "content": "A weather warning has been issued for parts of Scotland and northern England amid snowfall and plummeting temperatures.\r\nWintry weather has replaced the sunshine experienced by much of the UK last we… [+1255 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Derrick Bryson Taylor",
+                "title": "Severe Storms Are Again Expected Across the Midwest and the South",
+                "description": "Meteorologists said thunderstorms could produce damaging winds, large hail and tornadoes in the Midwest and the Mississippi Valley, a day after tornadoes injured nearly two dozen people in Texas.",
+                "url": "https://www.nytimes.com/2022/04/13/us/severe-storms-midwest-mississippi-valley.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/04/13/multimedia/13xp-storms-neb/13xp-storms-neb-facebookJumbo.jpg",
+                "publishedAt": "2022-04-13T12:04:15Z",
+                "content": "Lots and lots of debris, Judge Blackburn said, describing the scene. The path of the tornado, which again extends several miles, theres not much left. Large trees uprooted, overturned, stripped. Buil… [+729 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "The Guardian"
+                },
+                "author": "Paul Brown",
+                "title": "Space agency launches crowdsourced weather forecasting project",
+                "description": "ESA project aims to harness power of smartphones to match atmospheric conditions to weather on groundEven with supercomputers, accurate weather forecasting is still one of science’s most difficult challenges. We are all familiar with the feeling of being let …",
+                "url": "https://amp.theguardian.com/news/2022/mar/30/space-agency-launches-crowdsourcing-project-improve-weather-forecasts",
+                "urlToImage": "https://i.guim.co.uk/img/media/c004dc32bf5dffe310e1e9f08d13843bafb7f4e8/0_516_5707_3424/master/5707.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=44057ee9eda3e74daea6890fea05ea7f",
+                "publishedAt": "2022-03-30T05:00:07Z",
+                "content": "Even with supercomputers, accurate weather forecasting is still one of sciences most difficult challenges. We are all familiar with the feeling of being let down having planned a trip based on the fo… [+935 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Eduardo Medina",
+                "title": "80-Car Pileup on Pennsylvania Highway Leaves 6 Dead",
+                "description": "Several tractor-trailers were involved in the chain-reaction crash this week on Interstate 81, about 50 miles northeast of Harrisburg, Pa.",
+                "url": "https://www.nytimes.com/2022/03/30/us/pennsylvania-crash-snow-squall.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/03/30/multimedia/00xp-pennsylvania/00xp-pennsylvania-facebookJumbo.jpg",
+                "publishedAt": "2022-03-30T15:57:43Z",
+                "content": "The conditions this week were simply treacherous and nasty, Mr. Marlow said.\r\nGreg DeVoir, a meteorologist with the National Weather Service in State College, Pa., said that about an inch of snow fel… [+1440 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "MarketBeat"
+                },
+                "author": "Melissa Brock",
+                "title": "3 Utility Stocks to Weather Market Storms",
+                "description": "There's certainly a lot going on \"out there\" right now, but you can cozy up to the right stocks and get the right results with utilities. Read on for more.",
+                "url": "https://www.marketbeat.com/originals/3-utility-stocks-to-weather-market-storms/",
+                "urlToImage": "https://assets.entrepreneur.com/providers/marketbeat/hero-image-marketbeat-422893.jpeg",
+                "publishedAt": "2022-03-23T06:00:00Z",
+                "content": "Pain at the pump, sticker shock at the grocery aisle, the Russian invasion of Ukraine, ongoing problems with COVID-19 (another strain was just unearthed!) and ugh, need we go on? \r\nDepositphotos.com … [+5968 chars]"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "New York Times"
+                },
+                "author": "Amanda Holpuch",
+                "title": "Powerful Storm Kills at Least 2 in Florida Panhandle",
+                "description": "At least two others were injured, the authorities said. The damage came a day after a tornado destroyed buildings and left several injured in Arkansas.",
+                "url": "https://www.nytimes.com/2022/03/31/us/florida-tornado-deaths.html",
+                "urlToImage": "https://static01.nyt.com/images/2022/03/31/multimedia/31xp-tornado/31xp-tornado-facebookJumbo.jpg",
+                "publishedAt": "2022-03-31T15:56:54Z",
+                "content": "The storms moved east from Mississippi, Alabama and northwestern Arkansas, where at least seven people were injured, two critically, when a tornado touched down on Wednesday.\r\nMayor Doug Sprouse of S… [+895 chars]"
+            }
+        ]
+    },
+    "status": 200,
+    "statusText": "",
+    "headers": {
+        "cache-control": "no-cache",
+        "content-type": "application/json; charset=utf-8",
+        "expires": "-1",
+        "pragma": "no-cache"
+    },
+    "config": {
+        "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+        },
+        "transformRequest": [
+            null
+        ],
+        "transformResponse": [
+            null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "headers": {
+            "Accept": "application/json, text/plain, */*"
+        },
+        "method": "get",
+        "url": "https://newsapi.org/v2/everything?q=weather&apiKey=419bc9a18e4a4116b1f9306c7f1595fd"
+    },
+    "request": {}
+}

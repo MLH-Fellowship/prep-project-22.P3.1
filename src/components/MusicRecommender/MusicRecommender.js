@@ -4,7 +4,7 @@ import './MusicRecommender.css';
 import SpotifyComponent from './SpotifyComponent';
 import SongChoices from './SongChoices';
 
-const MusicRecommender = ({ props }) => {
+const MusicRecommender = ({ results, isloaded }) => {
   const [playlistId, setPlaylistId] = useState(null);
   const [userPreference, setUserPreferences] = useState(null);
 
@@ -13,11 +13,11 @@ const MusicRecommender = ({ props }) => {
     try {
       if (userPreference)
         // eslint-disable-next-line no-unused-expressions
-        setPlaylistId(SongChoices[props.weather[0].main][userPreference]);
+        setPlaylistId(SongChoices[results.weather[0].main][userPreference]);
     } catch (err) {
       console.error(err);
     }
-  }, [userPreference, props, playlistId]);
+  }, [userPreference, results, playlistId]);
 
   // Get the preference saved from localstorage and update the userPreference variable
   useEffect(
@@ -35,7 +35,7 @@ const MusicRecommender = ({ props }) => {
 
   return (
     <>
-      <div className="container" id="Songs">
+      <div className="container" id="songs">
         <br />
         <h3>Your Music Forecast!!</h3>
 
@@ -96,7 +96,11 @@ const MusicRecommender = ({ props }) => {
         ) : (
           // Render the Spotify component if the user preference is set!
           <>
-            <SpotifyComponent props={props} playlistId={playlistId} />
+            <SpotifyComponent
+              props={results}
+              playlistId={playlistId}
+              isloaded={isloaded}
+            />
           </>
         )}
       </div>

@@ -22,7 +22,7 @@ function WeatherCard(props) {
   };
 
   return (
-    <div className="weather-card">
+    <div className="weather-card" id="tell-weather">
       <div className="content">
         <div className="place">
           {results.name}, {results.sys.country}

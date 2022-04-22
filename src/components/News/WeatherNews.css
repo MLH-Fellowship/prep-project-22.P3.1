@@ -23,8 +23,8 @@
 }
 
 .newsCarousel{
-    max-width: 45%;
-    min-width: 40%;
+    max-width: 55%;
+    min-width: 50%;
     margin: auto;
     font-family: "Roboto Condensed",'sans serif';
 }
@@ -34,11 +34,11 @@
 }
 
 .authorTitle{
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-shadow: 0 0 5px rgb(44, 44, 44), 0 0 10px rgb(47, 47, 47), 0 0 15px #201e1e, 0 0 20px #333131, 0 0 25px #fbfbfb, 0 0 30px #ffffff, 0 0 35px #fbfbfb;
 }
 
 .descriptionNews{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-shadow: 0 0 5px rgb(44, 44, 44), 0 0 10px rgb(47, 47, 47), 0 0 15px #474242, 0 0 20px #595959, 0 0 50px #fbfbfb, 0 0 50px #ffffff, 0 0 30px #dadada;
 }
