@@ -1,34 +1,29 @@
-import react, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './weatherCard.css';
 import { WiBarometer, WiWindy, WiHumidity } from 'react-icons/wi';
 import backgrounds from './backgroundArray';
 import SoundArray from '../backgroundSoundArray/SoundArray';
-import morningBird from '../backgroundSoundArray/assets/raindrop.mp3';
 
 function WeatherCard(props) {
-  const [hover, setHover] = useState(false);
   const { results } = props;
-  const [data, setData] = useState([]);
   const { cardBackground } = props;
-
+  const [units, setUnits] = useState('metric');
+  const [tempUnit, setTempUnit] = useState('fahrenheit');
   console.log(cardBackground);
 
-  let emoji = null;
-  if (typeof data.main !== 'undefined') {
-    if (data.weather[0].main === 'Clouds') {
-      emoji = 'fa-cloud';
-    } else if (data.weather[0].main === 'Thunderstrom') {
-      emoji = 'fa-bolt';
-    } else if (data.weather[0].main === 'Drizzle') {
-      emoji = 'fa-cloud-rain';
-    } else if (data.weather[0].main === 'Rain') {
-      emoji = 'fa-cloud-shower-heavy';
-    } else if (data.weather[0].main === 'Snow') {
-      emoji = 'fa-snow-flake';
+  const handleChange = () => {
+    if (tempUnit === 'celsius') {
+      setTempUnit('fahrenheit');
+      setUnits('metric');
     } else {
-      emoji = 'fa-smog';
+      setTempUnit('celsius');
+      setUnits('imperial');
     }
-  }
+    const { onUnitsChanged } = props;
+    onUnitsChanged(units);
+  };
+
+  console.log(cardBackground);
 
   const arr = {
     Clear: SoundArray.morning,
@@ -60,9 +55,7 @@ function WeatherCard(props) {
   };
 
   return (
-    <div className="weather-card">
-      {/* <i className={`fas ${emoji} fa-4x`}></i> */}
-
+    <div className="weather-card" id="tell-weather">
       <div className="content">
         <div className="place">
           {results.name}, {results.sys.country}
@@ -85,7 +78,7 @@ function WeatherCard(props) {
               </button>
             </div>
             <div className="temp-feel">
-              Feels like {results.main.feels_like}°C
+              Feels like {results.main.feels_like}°
             </div>
           </div>
         </div>
@@ -95,7 +88,7 @@ function WeatherCard(props) {
         <div className="description">
           &#40; Condtions in {results.name}: {results.weather[0].description},
           with <br /> temperature ranging from {results.main.temp_min}
-          &nbsp;to {results.main.temp_max} °C &#41;
+          &nbsp;to {results.main.temp_max} ° &#41;
         </div>
         <div className="bottom-info">
           <p>
@@ -111,6 +104,12 @@ function WeatherCard(props) {
             <br /> Wind Speed: {results.wind.speed} m/s
           </p>
         </div>
+        <label className="toggle" htmlFor="togglebtn">
+          <input type="checkbox" id="togglebtn" onChange={handleChange} />
+
+          <span className="slider" />
+          <span className="labels" data-on="° C" data-off="° F" checked />
+        </label>
         <div className="recomendation">{backgrounds[cardBackground][2]}</div>
       </div>
     </div>
