@@ -29,6 +29,7 @@
     "react-leaflet": "^3.2.5",
     "react-scripts": "4.0.1",
     "react-search-autocomplete": "^6.1.1",
+    "react-spinners": "^0.11.0",
     "save": "^2.4.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^1.0.1"

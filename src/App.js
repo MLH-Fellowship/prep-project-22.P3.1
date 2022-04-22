@@ -13,7 +13,11 @@ import WeatherMap from './components/weatherMap/weatherMap';
 import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
+
 import WeatherNews from './components/News/WeatherNews';
+
+import LocationImage from './assets/images/my_location.png';
+
 
 // import News from './components/News/News'
 
@@ -25,10 +29,20 @@ function App() {
   const [cardBackground, setcardBackground] = useState('Clear');
   const [tempUnits, setTempUnits] = useState('metric');
   const geoLocation = useLocation();
+  const [backToHome, setBackToHome] = useState(false);
   const [cityCoordinates, setCityCoordinates] = useState({
     lat: geoLocation.coordinates.lat,
     lon: geoLocation.coordinates.lng,
   });
+
+  console.log(geoLocation.coordinates.lat, 'Lat');
+  console.log(geoLocation.coordinates.lng, 'Lat');
+
+  const handleGoBackButtonOnClick = () => {
+    setBackToHome(!backToHome);
+    // call the function to get lat and long
+    // call api with the coordinates received above
+  };
 
   /**
    * Below is the method for location based weather results
@@ -58,10 +72,12 @@ function App() {
           setError(err);
         }
       );
-  }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
+  }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng, backToHome]);
   /**
    * Below is the method to city based search
    */
+
+  const handleKeyDown = () => {};
 
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${tempUnits}&appid=${process.env.REACT_APP_APIKEY}`;
@@ -110,7 +126,19 @@ function App() {
       <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
-        <Search setCity={setCity} />
+        <div className="search-interface">
+          <Search className="s-i-o" setCity={setCity} />
+          <div
+            className="s-i-t"
+            onClick={handleGoBackButtonOnClick}
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex="0"
+            style={{ cursor: 'pointer' }}
+          >
+            <img alt="my-location" src={LocationImage} />
+          </div>
+        </div>
         {/* <News/> */}
       </div>
       <div className="Results">
@@ -154,8 +182,12 @@ function App() {
           <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
         </div>
       )}
+
       <WeatherNews />
       <MusicRecommender props={results} />
+
+      <MusicRecommender results={results} isloaded={isLoaded} />
+
       <Footer src={softwaresimbas} />
     </div>
   );
