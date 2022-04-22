@@ -35,7 +35,7 @@ const MusicRecommender = ({ props }) => {
 
   return (
     <>
-      <div className="container" id="Songs">
+      <div className="container" id="songs">
         <br />
         <h3>Your Music Forecast!!</h3>
 

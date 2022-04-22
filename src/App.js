@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
+import { BiError } from 'react-icons/bi';
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
+import Footer from './components/Footer/footer';
 import WeatherCard from './components/weatherCard/weatherCard';
 import logo from './mlh-prep.png';
+import softwaresimbas from './softwaresimbas.gif';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import WeatherMap from './components/weatherMap/weatherMap';
+import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
-import WeatherNews from './components/News/WeatherNews';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 // import News from './components/News/News'
@@ -19,6 +22,7 @@ function App() {
   const [city, setCity] = useState(null);
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
+  const [tempUnits, setTempUnits] = useState('metric');
   const geoLocation = useLocation();
   const [cityCoordinates, setCityCoordinates] = useState({
     lat: geoLocation.coordinates.lat,
@@ -54,13 +58,12 @@ function App() {
         }
       );
   }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
-
   /**
    * Below is the method to city based search
    */
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${tempUnits}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
       .then(
@@ -82,11 +85,16 @@ function App() {
           setError(err);
         }
       );
-  }, [city]);
+  }, [city, tempUnits]);
 
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+
+  const getTempUnit = (tempUnit) => {
+    setTempUnits(tempUnit);
+  };
+
   return (
     <div
       className="entirePage"
@@ -107,25 +115,28 @@ function App() {
       <div className="Results">
         {!isLoaded && (
           <>
-            <div>
-              <div className="error-prompt">
-                Location not found <br />
-                Please enter a valid location.
-              </div>
-              <div className="weather-map">
-                <WeatherMap
-                  city={city}
-                  setCity={setCity}
-                  cityCoordinates={cityCoordinates}
-                  setCityCoordinates={setCityCoordinates}
-                />
-              </div>
+            <div className="error-prompt">
+              <BiError className="error-icon" /> <br />
+              Location not found <br />
+              Please enter a valid location.
+            </div>
+            <div className="weather-map">
+              <WeatherMap
+                city={city}
+                setCity={setCity}
+                cityCoordinates={cityCoordinates}
+                setCityCoordinates={setCityCoordinates}
+              />
             </div>
           </>
         )}
         {isLoaded && results && (
           <>
-            <WeatherCard results={results} cardBackground={cardBackground} />
+            <WeatherCard
+              results={results}
+              cardBackground={cardBackground}
+              onUnitsChanged={getTempUnit}
+            />
             <div className="weather-map">
               <WeatherMap
                 city={city}
@@ -137,8 +148,13 @@ function App() {
           </>
         )}
       </div>
-      <WeatherNews />
+      {isLoaded && results && (
+        <div className="forecast-carousel">
+          <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
+        </div>
+      )}
       <MusicRecommender props={results} />
+      <Footer src={softwaresimbas} />
     </div>
   );
 }
