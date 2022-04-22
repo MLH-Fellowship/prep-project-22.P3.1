@@ -11,7 +11,28 @@
     overflow: hidden;
     background-color: transparent;
   }
-  
+
+  .playButton{
+    color:#fff;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    outline: none;
+  }
+
+  .playButton:hover{
+    transform: scale(1.4);
+    cursor:pointer;
+    transition:0.4s ease-in-out;
+    outline: none;
+    border: none;
+  }
+  .playButton:focus{
+    border:none;
+    outline: none;
+
+  }
+ 
   .content{
     position: absolute;
     margin-top: 2rem;
