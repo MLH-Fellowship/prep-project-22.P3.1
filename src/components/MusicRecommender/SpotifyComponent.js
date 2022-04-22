@@ -95,9 +95,7 @@ const SpotifyComponent = ({ props, playlistId  , isloaded}) => {
   </div>
   {/* <ClipLoader color = "#ffffff" size={150} /> */}
       {/* List Layout using spotify's embed */}
-      { (listLayout  && embeddedlistloading )  ?  <div className="spinner-container">
-              <div className="loading-spinner" />
-            </div> : " "}
+      { (listLayout  && embeddedlistloading )  ?  <ClipLoader color = "#ffffff" size={150} />: " "}
       
            {listLayout  &&  isloaded && (
         <div>
