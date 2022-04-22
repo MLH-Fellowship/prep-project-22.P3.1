@@ -32,8 +32,7 @@ function App() {
    * Below is the method for location based weather results 
    */
    
-
-
+  
 
 
 
@@ -104,7 +103,7 @@ function App() {
   }, [city]);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className = "ErrorPage">Oops ! Something Went Wrong</div>;
   }
   return (
     <div className="entirePage">
