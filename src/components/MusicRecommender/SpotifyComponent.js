@@ -93,9 +93,11 @@ const SpotifyComponent = ({ props, playlistId  , isloaded}) => {
       onClick={() => setListLayout(true)}
     />
   </div>
-      
+  {/* <ClipLoader color = "#ffffff" size={150} /> */}
       {/* List Layout using spotify's embed */}
-      { listLayout  && embeddedlistloading  && !isloaded ?  <ClipLoader color = "#ffffff" size={150} /> : " "}
+      { (listLayout  && embeddedlistloading )  ?  <div className="spinner-container">
+              <div className="loading-spinner" />
+            </div> : " "}
       
            {listLayout  &&  isloaded && (
         <div>
@@ -117,7 +119,7 @@ const SpotifyComponent = ({ props, playlistId  , isloaded}) => {
       )}
         {/* Box layout using cards and using data from spotify API */}
 
-
+   
 
         { !isloaded  && !listLayout  ? <ClipLoader color = "#ffffff" size={150} /> : <></>}
         
