@@ -5,6 +5,7 @@ import AudioPlayer from './AudioPlayer';
 const SpotifyComponent = ({ props, playlistId }) => {
   const accessToken = useRef('');
   const [playlistData, setPlaylistData] = useState([]);
+  const [loading, setLoading] = useState(true);
   // To store & set layout choice
   const [listLayout, setListLayout] = useState(false);
 
@@ -75,7 +76,10 @@ const SpotifyComponent = ({ props, playlistId }) => {
               : 'icon_active fa fa-th-large'
           }
           aria-hidden="true"
-          onClick={() => setListLayout(false)}
+          onClick={() => {
+            setListLayout(false);
+            setLoading(true);
+          }}
         />
         <i
           className={
@@ -89,6 +93,11 @@ const SpotifyComponent = ({ props, playlistId }) => {
       {/* List Layout using spotify's embed */}
       {listLayout && (
         <div className="container">
+          {loading ? (
+            <div className="spinner-container">
+              <div className="loading-spinner" />
+            </div>
+          ) : null}
           <iframe
             className="embedded_spotify_playlist"
             title="Spotify Playlist"
@@ -97,6 +106,7 @@ const SpotifyComponent = ({ props, playlistId }) => {
             height="500"
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            onLoad={() => setLoading(false)}
           />
         </div>
       )}
