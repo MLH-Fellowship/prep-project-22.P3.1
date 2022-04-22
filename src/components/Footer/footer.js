@@ -7,11 +7,10 @@ function Footer(props) {
       <div className="footer-content">
         <h3>Weather App</h3>
         <p>
-          One stop solution to view the weather in your current location, get
-          News alerts and updates, listen to your favorite songs. Provides
-          flexibility to toggle the temperature unit (Celsius or Fahrenheit) and
-          weather icon and background image changes depending on weather
-          conditions.
+          One stop solution to view the weather at any location, get News alerts
+          and updates, and listen to your favorite songs. Provides flexibility
+          to toggle the temperature unit (Celsius or Fahrenheit), and weather
+          icon and background image changes depending on weather conditions.
         </p>
       </div>
       <div className="footer-bottom">
