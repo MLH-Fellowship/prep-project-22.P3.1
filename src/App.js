@@ -13,6 +13,7 @@ import WeatherMap from './components/weatherMap/weatherMap';
 import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
+import WeatherNews from './components/News/WeatherNews';
 
 // import News from './components/News/News'
 
@@ -153,6 +154,7 @@ function App() {
           <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
         </div>
       )}
+      <WeatherNews />
       <MusicRecommender props={results} />
       <Footer src={softwaresimbas} />
     </div>
