@@ -116,12 +116,12 @@ function App() {
         <div className="search-interface">
           <Search className="s-i-o" setCity={setCity} />
           <div
-          className='s-i-t'
+            className="s-i-t"
             onClick={handleGoBackButtonOnClick}
             onKeyDown={handleKeyDown}
             role="button"
             tabIndex="0"
-            style={{"cursor": "pointer"}}
+            style={{ cursor: 'pointer' }}
           >
             <img alt="my-location" src={LocationImage} />
           </div>
