@@ -44,13 +44,10 @@ const SetMarkerDynamically = ({
       `https://api.openweathermap.org/data/2.5/weather?lat=${e.latlng.lat}&lon=${e.latlng.lng}&appid=${process.env.REACT_APP_APIKEY}`
     )
       .then((res) => res.json())
-      .then(
-        (res) => {
-          setCityCoordinates({ lat: e.latlng.lat, lon: e.latlng.lng });
-          setCity(res.name);
-        },
-        (err) => window.alert('Location not found.')
-      );
+      .then((res) => {
+        setCityCoordinates({ lat: e.latlng.lat, lon: e.latlng.lng });
+        setCity(res.name);
+      });
   });
 
   return (

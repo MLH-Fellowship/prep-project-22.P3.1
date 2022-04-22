@@ -7,10 +7,9 @@ import WeatherCard from './components/weatherCard/weatherCard';
 import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
-import useFetchCity from './hooks/useFetchCity';
-import weatherData from './components/Charts/chartData.json';
-import Charts from './components/Charts/Charts';
 import WeatherMap from './components/weatherMap/weatherMap';
+import ForecastCarousel from './components/forecast/forecast';
+import Alert from './components/Alerts/Alert';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
@@ -25,32 +24,38 @@ function App() {
     lon: geoLocation.coordinates.lng,
   });
 
-  console.log(geoLocation.coordinates.lat)
-  console.log(geoLocation.coordinates.lng)
-
   /**
-   * Below is the method for location based weather results 
+   * Below is the method for location based weather results
    */
+   
+  
 
-   useEffect(() => {
-    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`
+
+
+
+
+
+
+  
+
+
+  useEffect(() => {
+    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(urlGeo)
       .then((res) => res.json())
       .then(
         (result) => {
           if (result.cod !== 200) {
             setIsLoaded(false);
-            // console.log(result.cod)
           } else {
             setIsLoaded(true);
             setResults(result);
-            console.log(result)
             setcardBackground(result.weather[0].main);
             setCityCoordinates({
               lat: result.coord.lat,
               lon: result.coord.lon,
             });
-            setCity(`${result.name}, ${result.sys.country}`)
+            setCity(`${result.name}, ${result.sys.country}`);
           }
         },
         (err) => {
@@ -60,10 +65,8 @@ function App() {
       );
   }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
 
-
-
   /**
-   * Below is the method to city based search 
+   * Below is the method to city based search
    */
 
   useEffect(() => {
@@ -92,12 +95,20 @@ function App() {
   }, [city]);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className = "ErrorPage">Oops ! Something Went Wrong</div>;
   }
   return (
-    <div className="entirePage">
-      <img className="bg-image" src={backgrounds[cardBackground][0]} alt="" />
+    <div
+      className="entirePage"
+      style={{
+        backgroundImage: `url(${backgrounds[cardBackground][0]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <Navbar src={logo} />
+      <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
@@ -134,8 +145,12 @@ function App() {
           </>
         )}
       </div>
-      <MusicRecommender results ={results}  isloaded = {isLoaded}/>
-      <Charts data={weatherData} />
+      {isLoaded && results && (
+        <div className="forecast-carousel">
+          <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
+        </div>
+      )}
+      <MusicRecommender props={results} />
     </div>
   );
 }
