@@ -102,27 +102,3 @@ input[type=range]::-moz-range-thumb {
   margin-bottom: 2em;
   border-radius: 12px;
 }
-
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.loading-spinner {
-  width: 90px;
-  height: 90px;
-  border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #383636; /* Black */
-  border-radius: 50%;
- 
-  animation: spinner 1.5s linear infinite;
-}
-
-.spinner-container {
-  margin: auto;
-  width: 1vw;
-  margin-right: 580px
-} 
