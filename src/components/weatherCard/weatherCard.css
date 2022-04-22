@@ -193,3 +193,25 @@
   .toggle input:checked~.labels::before {
     opacity: 1;
   }
+
+  .toggleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .speakText{
+    font-size: 0.8rem;
+  }
+
+  .tellWeather{
+    width: 30px;
+    height: 30px;
+    margin: 0 1rem;
+    background-color: transparent;
+    border: transparent;
+  }
+
+  .speakIcon{
+    width: 100%;
+  }
