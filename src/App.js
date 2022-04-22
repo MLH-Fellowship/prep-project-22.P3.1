@@ -3,8 +3,10 @@ import { BiError } from 'react-icons/bi';
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
+import Footer from './components/Footer/footer';
 import WeatherCard from './components/weatherCard/weatherCard';
 import logo from './mlh-prep.png';
+import softwaresimbas from './softwaresimbas.gif';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import WeatherMap from './components/weatherMap/weatherMap';
@@ -13,12 +15,15 @@ import Alert from './components/Alerts/Alert';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 import LocationImage from './assets/images/my_location.png';
 
+// import News from './components/News/News'
+
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [city, setCity] = useState(null);
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
+  const [tempUnits, setTempUnits] = useState('metric');
   const geoLocation = useLocation();
   const [backToHome, setBackToHome] = useState(false);
   const [cityCoordinates, setCityCoordinates] = useState({
@@ -64,7 +69,6 @@ function App() {
         }
       );
   }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng, backToHome]);
-
   /**
    * Below is the method to city based search
    */
@@ -72,7 +76,7 @@ function App() {
   const handleKeyDown = () => {};
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${tempUnits}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
       .then(
@@ -94,11 +98,16 @@ function App() {
           setError(err);
         }
       );
-  }, [city]);
+  }, [city, tempUnits]);
 
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+
+  const getTempUnit = (tempUnit) => {
+    setTempUnits(tempUnit);
+  };
+
   return (
     <div
       className="entirePage"
@@ -126,6 +135,7 @@ function App() {
             <img alt="my-location" src={LocationImage} />
           </div>
         </div>
+        {/* <News/> */}
       </div>
       <div className="Results">
         {!isLoaded && (
@@ -147,7 +157,11 @@ function App() {
         )}
         {isLoaded && results && (
           <>
-            <WeatherCard results={results} cardBackground={cardBackground} />
+            <WeatherCard
+              results={results}
+              cardBackground={cardBackground}
+              onUnitsChanged={getTempUnit}
+            />
             <div className="weather-map">
               <WeatherMap
                 city={city}
@@ -165,6 +179,7 @@ function App() {
         </div>
       )}
       <MusicRecommender props={results} />
+      <Footer src={softwaresimbas} />
     </div>
   );
 }

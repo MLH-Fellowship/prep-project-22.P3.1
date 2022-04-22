@@ -2,36 +2,16 @@
 /* eslint-disable react/jsx-key */
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import './WeatherNews.css';
 import Carousel from 'react-bootstrap/Carousel';
+import response from './WeatherNews.json';
 
 function WeatherNews(city) {
   const [news, setNews] = useState([]);
-  const [forYouNews, setForYouNews] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const fetchNewsForYou = () => {
-    // const strToSearch = "https://newsapi.org/v2/everything?q=weather " + {city} + "&apiKey=419bc9a18e4a4116b1f9306c7f1595fd"
-    axios
-      .get(
-        'https://newsapi.org/v2/everything?q=weather mumbai&apiKey=419bc9a18e4a4116b1f9306c7f1595fd'
-      )
-      .then((response) => {
-        setForYouNews(response.data.articles);
-        setIsLoaded(true);
-      });
-  };
-
   const fetchNews = () => {
-    // const strToSearch = "https://newsapi.org/v2/everything?q=weather " + {city} + "&apiKey=419bc9a18e4a4116b1f9306c7f1595fd"
-    axios
-      .get(
-        'https://newsapi.org/v2/everything?q=weather&apiKey=419bc9a18e4a4116b1f9306c7f1595fd'
-      )
-      .then((response) => {
-        setNews(response.data.articles);
-        setIsLoaded(true);
-      });
+    setNews(response.data.articles);
+    setIsLoaded(true);
   };
 
   const [index, setIndex] = useState(0);
@@ -42,12 +22,11 @@ function WeatherNews(city) {
 
   useEffect(() => {
     fetchNews();
-    fetchNewsForYou();
   }, []);
 
   return (
     <div className="newsSection" id="News">
-      <h3>News for you - </h3>
+      <h3>--Your News Section-- </h3>
       {isLoaded && news && (
         <Carousel
           className="newsCarousel"
