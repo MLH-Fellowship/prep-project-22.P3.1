@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
+import Footer from './components/Footer/footer';
 import WeatherCard from './components/weatherCard/weatherCard';
 import logo from './mlh-prep.png';
+import softwaresimbas from './softwaresimbas.gif';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
 import WeatherMap from './components/weatherMap/weatherMap';
@@ -136,6 +138,7 @@ function App() {
       </div>
       <WeatherNews />
       <MusicRecommender props={results} />
+      <Footer src={softwaresimbas} />
     </div>
   );
 }
