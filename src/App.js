@@ -16,9 +16,6 @@ import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 import WeatherNews from './components/News/WeatherNews';
 import LocationImage from './assets/images/my_location.png';
 
-
-
-
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
