@@ -19,6 +19,7 @@ function App() {
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
   const geoLocation = useLocation();
+  const [backToHome, setBackToHome] = useState(false)
   const [cityCoordinates, setCityCoordinates] = useState({
     lat: geoLocation.coordinates.lat,
     lon: geoLocation.coordinates.lng,
@@ -26,6 +27,14 @@ function App() {
 
   console.log(geoLocation.coordinates.lat);
   console.log(geoLocation.coordinates.lng);
+
+  const handleGoBackButtonOnClick = () => {
+    console.log("Button clicked")
+    setBackToHome(true)
+    // call the function to get lat and long
+    // call api with the coordinates received above
+
+  }
 
   /**
    * Below is the method for location based weather results 
@@ -57,7 +66,7 @@ function App() {
           setError(err);
         }
       );
-  }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng]);
+  }, [geoLocation.coordinates.lat, geoLocation.coordinates.lng, backToHome]);
 
   /**
    * Below is the method to city based search
@@ -106,6 +115,7 @@ function App() {
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
+        <button onClick={handleGoBackButtonOnClick} type='button'>Go to my location</button>
       </div>
       <div className="Results">
         {!isLoaded && (
