@@ -8,9 +8,8 @@ const SpotifyComponent = ({ props, playlistId }) => {
   const [playlistData, setPlaylistData] = useState(false);
   // To store & set layout choice
   const [listLayout, setListLayout] = useState(false);
-  const [embeddedlistloading, setembeddedlistloading] = useState(true);
-  const [embeddedcardloading, setembeddedcardloading] = useState(true);
-   
+
+
 
   useEffect(() => {
     // Call the endpoint to fetch song data from specified playlist
@@ -73,37 +72,37 @@ const SpotifyComponent = ({ props, playlistId }) => {
 
   return (
     <> <div className="layout_toggle text-right">
-    <i
-      className={
-        listLayout
-          ? 'icon_inactive fa fa-th-large'
-          : 'icon_active fa fa-th-large'
-      }
-      aria-hidden="true"
-      onClick={function() {setListLayout(false) 
-         setembeddedlistloading(true)
-      }
+      <i
+        className={
+          listLayout
+            ? 'icon_inactive fa fa-th-large'
+            : 'icon_active fa fa-th-large'
         }
-    />
-    <i
-      className={
-        listLayout ? 'icon_active fa fa-list' : 'icon_inactive fa fa-list'
-      }
-      aria-hidden="true"
-      onClick={() => setListLayout(true)}
-    />
-  </div>
-      
+        aria-hidden="true"
+        onClick={function () {
+          setListLayout(false)
+
+        }
+        }
+      />
+      <i
+        className={
+          listLayout ? 'icon_active fa fa-list' : 'icon_inactive fa fa-list'
+        }
+        aria-hidden="true"
+        onClick={() => setListLayout(true)}
+      />
+    </div>
+
       {/* List Layout using spotify's embed */}
-      
-           {listLayout && (
+
+      {listLayout && (
         <div>
-         {embeddedlistloading? <ClipLoader color = "#ffffff" size={150} /> : " "}
+
           <div className="container">
             <iframe
               className="embedded_spotify_playlist"
               title="Spotify Playlist"
-              onLoad={() => setembeddedlistloading(false)}
               src={`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`}
               width="100%"
               height="500"
@@ -111,14 +110,14 @@ const SpotifyComponent = ({ props, playlistId }) => {
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             />
           </div>
-        
+
         </div>
       )}
-        {/* Box layout using cards and using data from spotify API */}
+      {/* Box layout using cards and using data from spotify API */}
 
-        { !playlistData  && !listLayout  ? <ClipLoader color = "#ffffff" size={150} /> : <></>}
-        
-        { playlistData  && !listLayout && (
+
+
+      {playlistData && !listLayout && (
         <div className="row">
           <br />
           {playlistData &&
@@ -172,8 +171,8 @@ const SpotifyComponent = ({ props, playlistId }) => {
         </div>
       )}
 
-     
-     
+
+
     </>
   );
 };
