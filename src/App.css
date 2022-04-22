@@ -62,6 +62,17 @@ input {
 
 #weather-location-search {
   width: clamp(20em, 30%, 90%);
-  margin: auto;
+  /* margin: auto; */
   z-index: 100;
+}
+
+.search-interface {
+  display: flex;
+  justify-content: center;
+}
+
+
+.s-i-t {
+  display: inline;  
+  padding: 0 10px;
 }

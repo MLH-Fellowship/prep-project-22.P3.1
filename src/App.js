@@ -11,6 +11,7 @@ import WeatherMap from './components/weatherMap/weatherMap';
 import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
+import LocationImage from './assets/images/my_location.png';
 
 function App() {
   const [error, setError] = useState(null);
@@ -19,22 +20,20 @@ function App() {
   const [results, setResults] = useState(null);
   const [cardBackground, setcardBackground] = useState('Clear');
   const geoLocation = useLocation();
-  const [backToHome, setBackToHome] = useState(false)
+  const [backToHome, setBackToHome] = useState(false);
   const [cityCoordinates, setCityCoordinates] = useState({
     lat: geoLocation.coordinates.lat,
     lon: geoLocation.coordinates.lng,
   });
 
-  console.log(geoLocation.coordinates.lat);
-  console.log(geoLocation.coordinates.lng);
+  console.log(geoLocation.coordinates.lat, 'Lat');
+  console.log(geoLocation.coordinates.lng, 'Lat');
 
   const handleGoBackButtonOnClick = () => {
-    console.log("Button clicked")
-    setBackToHome(true)
+    setBackToHome(!backToHome);
     // call the function to get lat and long
     // call api with the coordinates received above
-
-  }
+  };
 
   /**
    * Below is the method for location based weather results
@@ -69,6 +68,8 @@ function App() {
   /**
    * Below is the method to city based search
    */
+
+  const handleKeyDown = () => {};
 
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
@@ -112,8 +113,19 @@ function App() {
       <Alert city={city} isLoaded={isLoaded} cityCoordinates={results?.coord} />
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
-        <Search setCity={setCity} />
-        <button onClick={handleGoBackButtonOnClick} type='button'>Go to my location</button>
+        <div className="search-interface">
+          <Search className="s-i-o" setCity={setCity} />
+          <div
+          className='s-i-t'
+            onClick={handleGoBackButtonOnClick}
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex="0"
+            style={{"cursor": "pointer"}}
+          >
+            <img alt="my-location" src={LocationImage} />
+          </div>
+        </div>
       </div>
       <div className="Results">
         {!isLoaded && (
