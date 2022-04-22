@@ -12,6 +12,8 @@ import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
+// import News from './components/News/News'
+
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -106,6 +108,7 @@ function App() {
       <div>
         <h2 className="search-prompt">Enter a city below 👇</h2>
         <Search setCity={setCity} />
+        {/* <News/> */}
       </div>
       <div className="Results">
         {!isLoaded && (
