@@ -93,7 +93,7 @@ const SpotifyComponent = ({ props, playlistId, isloaded }) => {
       {listLayout && embeddedlistloading ? (
         <ClipLoader color="#ffffff" size={150} />
       ) : (
-        ' '
+        <></>
       )}
 
       {listLayout && isloaded && (
