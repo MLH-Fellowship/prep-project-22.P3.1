@@ -65,14 +65,3 @@ input {
   margin: auto;
   z-index: 100;
 }
-
-.ErrorPage {
-
-  font-size: 80px;
-}
-
-.ErrorPageSub {
-
-  font-size: 30px;
-
-}
