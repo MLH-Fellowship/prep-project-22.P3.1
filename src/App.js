@@ -153,6 +153,7 @@ function App() {
           <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
         </div>
       )}
+      <WeatherNews />
       <MusicRecommender props={results} />
       <Footer src={softwaresimbas} />
     </div>
