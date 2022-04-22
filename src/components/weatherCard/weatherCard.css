@@ -124,8 +124,8 @@
 
   
   .toggle {
-    --width: 90px;
-    --height: calc(var(--width) / 3);
+    --width: 80px;
+    --height: calc(var(--width) / 2.6);
 
     position: relative;
     display: inline-block;
@@ -189,7 +189,7 @@
     content: attr(data-off);
     position: absolute;
     font-weight: 700;
-    right: 35px;
+    right: 25px;
     color: #4d4d4d;
     opacity: 1;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
@@ -200,7 +200,7 @@
     content: attr(data-on);
     position: absolute;
     font-weight: 700;
-    left: 30px;
+    left: 20px;
     color: #ffffff;
     opacity: 0;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
