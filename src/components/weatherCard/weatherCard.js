@@ -2,11 +2,7 @@ import { useState } from 'react';
 import './weatherCard.css';
 import { useSpeechSynthesis } from 'react-speech-kit';
 import { WiBarometer, WiWindy, WiHumidity } from 'react-icons/wi';
-<<<<<<< HEAD
-=======
-import { useState } from 'react';
 import Speak from '../../assets/images/tellWeather.png';
->>>>>>> main
 import backgrounds from './backgroundArray';
 import SoundArray from '../backgroundSoundArray/SoundArray';
 
