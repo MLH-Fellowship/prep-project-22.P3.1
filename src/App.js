@@ -179,10 +179,7 @@ function App() {
       )}
 
       <WeatherNews />
-      <MusicRecommender props={results} />
-
       <MusicRecommender results={results} isloaded={isLoaded} />
-
       <Footer src={softwaresimbas} />
     </div>
   );

@@ -93,11 +93,11 @@ const SpotifyComponent = ({ props, playlistId, isloaded }) => {
       {listLayout && embeddedlistloading ? (
         <ClipLoader color="#ffffff" size={150} />
       ) : (
-        ' '
+        <></>
       )}
 
       {listLayout && isloaded && (
-        <div className="container">
+        <>
           <iframe
             className="embedded_spotify_playlist"
             title="Spotify Playlist"
@@ -108,7 +108,7 @@ const SpotifyComponent = ({ props, playlistId, isloaded }) => {
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           />
-        </div>
+        </>
       )}
 
       {/* Box layout using cards and using data from spotify API */}
