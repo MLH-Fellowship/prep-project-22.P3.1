@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BiError } from 'react-icons/bi';
 import backgrounds from './components/weatherCard/backgroundArray';
 import './App.css';
 import Navbar from './components/Navbar/navbar';
@@ -6,10 +7,9 @@ import WeatherCard from './components/weatherCard/weatherCard';
 import logo from './mlh-prep.png';
 import Search from './components/Navbar/Search';
 import useLocation from './hooks/useLocation';
-import useFetchCity from './hooks/useFetchCity';
 import WeatherMap from './components/weatherMap/weatherMap';
+import ForecastCarousel from './components/forecast/forecast';
 import Alert from './components/Alerts/Alert';
-import WeatherNews from './components/News/WeatherNews';
 import MusicRecommender from './components/MusicRecommender/MusicRecommender';
 
 function App() {
@@ -37,28 +37,26 @@ function App() {
   }
 
   /**
-   * Below is the method for location based weather results 
+   * Below is the method for location based weather results
    */
 
   useEffect(() => {
-    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`
+    const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(urlGeo)
       .then((res) => res.json())
       .then(
         (result) => {
           if (result.cod !== 200) {
             setIsLoaded(false);
-            // console.log(result.cod)
           } else {
             setIsLoaded(true);
             setResults(result);
-            console.log(result)
             setcardBackground(result.weather[0].main);
             setCityCoordinates({
               lat: result.coord.lat,
               lon: result.coord.lon,
             });
-            setCity(`${result.name}, ${result.sys.country}`)
+            setCity(`${result.name}, ${result.sys.country}`);
           }
         },
         (err) => {
@@ -73,7 +71,7 @@ function App() {
    */
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=48a50678eba83ab8e75543e3bf60a915`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_APIKEY}`;
     fetch(url)
       .then((res) => res.json())
       .then(
@@ -120,19 +118,18 @@ function App() {
       <div className="Results">
         {!isLoaded && (
           <>
-            <div>
-              <div className="error-prompt">
-                Location not found <br />
-                Please enter a valid location.
-              </div>
-              <div className="weather-map">
-                <WeatherMap
-                  city={city}
-                  setCity={setCity}
-                  cityCoordinates={cityCoordinates}
-                  setCityCoordinates={setCityCoordinates}
-                />
-              </div>
+            <div className="error-prompt">
+              <BiError className="error-icon" /> <br />
+              Location not found <br />
+              Please enter a valid location.
+            </div>
+            <div className="weather-map">
+              <WeatherMap
+                city={city}
+                setCity={setCity}
+                cityCoordinates={cityCoordinates}
+                setCityCoordinates={setCityCoordinates}
+              />
             </div>
           </>
         )}
@@ -150,7 +147,11 @@ function App() {
           </>
         )}
       </div>
-      <WeatherNews />
+      {isLoaded && results && (
+        <div className="forecast-carousel">
+          <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
+        </div>
+      )}
       <MusicRecommender props={results} />
     </div>
   );
