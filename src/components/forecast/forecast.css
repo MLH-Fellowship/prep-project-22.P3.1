@@ -42,13 +42,16 @@
   .selector {
     font-family: 'Ubuntu', sans-serif;  
     text-align: left;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 700;
     font-size: 1rem;
     margin-bottom: 14px;
     padding: 8px;
     border-radius: 10px;
   }
+
   .selector select {
     box-sizing: border-box;
     background: rgba(246, 251, 255, 1);
@@ -57,6 +60,11 @@
     border-radius: 10px;
     margin-left: -20px;
   }
+
+  .selector select:hover{
+    cursor: pointer;
+  }
+
   .selector .label {
     font-family: 'Roboto Condensed', sans-serif;
     box-sizing: border-box;

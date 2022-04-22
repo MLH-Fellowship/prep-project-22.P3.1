@@ -11,6 +11,7 @@ body{
     background: #fcfcfc;
     font-family: "Roboto Condensed","sans-serif";
 }
+
 footer{
     position: relative;
     bottom: 0;
@@ -18,10 +19,13 @@ footer{
     right: 0;
     background: #111;
     height: auto;
-    width: 100vw;
+    width: 100%;
     padding-top: 40px;
     color: #fff;
+    overflow-x: hidden;
+    margin-top: 6rem;
 }
+
 .footer-content{
     display: flex;
     align-items: center;
@@ -49,11 +53,12 @@ footer{
     margin: 0;
     width: 100vw;
     padding: 20px;
-padding-bottom: 10px;
+    padding-bottom: 10px;
     text-align: center;
 }
+
 .footer-bottom p{
-float: left;
+    float: left;
     font-size: 14px;
     word-spacing: 2px;
     text-transform: capitalize;

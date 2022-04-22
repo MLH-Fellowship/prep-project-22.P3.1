@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import './weatherCard.css';
+import { useSpeechSynthesis } from 'react-speech-kit';
 import { WiBarometer, WiWindy, WiHumidity } from 'react-icons/wi';
+<<<<<<< HEAD
+=======
+import { useState } from 'react';
+import Speak from '../../assets/images/tellWeather.png';
+>>>>>>> main
 import backgrounds from './backgroundArray';
 import SoundArray from '../backgroundSoundArray/SoundArray';
 
 function WeatherCard(props) {
+  const { speak } = useSpeechSynthesis();
   const { results } = props;
   const { cardBackground } = props;
   const [units, setUnits] = useState('metric');
@@ -104,12 +111,28 @@ function WeatherCard(props) {
             <br /> Wind Speed: {results.wind.speed} m/s
           </p>
         </div>
-        <label className="toggle" htmlFor="togglebtn">
-          <input type="checkbox" id="togglebtn" onChange={handleChange} />
+        <div className="toggleContainer">
+          <label className="toggle" htmlFor="togglebtn">
+            <input type="checkbox" id="togglebtn" onChange={handleChange} />
 
-          <span className="slider" />
-          <span className="labels" data-on="° C" data-off="° F" checked />
-        </label>
+            <span className="slider" />
+            <span className="labels" data-on="° C" data-off="° F" checked />
+          </label>
+          <button
+            type="button"
+            className="tellWeather"
+            onClick={() => {
+              speak({
+                text: `Its ${results.weather[0].main} and feels like ${results.main.feels_like} in ${results.name}`,
+              });
+            }}
+          >
+            <img src={Speak} alt="speak" className="speakIcon" />
+          </button>
+          <span className="speakText">
+            Press Sound Icon to listen to Weather Forecast
+          </span>
+        </div>
         <div className="recomendation">{backgrounds[cardBackground][2]}</div>
       </div>
     </div>
