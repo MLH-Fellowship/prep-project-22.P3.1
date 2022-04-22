@@ -8,7 +8,6 @@ function WeatherCard(props) {
   const { cardBackground } = props;
   const [units, setUnits] = useState('metric');
   const [tempUnit, setTempUnit] = useState('fahrenheit');
-  console.log(cardBackground);
 
   const handleChange = () => {
     if (tempUnit === 'celsius') {
