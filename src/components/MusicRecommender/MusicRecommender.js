@@ -4,7 +4,7 @@ import './MusicRecommender.css';
 import SpotifyComponent from './SpotifyComponent';
 import SongChoices from './SongChoices';
 
-const MusicRecommender = ({ results , isloaded }) => {
+const MusicRecommender = ({ results, isloaded }) => {
   const [playlistId, setPlaylistId] = useState(null);
   const [userPreference, setUserPreferences] = useState(null);
 
@@ -96,7 +96,11 @@ const MusicRecommender = ({ results , isloaded }) => {
         ) : (
           // Render the Spotify component if the user preference is set!
           <>
-            <SpotifyComponent props={results} playlistId={playlistId} isloaded = {isloaded} />
+            <SpotifyComponent
+              props={results}
+              playlistId={playlistId}
+              isloaded={isloaded}
+            />
           </>
         )}
       </div>

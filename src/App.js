@@ -27,17 +27,6 @@ function App() {
   /**
    * Below is the method for location based weather results
    */
-   
-  
-
-
-
-
-
-
-
-  
-
 
   useEffect(() => {
     const urlGeo = `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.coordinates.lat}&lon=${geoLocation.coordinates.lng}&appid=${process.env.REACT_APP_APIKEY}`;
@@ -95,7 +84,7 @@ function App() {
   }, [city]);
 
   if (error) {
-    return <div className = "ErrorPage">Oops ! Something Went Wrong</div>;
+    return <div>Error: {error.message}</div>;
   }
   return (
     <div
@@ -150,7 +139,7 @@ function App() {
           <ForecastCarousel lat={results.coord.lat} lng={results.coord.lon} />
         </div>
       )}
-      <MusicRecommender results={results} isloaded ={isLoaded} />
+      <MusicRecommender results={results} isloaded={isLoaded} />
     </div>
   );
 }

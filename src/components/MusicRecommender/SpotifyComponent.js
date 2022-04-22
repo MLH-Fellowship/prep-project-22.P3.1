@@ -1,17 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
-import ClipLoader from "react-spinners/ClipLoader";
-
+import ClipLoader from 'react-spinners/ClipLoader';
 import AudioPlayer from './AudioPlayer';
 
-const SpotifyComponent = ({ props, playlistId  , isloaded}) => {
+const SpotifyComponent = ({ props, playlistId, isloaded }) => {
   const accessToken = useRef('');
-  const [playlistData, setPlaylistData] = useState(false);
+  const [playlistData, setPlaylistData] = useState([]);
   // To store & set layout choice
   const [listLayout, setListLayout] = useState(false);
   const [embeddedlistloading, setembeddedlistloading] = useState(true);
-  const [embeddedcardloading, setembeddedcardloading] = useState(true);
-  
-
   useEffect(() => {
     // Call the endpoint to fetch song data from specified playlist
     const fetchPlaylistsData = async () => {
@@ -68,60 +64,61 @@ const SpotifyComponent = ({ props, playlistId  , isloaded}) => {
     getAccessToken();
   }, [props, playlistId]);
 
-
- 
-
   return (
-    <> <div className="layout_toggle text-right">
-    <i
-      className={
-        listLayout
-          ? 'icon_inactive fa fa-th-large'
-          : 'icon_active fa fa-th-large'
-      }
-      aria-hidden="true"
-      onClick={function() {setListLayout(false) 
-         setembeddedlistloading(true)
-      }
-        }
-    />
-    <i
-      className={
-        listLayout ? 'icon_active fa fa-list' : 'icon_inactive fa fa-list'
-      }
-      aria-hidden="true"
-      onClick={() => setListLayout(true)}
-    />
-  </div>
-  {/* <ClipLoader color = "#ffffff" size={150} /> */}
+    <>
+      {/* Toggles to handle layout switches */}
+      <div className="layout_toggle text-right">
+        <i
+          className={
+            listLayout
+              ? 'icon_inactive fa fa-th-large'
+              : 'icon_active fa fa-th-large'
+          }
+          aria-hidden="true"
+          onClick={function () {
+            setListLayout(false);
+            setembeddedlistloading(true);
+          }}
+        />
+        <i
+          className={
+            listLayout ? 'icon_active fa fa-list' : 'icon_inactive fa fa-list'
+          }
+          aria-hidden="true"
+          onClick={() => setListLayout(true)}
+        />
+      </div>
+
       {/* List Layout using spotify's embed */}
-      { (listLayout  && embeddedlistloading )  ?  <ClipLoader color = "#ffffff" size={150} />: " "}
-      
-           {listLayout  &&  isloaded && (
-        <div>
-        
-          <div className="container">
-            <iframe
-              className="embedded_spotify_playlist"
-              title="Spotify Playlist"
-              onLoad={() => setembeddedlistloading(false)}
-              src={`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`}
-              width="100%"
-              height="500"
-              frameBorder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            />
-          </div>
-        
+      {listLayout && embeddedlistloading ? (
+        <ClipLoader color="#ffffff" size={150} />
+      ) : (
+        ' '
+      )}
+
+      {listLayout && isloaded && (
+        <div className="container">
+          <iframe
+            className="embedded_spotify_playlist"
+            title="Spotify Playlist"
+            src={`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`}
+            width="100%"
+            height="500"
+            onLoad={() => setembeddedlistloading(false)}
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          />
         </div>
       )}
-        {/* Box layout using cards and using data from spotify API */}
 
-   
+      {/* Box layout using cards and using data from spotify API */}
+      {!isloaded && !listLayout ? (
+        <ClipLoader color="#ffffff" size={150} />
+      ) : (
+        <></>
+      )}
 
-        { !isloaded  && !listLayout  ? <ClipLoader color = "#ffffff" size={150} /> : <></>}
-        
-        { isloaded &&  playlistData  && !listLayout && (
+      {isloaded && playlistData && !listLayout && (
         <div className="row">
           <br />
           {playlistData &&
@@ -163,7 +160,7 @@ const SpotifyComponent = ({ props, playlistId  , isloaded}) => {
                           </p>
 
                           {/* Custom Audio player component */}
-                          <AudioPlayer track={track}  />
+                          <AudioPlayer track={track} />
                         </div>
                       </div>
                     </div>
@@ -174,9 +171,6 @@ const SpotifyComponent = ({ props, playlistId  , isloaded}) => {
           <br />
         </div>
       )}
-
-     
-     
     </>
   );
 };

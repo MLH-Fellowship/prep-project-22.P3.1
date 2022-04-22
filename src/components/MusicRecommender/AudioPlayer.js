@@ -5,22 +5,14 @@
 // Deal with audio component
 /* eslint-disable jsx-a11y/media-has-caption */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 export default function AudioPlayer({ track }) {
-
-
-
-
- 
   const audioPlayer = useRef();
-  
   const [seekValue, setSeekValue] = useState(0);
   const [playing, setPlaying] = useState(false);
 
- 
   const togglePlay = () => {
-
     if (playing) {
       audioPlayer.current.pause();
       setPlaying(false);
@@ -31,7 +23,6 @@ export default function AudioPlayer({ track }) {
       setPlaying(true);
     }
   };
-
   const onPlaying = () => {
     setSeekValue(
       (audioPlayer.current.currentTime / audioPlayer.current.duration) * 100
